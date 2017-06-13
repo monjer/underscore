@@ -5,7 +5,7 @@
 
 (function() {
 
-  // Baseline setup
+  // 基本设置
   // --------------
 
   // Establish the root object, `window` in the browser, or `exports` on the server.
