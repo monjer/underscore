@@ -8,43 +8,43 @@
   // 基本设置
   // --------------
 
-  // Establish the root object, `window` in the browser, or `exports` on the server.
+  // 建立根对象(root object)，在浏览器下是`window`对象，在服务器端是`exports`对象。
   var root = this;
 
-  // Save the previous value of the `_` variable.
+  // 保存上一个`_`变量的值
   var previousUnderscore = root._;
 
-  // Save bytes in the minified (but not gzipped) version:
+  // 在压缩（minified，不是gzipped）版本下节省些字节。
   var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
 
-  // Create quick reference variables for speed access to core prototypes.
+  // 创建快速引用变量，快速访问主要的原型对象。
   var
     push             = ArrayProto.push,
     slice            = ArrayProto.slice,
     toString         = ObjProto.toString,
     hasOwnProperty   = ObjProto.hasOwnProperty;
 
-  // All **ECMAScript 5** native function implementations that we hope to use
-  // are declared here.
+  // 我们期望使用的所有**ECMAScript 5**原生函数的实现都声明在此。
   var
     nativeIsArray      = Array.isArray,
     nativeKeys         = Object.keys,
     nativeBind         = FuncProto.bind,
     nativeCreate       = Object.create;
 
-  // Naked function reference for surrogate-prototype-swapping.
+  // 空函数引用，用来surrogate-prototype-swapping。
   var Ctor = function(){};
 
-  // Create a safe reference to the Underscore object for use below.
+  // 创建一个Underscore对象的安全引用，以便在下面使用。
   var _ = function(obj) {
     if (obj instanceof _) return obj;
     if (!(this instanceof _)) return new _(obj);
     this._wrapped = obj;
   };
 
-  // Export the Underscore object for **Node.js**, with
-  // backwards-compatibility for the old `require()` API. If we're in
-  // the browser, add `_` as a global object.
+  // 
+  // 在**Node.js**中导出Underscore对象，向后兼容老式的`require()`API。
+  // 如果是在浏览器中，就将`_`添加为全局对象
+  // 
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
       exports = module.exports = _;
@@ -54,12 +54,12 @@
     root._ = _;
   }
 
-  // Current version.
+  // 当前版本号。
   _.VERSION = '1.8.3';
 
-  // Internal function that returns an efficient (for current engines) version
-  // of the passed-in callback, to be repeatedly applied in other Underscore
-  // functions.
+  // 
+  // 内部函数，返回一个高效版本的passed-in回调函数，供Underscore的函数反复使用。
+  // 
   var optimizeCb = function(func, context, argCount) {
     if (context === void 0) return func;
     switch (argCount == null ? 3 : argCount) {
@@ -81,9 +81,10 @@
     };
   };
 
-  // A mostly-internal function to generate callbacks that can be applied
-  // to each element in a collection, returning the desired result — either
-  // identity, an arbitrary callback, a property matcher, or a property accessor.
+  // 
+  // 一个主要的内部函数，生成的回调函数用来处理集合中的每个元素，并返回期望的值。
+  // 此值可以是恒等回调（identity），随机回调（arbitrary callback），或属性访问器。
+  // 
   var cb = function(value, context, argCount) {
     if (value == null) return _.identity;
     if (_.isFunction(value)) return optimizeCb(value, context, argCount);
@@ -94,7 +95,9 @@
     return cb(value, context, Infinity);
   };
 
-  // An internal function for creating assigner functions.
+  // 
+  // 一个内部函数，用来创建赋值函数（assigner functions）。
+  // 
   var createAssigner = function(keysFunc, undefinedOnly) {
     return function(obj) {
       var length = arguments.length;
@@ -112,7 +115,9 @@
     };
   };
 
-  // An internal function for creating a new object that inherits from another.
+  // 
+  // 内部函数，用来创建继承自另一个对象的新对象。
+  // 
   var baseCreate = function(prototype) {
     if (!_.isObject(prototype)) return {};
     if (nativeCreate) return nativeCreate(prototype);
@@ -128,10 +133,9 @@
     };
   };
 
-  // Helper for collection methods to determine whether a collection
-  // should be iterated as an array or as an object
-  // Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
-  // Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
+  // 集合方法的辅助函数，决定了一个集合是该被当做数组迭代还是被当做对象迭代。
+  // 参考：http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
+  // 避免了一个讨厌的ARM-64下iOS8 JIT bug。 #2094
   var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
   var getLength = property('length');
   var isArrayLike = function(collection) {
@@ -139,12 +143,14 @@
     return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
   };
 
-  // Collection Functions
-  // --------------------
+  // 集合函数（Collection Functions）
+  // -------------------------------
 
   // The cornerstone, an `each` implementation, aka `forEach`.
-  // Handles raw objects in addition to array-likes. Treats all
-  // sparse array-likes as if they were dense.
+  // 基本的`each`实现，又称`forEach`。
+  // 处理类数组对象（array-likes）或普通对象（raw objects）。
+  // 类数组的处理操作与处理原生数组的操作一样。
+  // 
   _.each = _.forEach = function(obj, iteratee, context) {
     iteratee = optimizeCb(iteratee, context);
     var i, length;
@@ -161,7 +167,7 @@
     return obj;
   };
 
-  // Return the results of applying the iteratee to each element.
+  // 在每个元素上应用迭代器，并返回结果集。
   _.map = _.collect = function(obj, iteratee, context) {
     iteratee = cb(iteratee, context);
     var keys = !isArrayLike(obj) && _.keys(obj),
@@ -174,10 +180,11 @@
     return results;
   };
 
-  // Create a reducing function iterating left or right.
+  // 创建一个reducing函数，可以向左或向右迭代。
   function createReduce(dir) {
     // Optimized iterator function as using arguments.length
     // in the main function will deoptimize the, see #1991.
+    // 
     function iterator(obj, iteratee, memo, keys, index, length) {
       for (; index >= 0 && index < length; index += dir) {
         var currentKey = keys ? keys[index] : index;

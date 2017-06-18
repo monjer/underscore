@@ -71,7 +71,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>Establish the root object, <code>window</code> in the browser, or <code>exports</code> on the server.</p>
+              <p>建立根对象(root object)，在浏览器下是<code>window</code>对象，在服务器端是<code>exports</code>对象。</p>
 
             </div>
             
@@ -86,7 +86,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>Save the previous value of the <code>_</code> variable.</p>
+              <p>保存上一个<code>_</code>变量的值</p>
 
             </div>
             
@@ -101,7 +101,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Save bytes in the minified (but not gzipped) version:</p>
+              <p>在压缩（minified，不是gzipped）版本下节省些字节。</p>
 
             </div>
             
@@ -116,7 +116,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>Create quick reference variables for speed access to core prototypes.</p>
+              <p>创建快速引用变量，快速访问主要的原型对象。</p>
 
             </div>
             
@@ -135,8 +135,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>All <strong>ECMAScript 5</strong> native function implementations that we hope to use
-are declared here.</p>
+              <p>我们期望使用的所有<strong>ECMAScript 5</strong>原生函数的实现都声明在此。</p>
 
             </div>
             
@@ -155,7 +154,7 @@ are declared here.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>Naked function reference for surrogate-prototype-swapping.</p>
+              <p>空函数引用，用来surrogate-prototype-swapping。</p>
 
             </div>
             
@@ -170,7 +169,7 @@ are declared here.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>Create a safe reference to the Underscore object for use below.</p>
+              <p>创建一个Underscore对象的安全引用，以便在下面使用。</p>
 
             </div>
             
@@ -189,9 +188,8 @@ are declared here.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>Export the Underscore object for <strong>Node.js</strong>, with
-backwards-compatibility for the old <code>require()</code> API. If we’re in
-the browser, add <code>_</code> as a global object.</p>
+              <p>在<strong>Node.js</strong>中导出Underscore对象，向后兼容老式的<code>require()</code>API。
+如果是在浏览器中，就将<code>_</code>添加为全局对象</p>
 
             </div>
             
@@ -213,7 +211,7 @@ the browser, add <code>_</code> as a global object.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p>Current version.</p>
+              <p>当前版本号。</p>
 
             </div>
             
@@ -228,9 +226,7 @@ the browser, add <code>_</code> as a global object.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>Internal function that returns an efficient (for current engines) version
-of the passed-in callback, to be repeatedly applied in other Underscore
-functions.</p>
+              <p>内部函数，返回一个高效版本的passed-in回调函数，供Underscore的函数反复使用。</p>
 
             </div>
             
@@ -264,9 +260,8 @@ functions.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p>A mostly-internal function to generate callbacks that can be applied
-to each element in a collection, returning the desired result — either
-identity, an arbitrary callback, a property matcher, or a property accessor.</p>
+              <p>一个主要的内部函数，生成的回调函数用来处理集合中的每个元素，并返回期望的值。
+此值可以是恒等回调（identity），随机回调（arbitrary callback），或属性访问器。</p>
 
             </div>
             
@@ -289,7 +284,7 @@ identity, an arbitrary callback, a property matcher, or a property accessor.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>An internal function for creating assigner functions.</p>
+              <p>一个内部函数，用来创建赋值函数（assigner functions）。</p>
 
             </div>
             
@@ -319,7 +314,7 @@ identity, an arbitrary callback, a property matcher, or a property accessor.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>An internal function for creating a new object that inherits from another.</p>
+              <p>内部函数，用来创建一个继承自另一个对象的新对象。</p>
 
             </div>
             
@@ -347,10 +342,9 @@ identity, an arbitrary callback, a property matcher, or a property accessor.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p>Helper for collection methods to determine whether a collection
-should be iterated as an array or as an object
-Related: <a href="http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength">http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength</a>
-Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094</p>
+              <p>集合方法的辅助函数，决定了一个集合是该被当做数组迭代还是被当做对象迭代
+参考：<a href="http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength">http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength</a>
+避免了一个讨厌的ARM-64下iOS8 JIT bug。 #2094</p>
 
             </div>
             
@@ -885,9 +879,9 @@ The internal <code>guard</code> argument allows it to work with <code>map</code>
     iteratee = cb(iteratee, context);
     <span class="hljs-keyword">return</span> _.pluck(_.map(obj, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, index, list</span>) </span>{
       <span class="hljs-keyword">return</span> {
-        value: value,
-        index: index,
-        criteria: iteratee(value, index, list)
+        <span class="hljs-attr">value</span>: value,
+        <span class="hljs-attr">index</span>: index,
+        <span class="hljs-attr">criteria</span>: iteratee(value, index, list)
       };
     }).sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">left, right</span>) </span>{
       <span class="hljs-keyword">var</span> a = left.criteria;
@@ -2019,7 +2013,7 @@ often you call it. Useful for lazy initialization.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> hasEnumBug = !{toString: <span class="hljs-literal">null</span>}.propertyIsEnumerable(<span class="hljs-string">'toString'</span>);
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> hasEnumBug = !{<span class="hljs-attr">toString</span>: <span class="hljs-literal">null</span>}.propertyIsEnumerable(<span class="hljs-string">'toString'</span>);
   <span class="hljs-keyword">var</span> nonEnumerableProps = [<span class="hljs-string">'valueOf'</span>, <span class="hljs-string">'isPrototypeOf'</span>, <span class="hljs-string">'toString'</span>,
                       <span class="hljs-string">'propertyIsEnumerable'</span>, <span class="hljs-string">'hasOwnProperty'</span>, <span class="hljs-string">'toLocaleString'</span>];
 
@@ -3391,9 +3385,9 @@ following template settings to use alternative delimiters.</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  _.templateSettings = {
-    evaluate    : <span class="hljs-regexp">/&lt;%([\s\S]+?)%&gt;/g</span>,
-    interpolate : <span class="hljs-regexp">/&lt;%=([\s\S]+?)%&gt;/g</span>,
-    <span class="hljs-built_in">escape</span>      : <span class="hljs-regexp">/&lt;%-([\s\S]+?)%&gt;/g</span>
+    <span class="hljs-attr">evaluate</span>    : <span class="hljs-regexp">/&lt;%([\s\S]+?)%&gt;/g</span>,
+    <span class="hljs-attr">interpolate</span> : <span class="hljs-regexp">/&lt;%=([\s\S]+?)%&gt;/g</span>,
+    <span class="hljs-attr">escape</span>      : <span class="hljs-regexp">/&lt;%-([\s\S]+?)%&gt;/g</span>
   };</pre></div></div>
             
         </li>
