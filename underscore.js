@@ -1248,6 +1248,7 @@
   };
 
   // Is the given value `NaN`? (NaN is the only number which does not equal itself).
+  // 判断给定的值是否是`NaN`?（NaN是唯一不等于自己本身的数字）。
   _.isNaN = function(obj) {
     return _.isNumber(obj) && obj !== +obj;
   };
