@@ -146,7 +146,7 @@
   // 集合函数（Collection Functions）
   // -------------------------------
 
-  // The cornerstone, an `each` implementation, aka `forEach`.
+  // 
   // 基本的`each`实现，又称`forEach`。
   // 处理类数组对象（array-likes）或普通对象（raw objects）。
   // 类数组的处理操作与处理原生数组的操作一样。
@@ -184,7 +184,7 @@
   function createReduce(dir) {
     // Optimized iterator function as using arguments.length
     // in the main function will deoptimize the, see #1991.
-    // 
+    // 优化过的迭代函数，在主函数中使用`arguments.length`会
     function iterator(obj, iteratee, memo, keys, index, length) {
       for (; index >= 0 && index < length; index += dir) {
         var currentKey = keys ? keys[index] : index;
@@ -198,7 +198,7 @@
       var keys = !isArrayLike(obj) && _.keys(obj),
           length = (keys || obj).length,
           index = dir > 0 ? 0 : length - 1;
-      // Determine the initial value if none is provided.
+      // 未提供任何值得情况下，决定初始值
       if (arguments.length < 3) {
         memo = obj[keys ? keys[index] : index];
         index += dir;
@@ -207,14 +207,13 @@
     };
   }
 
-  // **Reduce** builds up a single result from a list of values, aka `inject`,
-  // or `foldl`.
+  // **Reduce** 从一个值的列表中构建一个单一的值，亦称 `inject`,或`foldl`。
   _.reduce = _.foldl = _.inject = createReduce(1);
 
-  // The right-associative version of reduce, also known as `foldr`.
+  // reduce的右结合版本, 也称`foldr`.
   _.reduceRight = _.foldr = createReduce(-1);
 
-  // Return the first value which passes a truth test. Aliased as `detect`.
+  // 返回第一个通过truth测试的值。亦称`detect`。
   _.find = _.detect = function(obj, predicate, context) {
     var key;
     if (isArrayLike(obj)) {
@@ -225,8 +224,7 @@
     if (key !== void 0 && key !== -1) return obj[key];
   };
 
-  // Return all the elements that pass a truth test.
-  // Aliased as `select`.
+  // 返回所有通过truth测试的元素。亦称`select`。
   _.filter = _.select = function(obj, predicate, context) {
     var results = [];
     predicate = cb(predicate, context);
@@ -236,7 +234,7 @@
     return results;
   };
 
-  // Return all the elements for which a truth test fails.
+  // 返回所有未通过truth测试的元素。
   _.reject = function(obj, predicate, context) {
     return _.filter(obj, _.negate(cb(predicate)), context);
   };
@@ -860,7 +858,7 @@
     return _.partial(wrapper, func);
   };
 
-  // Returns a negated version of the passed-in predicate.
+  // 返回传入断言的否定版本
   _.negate = function(predicate) {
     return function() {
       return !predicate.apply(this, arguments);
@@ -930,14 +928,14 @@
     }
   }
 
-  // Retrieve the names of an object's own properties.
-  // Delegates to **ECMAScript 5**'s native `Object.keys`
+  // 获取一个对象的自有属性名称。
+  // 为**ECMAScript 5**'s原生的`Object.keys`方法的代理实现。
   _.keys = function(obj) {
     if (!_.isObject(obj)) return [];
     if (nativeKeys) return nativeKeys(obj);
     var keys = [];
     for (var key in obj) if (_.has(obj, key)) keys.push(key);
-    // Ahem, IE < 9.
+    // IE < 9.
     if (hasEnumBug) collectNonEnumProps(obj, keys);
     return keys;
   };
@@ -1254,23 +1252,22 @@
     return _.isNumber(obj) && obj !== +obj;
   };
 
-  // Is a given value a boolean?
+  // 判断给定的值是否是boolean值?
   _.isBoolean = function(obj) {
     return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
   };
 
-  // Is a given value equal to null?
+  // 判断给定的值是否是null?
   _.isNull = function(obj) {
     return obj === null;
   };
 
-  // Is a given variable undefined?
+  // 判断给定的值是否是undefined?
   _.isUndefined = function(obj) {
     return obj === void 0;
   };
 
-  // Shortcut function for checking if an object has a given property directly
-  // on itself (in other words, not on a prototype).
+  // 便捷函数，检测对象本身是否含有给定的属性（换言之，非原型上的属性）。
   _.has = function(obj, key) {
     return obj != null && hasOwnProperty.call(obj, key);
   };

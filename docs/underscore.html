@@ -314,7 +314,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>内部函数，用来创建一个继承自另一个对象的新对象。</p>
+              <p>内部函数，用来创建继承自另一个对象的新对象。</p>
 
             </div>
             
@@ -342,7 +342,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p>集合方法的辅助函数，决定了一个集合是该被当做数组迭代还是被当做对象迭代
+              <p>集合方法的辅助函数，决定了一个集合是该被当做数组迭代还是被当做对象迭代。
 参考：<a href="http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength">http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength</a>
 避免了一个讨厌的ARM-64下iOS8 JIT bug。 #2094</p>
 
@@ -364,7 +364,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
-              <h2 id="collection-functions">Collection Functions</h2>
+              <h2 id="-collection-functions-">集合函数（Collection Functions）</h2>
 
             </div>
             
@@ -389,9 +389,9 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
-              <p>The cornerstone, an <code>each</code> implementation, aka <code>forEach</code>.
-Handles raw objects in addition to array-likes. Treats all
-sparse array-likes as if they were dense.</p>
+              <p>基本的<code>each</code>实现，又称<code>forEach</code>。
+处理类数组对象（array-likes）或普通对象（raw objects）。
+类数组的处理操作与处理原生数组的操作一样。</p>
 
             </div>
             
@@ -420,7 +420,7 @@ sparse array-likes as if they were dense.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
-              <p>Return the results of applying the iteratee to each element.</p>
+              <p>在每个元素上应用迭代器，并返回结果集。</p>
 
             </div>
             
@@ -445,7 +445,7 @@ sparse array-likes as if they were dense.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
-              <p>Create a reducing function iterating left or right.</p>
+              <p>创建一个reducing函数，可以向左或向右迭代。</p>
 
             </div>
             
@@ -461,7 +461,8 @@ sparse array-likes as if they were dense.</p>
                 <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <p>Optimized iterator function as using arguments.length
-in the main function will deoptimize the, see #1991.</p>
+in the main function will deoptimize the, see #1991.
+优化过的迭代函数，在主函数中使用<code>arguments.length</code>会</p>
 
             </div>
             
@@ -488,7 +489,7 @@ in the main function will deoptimize the, see #1991.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
-              <p>Determine the initial value if none is provided.</p>
+              <p>未提供任何值得情况下，决定初始值</p>
 
             </div>
             
@@ -509,8 +510,7 @@ in the main function will deoptimize the, see #1991.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
-              <p><strong>Reduce</strong> builds up a single result from a list of values, aka <code>inject</code>,
-or <code>foldl</code>.</p>
+              <p><strong>Reduce</strong> 从一个值的列表中构建一个单一的值，亦称 <code>inject</code>,或<code>foldl</code>。</p>
 
             </div>
             
@@ -525,7 +525,7 @@ or <code>foldl</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
-              <p>The right-associative version of reduce, also known as <code>foldr</code>.</p>
+              <p>reduce的➡右结合版本, 也称<code>foldr</code>.</p>
 
             </div>
             
@@ -540,7 +540,7 @@ or <code>foldl</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
-              <p>Return the first value which passes a truth test. Aliased as <code>detect</code>.</p>
+              <p>返回第一个通过truth测试的值。亦称<code>detect</code>。</p>
 
             </div>
             
