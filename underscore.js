@@ -207,13 +207,15 @@
     };
   }
 
-  // **Reduce** 从一个值的列表中构建一个单一的值，亦称 `inject`,或`foldl`。
+  // **Reduce** 从一个值的列表中构建一个单一的值。
+  // 别名 `inject`,或`foldl`。
   _.reduce = _.foldl = _.inject = createReduce(1);
 
-  // reduce的右结合版本, 也称`foldr`.
+  // reduce的右结合版本。
+  // 别名`foldr`。
   _.reduceRight = _.foldr = createReduce(-1);
 
-  // 返回第一个通过truth测试的值。亦称`detect`。
+  // 返回第一个通过truth测试的值。别名`detect`。
   _.find = _.detect = function(obj, predicate, context) {
     var key;
     if (isArrayLike(obj)) {
@@ -224,7 +226,8 @@
     if (key !== void 0 && key !== -1) return obj[key];
   };
 
-  // 返回所有通过truth测试的元素。亦称`select`。
+  // 返回所有通过truth测试的元素。
+  // 别名`select`。
   _.filter = _.select = function(obj, predicate, context) {
     var results = [];
     predicate = cb(predicate, context);
@@ -239,8 +242,9 @@
     return _.filter(obj, _.negate(cb(predicate)), context);
   };
 
-  // Determine whether all of the elements match a truth test.
-  // Aliased as `all`.
+
+  // 判断所有给定的元素是否都通过了truth测试。
+  // 别名`all`。
   _.every = _.all = function(obj, predicate, context) {
     predicate = cb(predicate, context);
     var keys = !isArrayLike(obj) && _.keys(obj),
@@ -252,8 +256,8 @@
     return true;
   };
 
-  // Determine if at least one element in the object matches a truth test.
-  // Aliased as `any`.
+  // 判断给定给定对象中是否至少存在一个通过truth测试的元素。
+  // 别名`any`
   _.some = _.any = function(obj, predicate, context) {
     predicate = cb(predicate, context);
     var keys = !isArrayLike(obj) && _.keys(obj),
@@ -265,15 +269,15 @@
     return false;
   };
 
-  // Determine if the array or object contains a given item (using `===`).
-  // Aliased as `includes` and `include`.
+  // 判断数组或对象中是否包含给定的值（使用 `===`比较）。
+  // 别名`includes` and `include`。
   _.contains = _.includes = _.include = function(obj, item, fromIndex, guard) {
     if (!isArrayLike(obj)) obj = _.values(obj);
     if (typeof fromIndex != 'number' || guard) fromIndex = 0;
     return _.indexOf(obj, item, fromIndex) >= 0;
   };
 
-  // Invoke a method (with arguments) on every item in a collection.
+  // 在集合的每个元素上调用给定方法（可以指定参数）
   _.invoke = function(obj, method) {
     var args = slice.call(arguments, 2);
     var isFunc = _.isFunction(method);
@@ -283,24 +287,22 @@
     });
   };
 
-  // Convenience version of a common use case of `map`: fetching a property.
+  // `map`的一个常见的用例的便捷版本：获取对象属性。
   _.pluck = function(obj, key) {
     return _.map(obj, _.property(key));
   };
 
-  // Convenience version of a common use case of `filter`: selecting only objects
-  // containing specific `key:value` pairs.
+  // `filter`的一个常见的用例的便捷版本：筛选包含指定的一组`key:value`对的所有对象。
   _.where = function(obj, attrs) {
     return _.filter(obj, _.matcher(attrs));
   };
 
-  // Convenience version of a common use case of `find`: getting the first object
-  // containing specific `key:value` pairs.
+  // `find`的一个常见的用例的便捷版本：筛选包含指定的一组`key:value`对的第一个对象。
   _.findWhere = function(obj, attrs) {
     return _.find(obj, _.matcher(attrs));
   };
 
-  // Return the maximum element (or element-based computation).
+  // 返回最大元素（或是基于元素计算值）
   _.max = function(obj, iteratee, context) {
     var result = -Infinity, lastComputed = -Infinity,
         value, computed;
@@ -929,7 +931,7 @@
   }
 
   // 获取一个对象的自有属性名称。
-  // 为**ECMAScript 5**'s原生的`Object.keys`方法的代理实现。
+  // **ECMAScript 5**'s原生的`Object.keys`方法的代理实现。
   _.keys = function(obj) {
     if (!_.isObject(obj)) return [];
     if (nativeKeys) return nativeKeys(obj);
@@ -1069,7 +1071,7 @@
     return result;
   };
 
-  // Create a (shallow-cloned) duplicate of an object.
+  // 复制对象（浅拷贝）
   _.clone = function(obj) {
     if (!_.isObject(obj)) return obj;
     return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
@@ -1083,7 +1085,7 @@
     return obj;
   };
 
-  // Returns whether an object has a given set of `key:value` pairs.
+  // 判断对象是否包含给定的一组`key:value`对。
   _.isMatch = function(object, attrs) {
     var keys = _.keys(attrs), length = keys.length;
     if (object == null) return !length;
@@ -1189,37 +1191,37 @@
     return true;
   };
 
-  // Perform a deep comparison to check if two objects are equal.
+  // 执行深度比较，判断两个对象是否相等
   _.isEqual = function(a, b) {
     return eq(a, b);
   };
 
-  // Is a given array, string, or object empty?
-  // An "empty" object has no enumerable own-properties.
+  // 判断给定的数组，字符串或对象是否是空的。
+  // 空对象没有可枚举的自身属性（own-properties）
   _.isEmpty = function(obj) {
     if (obj == null) return true;
     if (isArrayLike(obj) && (_.isArray(obj) || _.isString(obj) || _.isArguments(obj))) return obj.length === 0;
     return _.keys(obj).length === 0;
   };
 
-  // Is a given value a DOM element?
+  // 判断给定值是否是DOM元素？
   _.isElement = function(obj) {
     return !!(obj && obj.nodeType === 1);
   };
 
-  // Is a given value an array?
-  // Delegates to ECMA5's native Array.isArray
+  // 判断给定元素是否是数组？
+  // ECMA5原生`Array.isArray`方法的代理实现
   _.isArray = nativeIsArray || function(obj) {
     return toString.call(obj) === '[object Array]';
   };
 
-  // Is a given variable an object?
+  // 判断给定值是否是对象？
   _.isObject = function(obj) {
     var type = typeof obj;
     return type === 'function' || type === 'object' && !!obj;
   };
 
-  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError.
+  // 添加isType方法，包括：isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError。
   _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function(name) {
     _['is' + name] = function(obj) {
       return toString.call(obj) === '[object ' + name + ']';
@@ -1234,20 +1236,18 @@
     };
   }
 
-  // Optimize `isFunction` if appropriate. Work around some typeof bugs in old v8,
-  // IE 11 (#1621), and in Safari 8 (#1929).
+  // 按需优化的`isFunction`。绕开一些在旧的v8，IE 11（#1621），和Safari 8（#1929）下，typeof的bug
   if (typeof /./ != 'function' && typeof Int8Array != 'object') {
     _.isFunction = function(obj) {
       return typeof obj == 'function' || false;
     };
   }
 
-  // Is a given object a finite number?
+  // 判断给定值是否是有限数值？
   _.isFinite = function(obj) {
     return isFinite(obj) && !isNaN(parseFloat(obj));
   };
 
-  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
   // 判断给定的值是否是`NaN`?（NaN是唯一不等于自己本身的数字）。
   _.isNaN = function(obj) {
     return _.isNumber(obj) && obj !== +obj;
@@ -1306,8 +1306,7 @@
     };
   };
 
-  // Returns a predicate for checking whether an object has a given set of
-  // `key:value` pairs.
+  // 返回一个断言，检测一个对象是否包含给定的一组`key:value`对。
   _.matcher = _.matches = function(attrs) {
     attrs = _.extendOwn({}, attrs);
     return function(obj) {
