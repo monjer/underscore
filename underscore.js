@@ -41,10 +41,10 @@
     this._wrapped = obj;
   };
 
-  // 
+  //
   // 在**Node.js**中导出Underscore对象，向后兼容老式的`require()`API。
   // 如果是在浏览器中，就将`_`添加为全局对象
-  // 
+  //
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
       exports = module.exports = _;
@@ -57,9 +57,9 @@
   // 当前版本号。
   _.VERSION = '1.8.3';
 
-  // 
+  //
   // 内部函数，返回一个高效版本的passed-in回调函数，供Underscore的函数反复使用。
-  // 
+  //
   var optimizeCb = function(func, context, argCount) {
     if (context === void 0) return func;
     switch (argCount == null ? 3 : argCount) {
@@ -81,10 +81,10 @@
     };
   };
 
-  // 
+  //
   // 一个主要的内部函数，生成的回调函数用来处理集合中的每个元素，并返回期望的值。
   // 此值可以是恒等回调（identity），随机回调（arbitrary callback），或属性访问器。
-  // 
+  //
   var cb = function(value, context, argCount) {
     if (value == null) return _.identity;
     if (_.isFunction(value)) return optimizeCb(value, context, argCount);
@@ -95,9 +95,9 @@
     return cb(value, context, Infinity);
   };
 
-  // 
+  //
   // 一个内部函数，用来创建赋值函数（assigner functions）。
-  // 
+  //
   var createAssigner = function(keysFunc, undefinedOnly) {
     return function(obj) {
       var length = arguments.length;
@@ -115,9 +115,9 @@
     };
   };
 
-  // 
+  //
   // 内部函数，用来创建继承自另一个对象的新对象。
-  // 
+  //
   var baseCreate = function(prototype) {
     if (!_.isObject(prototype)) return {};
     if (nativeCreate) return nativeCreate(prototype);
@@ -146,11 +146,11 @@
   // 集合函数（Collection Functions）
   // -------------------------------
 
-  // 
+  //
   // 基本的`each`实现，又称`forEach`。
   // 处理类数组对象（array-likes）或普通对象（raw objects）。
   // 类数组的处理操作与处理原生数组的操作一样。
-  // 
+  //
   _.each = _.forEach = function(obj, iteratee, context) {
     iteratee = optimizeCb(iteratee, context);
     var i, length;
@@ -302,7 +302,7 @@
     return _.find(obj, _.matcher(attrs));
   };
 
-  // 返回最大元素（或是基于元素计算值）
+  // 返回最大元素（或是基于元素的计算值）
   _.max = function(obj, iteratee, context) {
     var result = -Infinity, lastComputed = -Infinity,
         value, computed;
@@ -327,7 +327,7 @@
     return result;
   };
 
-  // Return the minimum element (or element-based computation).
+  // 返回最小元素（或基于元素的计算值）
   _.min = function(obj, iteratee, context) {
     var result = Infinity, lastComputed = Infinity,
         value, computed;
@@ -352,8 +352,8 @@
     return result;
   };
 
-  // Shuffle a collection, using the modern version of the
-  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
+  // 使用现代版本的
+  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle)，返回一个混淆的collection。
   _.shuffle = function(obj) {
     var set = isArrayLike(obj) ? obj : _.values(obj);
     var length = set.length;
@@ -366,9 +366,9 @@
     return shuffled;
   };
 
-  // Sample **n** random values from a collection.
-  // If **n** is not specified, returns a single random element.
-  // The internal `guard` argument allows it to work with `map`.
+  // 从集合中随机抽取**n**个值。
+  // 如果未指定**n**，就返回一个随机值。
+  // 内部的`guard`参数用来与`map`一起工作。
   _.sample = function(obj, n, guard) {
     if (n == null || guard) {
       if (!isArrayLike(obj)) obj = _.values(obj);
@@ -377,7 +377,7 @@
     return _.shuffle(obj).slice(0, Math.max(0, n));
   };
 
-  // Sort the object's values by a criterion produced by an iteratee.
+  // 按照迭代器生成的规则，对对象值进行排序。
   _.sortBy = function(obj, iteratee, context) {
     iteratee = cb(iteratee, context);
     return _.pluck(_.map(obj, function(value, index, list) {
@@ -397,7 +397,7 @@
     }), 'value');
   };
 
-  // An internal function used for aggregate "group by" operations.
+  // 内部函数，用来聚合”分组“操作。
   var group = function(behavior) {
     return function(obj, iteratee, context) {
       var result = {};
@@ -429,7 +429,7 @@
     if (_.has(result, key)) result[key]++; else result[key] = 1;
   });
 
-  // Safely create a real, live array from anything iterable.
+  // 从任何可迭代对象中，生成一个数组
   _.toArray = function(obj) {
     if (!obj) return [];
     if (_.isArray(obj)) return slice.call(obj);
@@ -437,7 +437,7 @@
     return _.values(obj);
   };
 
-  // Return the number of elements in an object.
+  // 返回对象中元素的个数
   _.size = function(obj) {
     if (obj == null) return 0;
     return isArrayLike(obj) ? obj.length : _.keys(obj).length;
@@ -1283,7 +1283,7 @@
     return this;
   };
 
-  // Keep the identity function around for default iteratees.
+  // 恒等函数，主要作为默认的迭代器。
   _.identity = function(value) {
     return value;
   };
@@ -1322,7 +1322,7 @@
     return accum;
   };
 
-  // Return a random integer between min and max (inclusive).
+  // 在最小值和最大值之间返回一个随机整数。
   _.random = function(min, max) {
     if (max == null) {
       max = min;
@@ -1331,7 +1331,7 @@
     return min + Math.floor(Math.random() * (max - min + 1));
   };
 
-  // A (possibly faster) way to get the current timestamp as an integer.
+  // 一种返回当前时间戳整数值的方法（可能更快些）。
   _.now = Date.now || function() {
     return new Date().getTime();
   };
