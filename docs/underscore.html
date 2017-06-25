@@ -154,7 +154,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>空函数引用，用来surrogate-prototype-swapping。</p>
+              <p>空函数引用，用来实现surrogate-prototype-swapping。</p>
 
             </div>
             
@@ -460,9 +460,8 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
-              <p>Optimized iterator function as using arguments.length
-in the main function will deoptimize the, see #1991.
-优化过的迭代函数，在主函数中使用<code>arguments.length</code>会</p>
+              <p>优化过的迭代函数，因为在主函数中使用<code>arguments.length</code>，
+所以会破坏优化效果，参见#1991。</p>
 
             </div>
             
@@ -823,7 +822,7 @@ in the main function will deoptimize the, see #1991.
                 <a class="pilcrow" href="#section-39">&#182;</a>
               </div>
               <p>使用现代版本的
-<a href="http://en.wikipedia.org/wiki/Fisher–Yates_shuffle">Fisher-Yates shuffle</a>算法，混淆一个结合.</p>
+<a href="http://en.wikipedia.org/wiki/Fisher–Yates_shuffle">Fisher-Yates shuffle</a> 算法，混淆一个结合.</p>
 
             </div>
             
@@ -1020,7 +1019,8 @@ in the main function will deoptimize the, see #1991.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-48">&#182;</a>
               </div>
-              <p>将一个集合分割成两个数组：其中一个数组的所有元素都满足给定判断，另一个数组的所有元素都不满足给定判断</p>
+              <p>将一个集合分割成两个数组：其中一个数组的所有元素都满足给定判断，
+另一个数组的所有元素都不满足给定判断</p>
 
             </div>
             
@@ -1226,7 +1226,7 @@ in the main function will deoptimize the, see #1991.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-59">&#182;</a>
               </div>
-              <p>Return a version of the array that does not contain the specified value(s).</p>
+              <p>返回不包含给定数值的数组。</p>
 
             </div>
             
@@ -1243,9 +1243,8 @@ in the main function will deoptimize the, see #1991.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-60">&#182;</a>
               </div>
-              <p>Produce a duplicate-free version of the array. If the array has already
-been sorted, you have the option of using a faster algorithm.
-Aliased as <code>unique</code>.</p>
+              <p>生成一个没有重复元素的数组。如果数组已经排序过，生成过程会更快。
+别名<code>unique</code>。</p>
 
             </div>
             
@@ -1285,8 +1284,7 @@ Aliased as <code>unique</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-61">&#182;</a>
               </div>
-              <p>Produce an array that contains the union: each distinct element from all of
-the passed-in arrays.</p>
+              <p>生成一个数组：包含了来自传入数组中元素的并集。</p>
 
             </div>
             
@@ -1303,8 +1301,7 @@ the passed-in arrays.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-62">&#182;</a>
               </div>
-              <p>Produce an array that contains every item shared between all the
-passed-in arrays.</p>
+              <p>生成一个数组，包含了来自传入数组中元素的交集。</p>
 
             </div>
             
@@ -1331,8 +1328,8 @@ passed-in arrays.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-63">&#182;</a>
               </div>
-              <p>Take the difference between one array and a number of other arrays.
-Only the elements present in just the first array will remain.</p>
+              <p>获取一个数组与其他数组的差异。
+只有出现在第一个数组中的元素才会保留。</p>
 
             </div>
             
@@ -1352,8 +1349,7 @@ Only the elements present in just the first array will remain.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-64">&#182;</a>
               </div>
-              <p>Zip together multiple lists into a single array – elements that share
-an index go together.</p>
+              <p>将多个列表合并到一个数组中 - 共享索引的元素会在一起</p>
 
             </div>
             
@@ -1370,8 +1366,7 @@ an index go together.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-65">&#182;</a>
               </div>
-              <p>Complement of _.zip. Unzip accepts an array of arrays and groups
-each array’s elements on shared indices</p>
+              <p>_.zip的补充。 Unzip接受一组数组，并将数组元素分组到共享索引中。</p>
 
             </div>
             
@@ -1394,9 +1389,8 @@ each array’s elements on shared indices</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-66">&#182;</a>
               </div>
-              <p>Converts lists into objects. Pass either a single array of <code>[key, value]</code>
-pairs, or two parallel arrays of the same length – one of keys, and one of
-the corresponding values.</p>
+              <p>将列表转化为对象。传入单个元素为<code>[key, value]</code>对的数组，
+或者两个长度相等的数组 - 一个包含key，一个包含value。</p>
 
             </div>
             
@@ -1421,7 +1415,7 @@ the corresponding values.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-67">&#182;</a>
               </div>
-              <p>Generator function to create the findIndex and findLastIndex functions</p>
+              <p>生成器函数，用来创建findIndex 和 findLastIndex函数。</p>
 
             </div>
             
@@ -1446,7 +1440,7 @@ the corresponding values.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-68">&#182;</a>
               </div>
-              <p>Returns the first index on an array-like that passes a predicate test</p>
+              <p>返回类数组对象中，第一个通过test测试元素的索引。</p>
 
             </div>
             
@@ -1462,8 +1456,8 @@ the corresponding values.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-69">&#182;</a>
               </div>
-              <p>Use a comparator function to figure out the smallest index at which
-an object should be inserted so as to maintain order. Uses binary search.</p>
+              <p>为了维护顺序，使用比较器函数，找出插入对象的最小索引值。
+使用二分搜索法。</p>
 
             </div>
             
@@ -1487,7 +1481,7 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-70">&#182;</a>
               </div>
-              <p>Generator function to create the indexOf and lastIndexOf functions</p>
+              <p>生成器函数，用来创建 indexOf 和 lastIndexOf函数</p>
 
             </div>
             
@@ -1524,10 +1518,8 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-71">&#182;</a>
               </div>
-              <p>Return the position of the first occurrence of an item in an array,
-or -1 if the item is not included in the array.
-If the array is large and already in sort order, pass <code>true</code>
-for <strong>isSorted</strong> to use binary search.</p>
+              <p>返回元素第一次出现在数组中的位置，如果元素不在数组中则返回-1。
+如果是排好序的大数组，为<strong>isSorted</strong>传入true会使用二分法查找索引。</p>
 
             </div>
             
@@ -1543,9 +1535,8 @@ for <strong>isSorted</strong> to use binary search.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-72">&#182;</a>
               </div>
-              <p>Generate an integer Array containing an arithmetic progression. A port of
-the native Python <code>range()</code> function. See
-<a href="http://docs.python.org/library/functions.html#range">the Python documentation</a>.</p>
+              <p>生成一个整数型等差数列数组。
+Python原生<code>range()</code>函数的等价实现，参考<a href="http://docs.python.org/library/functions.html#range">the Python documentation</a></p>
 
             </div>
             
@@ -1575,7 +1566,7 @@ the native Python <code>range()</code> function. See
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-73">&#182;</a>
               </div>
-              <h2 id="function-ahem-functions">Function (ahem) Functions</h2>
+              <h2 id="function-">Function函数</h2>
 
             </div>
             
@@ -1600,8 +1591,7 @@ the native Python <code>range()</code> function. See
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-75">&#182;</a>
               </div>
-              <p>Determines whether to execute a function as a constructor
-or a normal function with the provided arguments</p>
+              <p>确定是否以构造器还是普通函数的方式执行函数，并传入给定参数。</p>
 
             </div>
             
@@ -1622,9 +1612,8 @@ or a normal function with the provided arguments</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-76">&#182;</a>
               </div>
-              <p>Create a function bound to a given object (assigning <code>this</code>, and arguments,
-optionally). Delegates to <strong>ECMAScript 5</strong>‘s native <code>Function.bind</code> if
-available.</p>
+              <p>创建一个绑定到给定对象的函数（指定<code>this</code>，可选参数）。
+如果可以，会代理给<strong>ECMAScript 5</strong>原生的<code>Function.bind</code>方法。</p>
 
             </div>
             
@@ -1676,9 +1665,8 @@ as a placeholder, allowing any combination of arguments to be pre-filled.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-78">&#182;</a>
               </div>
-              <p>Bind a number of an object’s methods to that object. Remaining arguments
-are the method names to be bound. Useful for ensuring that all callbacks
-defined on an object belong to it.</p>
+              <p>将对象的方法绑定到自身上。剩下的参数是要绑定的方法名称。
+在保证所有定义在对象上的回调都属于对象自己上十分有用。</p>
 
             </div>
             
@@ -1701,7 +1689,7 @@ defined on an object belong to it.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-79">&#182;</a>
               </div>
-              <p>Memoize an expensive function by storing its results.</p>
+              <p>通过保存返回值的方式，记录一些消耗昂贵的函数。</p>
 
             </div>
             
@@ -1725,8 +1713,7 @@ defined on an object belong to it.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-80">&#182;</a>
               </div>
-              <p>Delays a function for the given number of milliseconds, and then calls
-it with the arguments supplied.</p>
+              <p>给定毫秒数，延迟执行函数，然后用给定的参数调用它。</p>
 
             </div>
             
@@ -1746,8 +1733,7 @@ it with the arguments supplied.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-81">&#182;</a>
               </div>
-              <p>Defers a function, scheduling it to run after the current call stack has
-cleared.</p>
+              <p>延期一个函数，调度它在当前调用栈清空后再执行。</p>
 
             </div>
             
@@ -1762,11 +1748,10 @@ cleared.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-82">&#182;</a>
               </div>
-              <p>Returns a function, that, when invoked, will only be triggered at most once
-during a given window of time. Normally, the throttled function will run
-as much as it can, without ever going more than once per <code>wait</code> duration;
-but if you’d like to disable the execution on the leading edge, pass
-<code>{leading: false}</code>. To disable execution on the trailing edge, ditto.</p>
+              <p>返回一个函数，在调用时，在固定的窗口时间内最多执行一次。
+通常情况下，在每个<code>等待</code>周期内，节流函数会尽快执行。
+如果你打算禁用开始的调用，请传入<code>{leading: false}</code>。
+类似的传入<code>{trailing: false}</code>，会禁用最后一次调用。</p>
 
             </div>
             
@@ -1811,10 +1796,9 @@ but if you’d like to disable the execution on the leading edge, pass
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-83">&#182;</a>
               </div>
-              <p>Returns a function, that, as long as it continues to be invoked, will not
-be triggered. The function will be called after it stops being called for
-N milliseconds. If <code>immediate</code> is passed, trigger the function on the
-leading edge, instead of the trailing.</p>
+              <p>返回一个函数，只要它连续不断的调用，就不会触发。
+这个函数在停止调用后N毫秒后才会被调用。
+传入<code>immediate</code>，会在开始而不是最后执行该函数。</p>
 
             </div>
             
@@ -1859,9 +1843,8 @@ leading edge, instead of the trailing.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-84">&#182;</a>
               </div>
-              <p>Returns the first function passed as an argument to the second,
-allowing you to adjust arguments, run code before and after, and
-conditionally execute the original function.</p>
+              <p>返回作为参数传递给第二个函数的第一个函数，
+允许你调整参数，在前后允许代码，并有条件的执行原始函数。</p>
 
             </div>
             
@@ -1897,8 +1880,7 @@ conditionally execute the original function.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-86">&#182;</a>
               </div>
-              <p>Returns a function that is the composition of a list of functions, each
-consuming the return value of the function that follows.</p>
+              <p>返回一个函数，它是由一个函数列表组成，每个函数都会处理它后面的函数的返回值。</p>
 
             </div>
             
@@ -1922,7 +1904,7 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-87">&#182;</a>
               </div>
-              <p>Returns a function that will only be executed on and after the Nth call.</p>
+              <p>返回一个函数，只有在被调用N次（包括N次）之后才会执行。</p>
 
             </div>
             
@@ -1943,7 +1925,7 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-88">&#182;</a>
               </div>
-              <p>Returns a function that will only be executed up to (but not including) the Nth call.</p>
+              <p>返回一个函数，最多只会执行第前n-1次调用。</p>
 
             </div>
             
@@ -1967,8 +1949,8 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-89">&#182;</a>
               </div>
-              <p>Returns a function that will be executed at most one time, no matter how
-often you call it. Useful for lazy initialization.</p>
+              <p>返回一个函数，不管调用多少次，都只会执行一次。
+用来惰性初始化很有用。</p>
 
             </div>
             
@@ -1983,7 +1965,7 @@ often you call it. Useful for lazy initialization.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-90">&#182;</a>
               </div>
-              <h2 id="object-functions">Object Functions</h2>
+              <h2 id="-">对象函数</h2>
 
             </div>
             
@@ -2008,7 +1990,7 @@ often you call it. Useful for lazy initialization.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-92">&#182;</a>
               </div>
-              <p>Keys in IE &lt; 9 that won’t be iterated by <code>for key in ...</code> and thus missed.</p>
+              <p>IE9之前的浏览器，<code>for key in ...</code>不会迭代一些key，所以丢掉了。</p>
 
             </div>
             
@@ -2030,7 +2012,7 @@ often you call it. Useful for lazy initialization.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-93">&#182;</a>
               </div>
-              <p>Constructor is a special case.</p>
+              <p>Constructor是特例。</p>
 
             </div>
             
@@ -2055,7 +2037,7 @@ often you call it. Useful for lazy initialization.</p>
                 <a class="pilcrow" href="#section-94">&#182;</a>
               </div>
               <p>获取一个对象的自有属性名称。
-<strong>ECMAScript 5</strong>‘s原生的<code>Object.keys</code>方法的代理实现。</p>
+可代理给<strong>ECMAScript 5</strong>‘s原生的<code>Object.keys</code>方法。</p>
 
             </div>
             
@@ -2091,7 +2073,7 @@ often you call it. Useful for lazy initialization.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-96">&#182;</a>
               </div>
-              <p>Retrieve all the property names of an object.</p>
+              <p>获取一个对象的所有属性名</p>
 
             </div>
             
@@ -2109,7 +2091,7 @@ often you call it. Useful for lazy initialization.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-97">&#182;</a>
               </div>
-              <p>Ahem, IE &lt; 9.</p>
+              <p>IE &lt; 9.</p>
 
             </div>
             
@@ -2126,7 +2108,7 @@ often you call it. Useful for lazy initialization.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-98">&#182;</a>
               </div>
-              <p>Retrieve the values of an object’s properties.</p>
+              <p>获取一个对象的所有属性值。</p>
 
             </div>
             
@@ -2149,8 +2131,8 @@ often you call it. Useful for lazy initialization.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-99">&#182;</a>
               </div>
-              <p>Returns the results of applying the iteratee to each element of the object
-In contrast to _.map it returns an object</p>
+              <p>返回将迭代器应用到对象的每个元素的结果。
+与_.map相反，它返回的是对象。</p>
 
             </div>
             
@@ -2176,7 +2158,7 @@ In contrast to _.map it returns an object</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-100">&#182;</a>
               </div>
-              <p>Convert an object into a list of <code>[key, value]</code> pairs.</p>
+              <p>将一个对象转换为<code>[key, value]</code>对的列表。</p>
 
             </div>
             
@@ -2199,7 +2181,8 @@ In contrast to _.map it returns an object</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-101">&#182;</a>
               </div>
-              <p>Invert the keys and values of an object. The values must be serializable.</p>
+              <p>翻转对象的key和value。
+value必须是可序列化的。</p>
 
             </div>
             
@@ -2221,8 +2204,8 @@ In contrast to _.map it returns an object</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-102">&#182;</a>
               </div>
-              <p>Return a sorted list of the function names available on the object.
-Aliased as <code>methods</code></p>
+              <p>返回对象上可用函数名称的排序列表。
+别名<code>methods</code></p>
 
             </div>
             
@@ -2243,7 +2226,7 @@ Aliased as <code>methods</code></p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-103">&#182;</a>
               </div>
-              <p>Extend a given object with all the properties in passed-in object(s).</p>
+              <p>使用传入对象的所有属性，扩展给定对象。</p>
 
             </div>
             
@@ -2258,7 +2241,7 @@ Aliased as <code>methods</code></p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-104">&#182;</a>
               </div>
-              <p>Assigns a given object with all the own properties in the passed-in object(s)
+              <p>使用传入对象的所有自有属性，扩展给定对象。
 (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign</a>)</p>
 
             </div>
@@ -2274,7 +2257,7 @@ Aliased as <code>methods</code></p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-105">&#182;</a>
               </div>
-              <p>Returns the first key on an object that passes a predicate test</p>
+              <p>返回对象上第一个通过条件测试的属性名称。</p>
 
             </div>
             
@@ -2296,7 +2279,7 @@ Aliased as <code>methods</code></p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-106">&#182;</a>
               </div>
-              <p>Return a copy of the object only containing the whitelisted properties.</p>
+              <p>返回一个对象的拷贝，只包含了白名单上给出的属性。</p>
 
             </div>
             
@@ -2328,7 +2311,7 @@ Aliased as <code>methods</code></p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-107">&#182;</a>
               </div>
-              <p>Return a copy of the object without the blacklisted properties.</p>
+              <p>返回一个对象的拷贝，出去了黑名单上的属性。</p>
 
             </div>
             
@@ -2353,7 +2336,7 @@ Aliased as <code>methods</code></p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-108">&#182;</a>
               </div>
-              <p>Fill in a given object with default properties.</p>
+              <p>使用默认属性填充给定对象。</p>
 
             </div>
             
@@ -2368,9 +2351,8 @@ Aliased as <code>methods</code></p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-109">&#182;</a>
               </div>
-              <p>Creates an object that inherits from the given prototype object.
-If additional properties are provided then they will be added to the
-created object.</p>
+              <p>创建一个对象，它继承自给定原型对象。
+如果提供了额外的属性，它们也会添加到此新创建的对象上。</p>
 
             </div>
             
@@ -2407,9 +2389,8 @@ created object.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-111">&#182;</a>
               </div>
-              <p>Invokes interceptor with the obj, and then returns obj.
-The primary purpose of this method is to “tap into” a method chain, in
-order to perform operations on intermediate results within the chain.</p>
+              <p>在对象上调用拦截器，之后返回对象。
+此方法的主要作用是用来介入方法链，以便对链式操作的中间值进行某些操作。</p>
 
             </div>
             
@@ -2451,7 +2432,7 @@ order to perform operations on intermediate results within the chain.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-113">&#182;</a>
               </div>
-              <p>Internal recursive comparison function for <code>isEqual</code>.</p>
+              <p><code>isEqual</code>的内部递归比较函数。</p>
 
             </div>
             
@@ -2466,8 +2447,8 @@ order to perform operations on intermediate results within the chain.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-114">&#182;</a>
               </div>
-              <p>Identical objects are equal. <code>0 === -0</code>, but they aren’t identical.
-See the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:egal">Harmony <code>egal</code> proposal</a>.</p>
+              <p>相同的对象是相等的。<code>0 === -0</code>，但它们不是相同的。
+参考<a href="http://wiki.ecmascript.org/doku.php?id=harmony:egal">Harmony <code>egal</code> proposal</a>.</p>
 
             </div>
             
@@ -2482,7 +2463,7 @@ See the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:egal">Harmony <c
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-115">&#182;</a>
               </div>
-              <p>A strict comparison is necessary because <code>null == undefined</code>.</p>
+              <p>需要严格比较，因为<code>null == undefined</code></p>
 
             </div>
             
@@ -2497,7 +2478,7 @@ See the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:egal">Harmony <c
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-116">&#182;</a>
               </div>
-              <p>Unwrap any wrapped objects.</p>
+              <p>打开包装对象</p>
 
             </div>
             
@@ -2513,7 +2494,7 @@ See the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:egal">Harmony <c
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-117">&#182;</a>
               </div>
-              <p>Compare <code>[[Class]]</code> names.</p>
+              <p>比较<code>[[Class]]</code>名字。</p>
 
             </div>
             
@@ -2530,7 +2511,7 @@ See the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:egal">Harmony <c
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-118">&#182;</a>
               </div>
-              <p>Strings, numbers, regular expressions, dates, and booleans are compared by value.</p>
+              <p>字符串，数值，正则表达式，日期，以及布尔值进行值比较。</p>
 
             </div>
             
@@ -2545,7 +2526,7 @@ See the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:egal">Harmony <c
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-119">&#182;</a>
               </div>
-              <p>RegExps are coerced to strings for comparison (Note: ‘’ + /a/i === ‘/a/i’)</p>
+              <p>为了比较，正则表达式强制转换为字符串（注：’’ + /a/i === ‘/a/i’）。</p>
 
             </div>
             
@@ -2560,8 +2541,7 @@ See the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:egal">Harmony <c
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-120">&#182;</a>
               </div>
-              <p>Primitives and their corresponding object wrappers are equivalent; thus, <code>&quot;5&quot;</code> is
-equivalent to <code>new String(&quot;5&quot;)</code>.</p>
+              <p>基本数据类型和它们对应的对象包装器是相等的；因此 <code>&quot;5&quot;</code>等于<code>new String(&quot;5&quot;)</code>。</p>
 
             </div>
             
@@ -2578,7 +2558,7 @@ equivalent to <code>new String(&quot;5&quot;)</code>.</p>
                 <a class="pilcrow" href="#section-121">&#182;</a>
               </div>
               <p><code>NaN</code>s are equivalent, but non-reflexive.
-Object(NaN) is equivalent to NaN</p>
+Object(NaN) is equivalent to NaN        </p>
 
             </div>
             
@@ -2610,9 +2590,8 @@ Object(NaN) is equivalent to NaN</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-123">&#182;</a>
               </div>
-              <p>Coerce dates and booleans to numeric primitive values. Dates are compared by their
-millisecond representations. Note that invalid dates with millisecond representations
-of <code>NaN</code> are not equivalent.</p>
+              <p>强制转换日期和布尔值为基本数值类型。
+日期以毫秒进行比较。注意无效的日期的的毫秒数为<code>NaN</code>，且不相等。</p>
 
             </div>
             
@@ -2632,8 +2611,7 @@ of <code>NaN</code> are not equivalent.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-124">&#182;</a>
               </div>
-              <p>Objects with different constructors are not equivalent, but <code>Object</code>s or <code>Array</code>s
-from different frames are.</p>
+              <p>构造器不相同的对象不相等，但是<code>Object</code>或<code>Array</code>类型的除外。</p>
 
             </div>
             
@@ -2654,8 +2632,7 @@ from different frames are.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-125">&#182;</a>
               </div>
-              <p>Assume equality for cyclic structures. The algorithm for detecting cyclic
-structures is adapted from ES 5.1 section 15.12.3, abstract operation <code>JO</code>.</p>
+              <p>循环结构的相等性假设。检测循环结构的算法是改编自ES 5.1标准的15.12.3一节abstract operation <code>JO</code></p>
 
             </div>
             
@@ -2668,8 +2645,8 @@ structures is adapted from ES 5.1 section 15.12.3, abstract operation <code>JO</
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-126">&#182;</a>
               </div>
-              <p>Initializing stack of traversed objects.
-It’s done here since we only need them for objects and arrays comparison.</p>
+              <p>初始化遍历对象的栈。
+之所以在此完成，仅因为对象和数组的比较需要。</p>
 
             </div>
             
@@ -2687,8 +2664,7 @@ It’s done here since we only need them for objects and arrays comparison.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-127">&#182;</a>
               </div>
-              <p>Linear search. Performance is inversely proportional to the number of
-unique nested structures.</p>
+              <p>线性搜索。性能与嵌套结构的数量成反比。</p>
 
             </div>
             
@@ -2704,7 +2680,7 @@ unique nested structures.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-128">&#182;</a>
               </div>
-              <p>Add the first object to the stack of traversed objects.</p>
+              <p>将第一个对象添加到遍历对象的栈中。</p>
 
             </div>
             
@@ -2720,7 +2696,7 @@ unique nested structures.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-129">&#182;</a>
               </div>
-              <p>Recursively compare objects and arrays.</p>
+              <p>递归比较对象和数组。</p>
 
             </div>
             
@@ -2735,7 +2711,7 @@ unique nested structures.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-130">&#182;</a>
               </div>
-              <p>Compare array lengths to determine if a deep comparison is necessary.</p>
+              <p>比较数组长度，决定是否需要一个深度比较。</p>
 
             </div>
             
@@ -2751,7 +2727,7 @@ unique nested structures.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-131">&#182;</a>
               </div>
-              <p>Deep compare the contents, ignoring non-numeric properties.</p>
+              <p>深度比较数组内容，忽略非数值属性。</p>
 
             </div>
             
@@ -2769,7 +2745,7 @@ unique nested structures.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-132">&#182;</a>
               </div>
-              <p>Deep compare objects.</p>
+              <p>深度比较对象。</p>
 
             </div>
             
@@ -2785,7 +2761,7 @@ unique nested structures.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-133">&#182;</a>
               </div>
-              <p>Ensure that both objects contain the same number of properties before comparing deep equality.</p>
+              <p>在进行深度比较前，保证两个对象包含同等数量的属性。</p>
 
             </div>
             
@@ -2801,7 +2777,7 @@ unique nested structures.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-134">&#182;</a>
               </div>
-              <p>Deep compare each member</p>
+              <p>深度比较每个成员。</p>
 
             </div>
             
@@ -2819,7 +2795,7 @@ unique nested structures.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-135">&#182;</a>
               </div>
-              <p>Remove the first object from the stack of traversed objects.</p>
+              <p>从遍历对象的栈中，删除首个对象。</p>
 
             </div>
             
@@ -2946,8 +2922,7 @@ ECMA5原生<code>Array.isArray</code>方法的代理实现</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-142">&#182;</a>
               </div>
-              <p>Define a fallback version of the method in browsers (ahem, IE &lt; 9), where
-there isn’t any inspectable “Arguments” type.</p>
+              <p>在那些检测不到”Arguments”类型的浏览器中（IE &lt; 9），定义一个回退版本的方法。</p>
 
             </div>
             
@@ -3087,7 +3062,7 @@ there isn’t any inspectable “Arguments” type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-150">&#182;</a>
               </div>
-              <h2 id="utility-functions">Utility Functions</h2>
+              <h2 id="-">工具函数</h2>
 
             </div>
             
@@ -3100,20 +3075,8 @@ there isn’t any inspectable “Arguments” type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-151">&#182;</a>
               </div>
-              
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-152">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-152">&#182;</a>
-              </div>
-              <p>Run Underscore.js in <em>noConflict</em> mode, returning the <code>_</code> variable to its
-previous owner. Returns a reference to the Underscore object.</p>
+              <p>在<em>noConflict</em>模式下运行Underscore.js，将<code>_</code>变量返回给它之前的所有者。
+返回一个Underscore对象的引用。</p>
 
             </div>
             
@@ -3125,11 +3088,11 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-153">
+        <li id="section-152">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-153">&#182;</a>
+                <a class="pilcrow" href="#section-152">&#182;</a>
               </div>
               <p>恒等函数，用来当做默认的迭代器。</p>
 
@@ -3142,13 +3105,13 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-154">
+        <li id="section-153">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-154">&#182;</a>
+                <a class="pilcrow" href="#section-153">&#182;</a>
               </div>
-              <p>Predicate-generating functions. Often useful outside of Underscore.</p>
+              <p>生成器函数，生成一个返回传进的参数值的函数。通常在Underscore的外面有用。</p>
 
             </div>
             
@@ -3165,11 +3128,11 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-155">
+        <li id="section-154">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-155">&#182;</a>
+                <a class="pilcrow" href="#section-154">&#182;</a>
               </div>
               <p>为一个对象生成一个函数，可以返回给定属性的值。</p>
 
@@ -3184,11 +3147,11 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-156">
+        <li id="section-155">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-156">&#182;</a>
+                <a class="pilcrow" href="#section-155">&#182;</a>
               </div>
               <p>返回一个断言，检测一个对象是否包含给定的一组<code>key:value</code>对。</p>
 
@@ -3204,11 +3167,11 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-157">
+        <li id="section-156">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-157">&#182;</a>
+                <a class="pilcrow" href="#section-156">&#182;</a>
               </div>
               <p>运行一个函数<strong>n</strong>次</p>
 
@@ -3224,11 +3187,11 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-158">
+        <li id="section-157">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-158">&#182;</a>
+                <a class="pilcrow" href="#section-157">&#182;</a>
               </div>
               <p>返回一个在mix和max之间的随机整数。</p>
 
@@ -3245,13 +3208,13 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-159">
+        <li id="section-158">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-159">&#182;</a>
+                <a class="pilcrow" href="#section-158">&#182;</a>
               </div>
-              <p>A (possibly faster) way to get the current timestamp as an integer.</p>
+              <p>以整数形式获取当前时间戳的一种方法（可能更快）。</p>
 
             </div>
             
@@ -3262,13 +3225,13 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-160">
+        <li id="section-159">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-160">&#182;</a>
+                <a class="pilcrow" href="#section-159">&#182;</a>
               </div>
-              <p>List of HTML entities for escaping.</p>
+              <p>用于转义的HTML实体的列表。</p>
 
             </div>
             
@@ -3285,13 +3248,13 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-161">
+        <li id="section-160">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-161">&#182;</a>
+                <a class="pilcrow" href="#section-160">&#182;</a>
               </div>
-              <p>Functions for escaping and unescaping strings to/from HTML interpolation.</p>
+              <p>用来实现HTML插入时的字符串的转义与反转义。</p>
 
             </div>
             
@@ -3303,13 +3266,13 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-162">
+        <li id="section-161">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-162">&#182;</a>
+                <a class="pilcrow" href="#section-161">&#182;</a>
               </div>
-              <p>Regexes for identifying a key that needs to be escaped</p>
+              <p>正则表达式，用来标识一个需要转义的关键字。</p>
 
             </div>
             
@@ -3327,14 +3290,14 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-163">
+        <li id="section-162">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-163">&#182;</a>
+                <a class="pilcrow" href="#section-162">&#182;</a>
               </div>
-              <p>If the value of the named <code>property</code> is a function then invoke it with the
-<code>object</code> as context; otherwise, return it.</p>
+              <p>如果<code>property</code>的值是函数类型，那么在<code>object</code>上调用它，并返回值；
+否则直接返回<code>property</code>的值。</p>
 
             </div>
             
@@ -3349,14 +3312,14 @@ previous owner. Returns a reference to the Underscore object.</p>
         </li>
         
         
-        <li id="section-164">
+        <li id="section-163">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-164">&#182;</a>
+                <a class="pilcrow" href="#section-163">&#182;</a>
               </div>
-              <p>Generate a unique integer id (unique within the entire client session).
-Useful for temporary DOM ids.</p>
+              <p>生成一个唯一的整数id(在整个客户端会话中唯一)。
+用来作临时DOM的id很有用。</p>
 
             </div>
             
@@ -3369,14 +3332,14 @@ Useful for temporary DOM ids.</p>
         </li>
         
         
-        <li id="section-165">
+        <li id="section-164">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-165">&#182;</a>
+                <a class="pilcrow" href="#section-164">&#182;</a>
               </div>
-              <p>By default, Underscore uses ERB-style template delimiters, change the
-following template settings to use alternative delimiters.</p>
+              <p>默认情况下，Underscore使用ERB风格的模板分隔符，
+改变下面模板的设置来使用别的分隔符。</p>
 
             </div>
             
@@ -3389,15 +3352,14 @@ following template settings to use alternative delimiters.</p>
         </li>
         
         
-        <li id="section-166">
+        <li id="section-165">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-166">&#182;</a>
+                <a class="pilcrow" href="#section-165">&#182;</a>
               </div>
-              <p>When customizing <code>templateSettings</code>, if you don’t want to define an
-interpolation, evaluation or escaping regex, we need one that is
-guaranteed not to match.</p>
+              <p>当定制<code>templateSettings</code>时，如果你不想定义插值，求值，转义的正则，
+那么需要一个保证不会匹配的正则。</p>
 
             </div>
             
@@ -3406,14 +3368,13 @@ guaranteed not to match.</p>
         </li>
         
         
-        <li id="section-167">
+        <li id="section-166">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-167">&#182;</a>
+                <a class="pilcrow" href="#section-166">&#182;</a>
               </div>
-              <p>Certain characters need to be escaped so that they can be put into a
-string literal.</p>
+              <p>某些字符需要转义，保证他们可以被放到字符串字面量中。</p>
 
             </div>
             
@@ -3435,16 +3396,16 @@ string literal.</p>
         </li>
         
         
-        <li id="section-168">
+        <li id="section-167">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-168">&#182;</a>
+                <a class="pilcrow" href="#section-167">&#182;</a>
               </div>
-              <p>JavaScript micro-templating, similar to John Resig’s implementation.
-Underscore templating handles arbitrary delimiters, preserves whitespace,
-and correctly escapes quotes within interpolated code.
-NB: <code>oldSettings</code> only exists for backwards compatibility.</p>
+              <p>JavaScript微型模板（micro-templating），与John Resig的实现类似。
+Underscore的农办可处理任意类型的分隔符，保留空白符，并且能正确转义
+插入代码中的引号。
+注：<code>oldSettings</code>的存在只为向后兼容。</p>
 
             </div>
             
@@ -3455,13 +3416,13 @@ NB: <code>oldSettings</code> only exists for backwards compatibility.</p>
         </li>
         
         
-        <li id="section-169">
+        <li id="section-168">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-169">&#182;</a>
+                <a class="pilcrow" href="#section-168">&#182;</a>
               </div>
-              <p>Combine delimiters into one regular expression via alternation.</p>
+              <p>通过间隔符将分隔符组合成一个正则表达式。</p>
 
             </div>
             
@@ -3474,13 +3435,13 @@ NB: <code>oldSettings</code> only exists for backwards compatibility.</p>
         </li>
         
         
-        <li id="section-170">
+        <li id="section-169">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-170">&#182;</a>
+                <a class="pilcrow" href="#section-169">&#182;</a>
               </div>
-              <p>Compile the template source, escaping string literals appropriately.</p>
+              <p>编译模板源代码，适时转义字符串常量。</p>
 
             </div>
             
@@ -3501,13 +3462,13 @@ NB: <code>oldSettings</code> only exists for backwards compatibility.</p>
         </li>
         
         
-        <li id="section-171">
+        <li id="section-170">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-171">&#182;</a>
+                <a class="pilcrow" href="#section-170">&#182;</a>
               </div>
-              <p>Adobe VMs need the match returned to produce the correct offest.</p>
+              <p>Adobe VMs需要这个返回的匹配值，以便生成正确的偏移。</p>
 
             </div>
             
@@ -3518,13 +3479,13 @@ NB: <code>oldSettings</code> only exists for backwards compatibility.</p>
         </li>
         
         
-        <li id="section-172">
+        <li id="section-171">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-172">&#182;</a>
+                <a class="pilcrow" href="#section-171">&#182;</a>
               </div>
-              <p>If a variable is not specified, place data values in local scope.</p>
+              <p>如果未指定变量，就将数据值放在局部范围内。</p>
 
             </div>
             
@@ -3548,13 +3509,13 @@ NB: <code>oldSettings</code> only exists for backwards compatibility.</p>
         </li>
         
         
-        <li id="section-173">
+        <li id="section-172">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-173">&#182;</a>
+                <a class="pilcrow" href="#section-172">&#182;</a>
               </div>
-              <p>Provide the compiled source as a convenience for precompilation.</p>
+              <p>为预编译提供编译后的源代码。</p>
 
             </div>
             
@@ -3567,13 +3528,13 @@ NB: <code>oldSettings</code> only exists for backwards compatibility.</p>
         </li>
         
         
-        <li id="section-174">
+        <li id="section-173">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-174">&#182;</a>
+                <a class="pilcrow" href="#section-173">&#182;</a>
               </div>
-              <p>Add a “chain” function. Start chaining a wrapped Underscore object.</p>
+              <p>添加一个”chain”函数。开始链接一个包装后的Underscore对象。</p>
 
             </div>
             
@@ -3586,13 +3547,27 @@ NB: <code>oldSettings</code> only exists for backwards compatibility.</p>
         </li>
         
         
+        <li id="section-174">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-174">&#182;</a>
+              </div>
+              <h2 id="-oop-">面向对象（OOP）</h2>
+
+            </div>
+            
+        </li>
+        
+        
         <li id="section-175">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-175">&#182;</a>
               </div>
-              <h2 id="oop">OOP</h2>
+              <p>如果Underscore是以函数的形式调用，它会返回一个包装对象，可以实现OOP样式。
+这个包装器所有Underscore函数的修订版本。包装对象可以链式调用。</p>
 
             </div>
             
@@ -3605,22 +3580,7 @@ NB: <code>oldSettings</code> only exists for backwards compatibility.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-176">&#182;</a>
               </div>
-              <p>If Underscore is called as a function, it returns a wrapped object that
-can be used OO-style. This wrapper holds altered versions of all the
-underscore functions. Wrapped objects may be chained.</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-177">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-177">&#182;</a>
-              </div>
-              <p>Helper function to continue chaining intermediate results.</p>
+              <p>辅助函数，用来继续链接中间值。</p>
 
             </div>
             
@@ -3631,13 +3591,13 @@ underscore functions. Wrapped objects may be chained.</p>
         </li>
         
         
-        <li id="section-178">
+        <li id="section-177">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-178">&#182;</a>
+                <a class="pilcrow" href="#section-177">&#182;</a>
               </div>
-              <p>Add your own custom functions to the Underscore object.</p>
+              <p>将你自己定制的函数添加到Underscore对象上。</p>
 
             </div>
             
@@ -3655,13 +3615,13 @@ underscore functions. Wrapped objects may be chained.</p>
         </li>
         
         
-        <li id="section-179">
+        <li id="section-178">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-179">&#182;</a>
+                <a class="pilcrow" href="#section-178">&#182;</a>
               </div>
-              <p>Add all of the Underscore functions to the wrapper object.</p>
+              <p>将所有Underscore的函数添加到包装对象上。</p>
 
             </div>
             
@@ -3670,13 +3630,13 @@ underscore functions. Wrapped objects may be chained.</p>
         </li>
         
         
-        <li id="section-180">
+        <li id="section-179">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-180">&#182;</a>
+                <a class="pilcrow" href="#section-179">&#182;</a>
               </div>
-              <p>Add all mutator Array functions to the wrapper.</p>
+              <p>将所有变种的数组函数添加到包装对象上。</p>
 
             </div>
             
@@ -3693,13 +3653,13 @@ underscore functions. Wrapped objects may be chained.</p>
         </li>
         
         
-        <li id="section-181">
+        <li id="section-180">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-181">&#182;</a>
+                <a class="pilcrow" href="#section-180">&#182;</a>
               </div>
-              <p>Add all accessor Array functions to the wrapper.</p>
+              <p>将所有数组访问函数添加到包装对象上。</p>
 
             </div>
             
@@ -3713,13 +3673,13 @@ underscore functions. Wrapped objects may be chained.</p>
         </li>
         
         
-        <li id="section-182">
+        <li id="section-181">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-182">&#182;</a>
+                <a class="pilcrow" href="#section-181">&#182;</a>
               </div>
-              <p>Extracts the result from a wrapped and chained object.</p>
+              <p>从包装的和链接的对象上提取结果。</p>
 
             </div>
             
@@ -3730,14 +3690,14 @@ underscore functions. Wrapped objects may be chained.</p>
         </li>
         
         
-        <li id="section-183">
+        <li id="section-182">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-183">&#182;</a>
+                <a class="pilcrow" href="#section-182">&#182;</a>
               </div>
-              <p>Provide unwrapping proxy for some methods used in engine operations
-such as arithmetic and JSON stringification.</p>
+              <p>为引擎操作中使用的一些方法提供解包代理，
+比如算法或JSON字符串化。</p>
 
             </div>
             
@@ -3750,11 +3710,11 @@ such as arithmetic and JSON stringification.</p>
         </li>
         
         
-        <li id="section-184">
+        <li id="section-183">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-184">&#182;</a>
+                <a class="pilcrow" href="#section-183">&#182;</a>
               </div>
               <p>AMD registration happens at the end for compatibility with AMD loaders
 that may not enforce next-turn semantics on modules. Even though general

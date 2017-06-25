@@ -31,7 +31,7 @@
     nativeBind         = FuncProto.bind,
     nativeCreate       = Object.create;
 
-  // 空函数引用，用来surrogate-prototype-swapping。
+  // 空函数引用，用来实现surrogate-prototype-swapping。
   var Ctor = function(){};
 
   // 创建一个Underscore对象的安全引用，以便在下面使用。
@@ -181,10 +181,9 @@
   };
 
   // 创建一个reducing函数，可以向左或向右迭代。
-  function createReduce(dir) {
-    // Optimized iterator function as using arguments.length
-    // in the main function will deoptimize the, see #1991.
-    // 优化过的迭代函数，在主函数中使用`arguments.length`会
+  function createReduce(dir) {    
+    // 优化过的迭代函数，因为在主函数中使用`arguments.length`，
+    // 所以会破坏优化效果，参见#1991。
     function iterator(obj, iteratee, memo, keys, index, length) {
       for (; index >= 0 && index < length; index += dir) {
         var currentKey = keys ? keys[index] : index;
@@ -353,7 +352,7 @@
   };
 
   // 使用现代版本的
-  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle)算法，混淆一个结合.
+  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle) 算法，混淆一个结合.
   _.shuffle = function(obj) {
     var set = isArrayLike(obj) ? obj : _.values(obj);
     var length = set.length;
@@ -444,7 +443,8 @@
     return isArrayLike(obj) ? obj.length : _.keys(obj).length;
   };
 
-  // 将一个集合分割成两个数组：其中一个数组的所有元素都满足给定判断，另一个数组的所有元素都不满足给定判断
+  // 将一个集合分割成两个数组：其中一个数组的所有元素都满足给定判断，
+  // 另一个数组的所有元素都不满足给定判断
   _.partition = function(obj, predicate, context) {
     predicate = cb(predicate, context);
     var pass = [], fail = [];
@@ -527,9 +527,8 @@
     return _.difference(array, slice.call(arguments, 1));
   };
 
-  // Produce a duplicate-free version of the array. If the array has already
-  // been sorted, you have the option of using a faster algorithm.
-  // Aliased as `unique`.
+  // 生成一个没有重复元素的数组。如果数组已经排序过，生成过程会更快。
+  // 别名`unique`。
   _.uniq = _.unique = function(array, isSorted, iteratee, context) {
     if (!_.isBoolean(isSorted)) {
       context = iteratee;
@@ -557,14 +556,12 @@
     return result;
   };
 
-  // Produce an array that contains the union: each distinct element from all of
-  // the passed-in arrays.
+  // 生成一个数组：包含了来自传入数组中元素的并集。
   _.union = function() {
     return _.uniq(flatten(arguments, true, true));
   };
 
-  // Produce an array that contains every item shared between all the
-  // passed-in arrays.
+  // 生成一个数组，包含了来自传入数组中元素的交集。
   _.intersection = function(array) {
     var result = [];
     var argsLength = arguments.length;
@@ -579,8 +576,8 @@
     return result;
   };
 
-  // Take the difference between one array and a number of other arrays.
-  // Only the elements present in just the first array will remain.
+  // 获取一个数组与其他数组的差异。
+  // 只有出现在第一个数组中的元素才会保留。
   _.difference = function(array) {
     var rest = flatten(arguments, true, true, 1);
     return _.filter(array, function(value){
@@ -588,14 +585,12 @@
     });
   };
 
-  // Zip together multiple lists into a single array -- elements that share
-  // an index go together.
+  // 将多个列表合并到一个数组中 - 共享索引的元素会在一起
   _.zip = function() {
     return _.unzip(arguments);
   };
 
-  // Complement of _.zip. Unzip accepts an array of arrays and groups
-  // each array's elements on shared indices
+  // _.zip的补充。 Unzip接受一组数组，并将数组元素分组到共享索引中。
   _.unzip = function(array) {
     var length = array && _.max(array, getLength).length || 0;
     var result = Array(length);
@@ -606,9 +601,8 @@
     return result;
   };
 
-  // Converts lists into objects. Pass either a single array of `[key, value]`
-  // pairs, or two parallel arrays of the same length -- one of keys, and one of
-  // the corresponding values.
+  // 将列表转化为对象。传入单个元素为`[key, value]`对的数组，
+  // 或者两个长度相等的数组 - 一个包含key，一个包含value。
   _.object = function(list, values) {
     var result = {};
     for (var i = 0, length = getLength(list); i < length; i++) {
@@ -621,7 +615,7 @@
     return result;
   };
 
-  // Generator function to create the findIndex and findLastIndex functions
+  // 生成器函数，用来创建findIndex 和 findLastIndex函数。
   function createPredicateIndexFinder(dir) {
     return function(array, predicate, context) {
       predicate = cb(predicate, context);
@@ -634,12 +628,12 @@
     };
   }
 
-  // Returns the first index on an array-like that passes a predicate test
+  // 返回类数组对象中，第一个通过test测试元素的索引。
   _.findIndex = createPredicateIndexFinder(1);
   _.findLastIndex = createPredicateIndexFinder(-1);
 
-  // Use a comparator function to figure out the smallest index at which
-  // an object should be inserted so as to maintain order. Uses binary search.
+  // 为了维护顺序，使用比较器函数，找出插入对象的最小索引值。
+  // 使用二分搜索法。
   _.sortedIndex = function(array, obj, iteratee, context) {
     iteratee = cb(iteratee, context, 1);
     var value = iteratee(obj);
@@ -651,7 +645,7 @@
     return low;
   };
 
-  // Generator function to create the indexOf and lastIndexOf functions
+  // 生成器函数，用来创建 indexOf 和 lastIndexOf函数
   function createIndexFinder(dir, predicateFind, sortedIndex) {
     return function(array, item, idx) {
       var i = 0, length = getLength(array);
@@ -676,16 +670,13 @@
     };
   }
 
-  // Return the position of the first occurrence of an item in an array,
-  // or -1 if the item is not included in the array.
-  // If the array is large and already in sort order, pass `true`
-  // for **isSorted** to use binary search.
+  // 返回元素第一次出现在数组中的位置，如果元素不在数组中则返回-1。
+  // 如果是排好序的大数组，为**isSorted**传入true会使用二分法查找索引。
   _.indexOf = createIndexFinder(1, _.findIndex, _.sortedIndex);
   _.lastIndexOf = createIndexFinder(-1, _.findLastIndex);
 
-  // Generate an integer Array containing an arithmetic progression. A port of
-  // the native Python `range()` function. See
-  // [the Python documentation](http://docs.python.org/library/functions.html#range).
+  // 生成一个整数型等差数列数组。
+  // Python原生`range()`函数的等价实现，参考[the Python documentation](http://docs.python.org/library/functions.html#range)
   _.range = function(start, stop, step) {
     if (stop == null) {
       stop = start || 0;
@@ -703,11 +694,10 @@
     return range;
   };
 
-  // Function (ahem) Functions
+  // Function函数
   // ------------------
 
-  // Determines whether to execute a function as a constructor
-  // or a normal function with the provided arguments
+  // 确定是否以构造器还是普通函数的方式执行函数，并传入给定参数。
   var executeBound = function(sourceFunc, boundFunc, context, callingContext, args) {
     if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
     var self = baseCreate(sourceFunc.prototype);
@@ -716,9 +706,8 @@
     return self;
   };
 
-  // Create a function bound to a given object (assigning `this`, and arguments,
-  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
-  // available.
+  // 创建一个绑定到给定对象的函数（指定`this`，可选参数）。
+  // 如果可以，会代理给**ECMAScript 5**原生的`Function.bind`方法。
   _.bind = function(func, context) {
     if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
     if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
@@ -746,9 +735,8 @@
     return bound;
   };
 
-  // Bind a number of an object's methods to that object. Remaining arguments
-  // are the method names to be bound. Useful for ensuring that all callbacks
-  // defined on an object belong to it.
+  // 将对象的方法绑定到自身上。剩下的参数是要绑定的方法名称。
+  // 在保证所有定义在对象上的回调都属于对象自己上十分有用。
   _.bindAll = function(obj) {
     var i, length = arguments.length, key;
     if (length <= 1) throw new Error('bindAll must be passed function names');
@@ -759,7 +747,7 @@
     return obj;
   };
 
-  // Memoize an expensive function by storing its results.
+  // 通过保存返回值的方式，记录一些消耗昂贵的函数。
   _.memoize = function(func, hasher) {
     var memoize = function(key) {
       var cache = memoize.cache;
@@ -771,8 +759,7 @@
     return memoize;
   };
 
-  // Delays a function for the given number of milliseconds, and then calls
-  // it with the arguments supplied.
+  // 给定毫秒数，延迟执行函数，然后用给定的参数调用它。
   _.delay = function(func, wait) {
     var args = slice.call(arguments, 2);
     return setTimeout(function(){
@@ -780,15 +767,13 @@
     }, wait);
   };
 
-  // Defers a function, scheduling it to run after the current call stack has
-  // cleared.
+  // 延期一个函数，调度它在当前调用栈清空后再执行。
   _.defer = _.partial(_.delay, _, 1);
 
-  // Returns a function, that, when invoked, will only be triggered at most once
-  // during a given window of time. Normally, the throttled function will run
-  // as much as it can, without ever going more than once per `wait` duration;
-  // but if you'd like to disable the execution on the leading edge, pass
-  // `{leading: false}`. To disable execution on the trailing edge, ditto.
+  // 返回一个函数，在调用时，在固定的窗口时间内最多执行一次。
+  // 通常情况下，在每个`等待`周期内，节流函数会尽快执行。
+  // 如果你打算禁用开始的调用，请传入`{leading: false}`。
+  // 类似的传入`{trailing: false}`，会禁用最后一次调用。
   _.throttle = function(func, wait, options) {
     var context, args, result;
     var timeout = null;
@@ -821,10 +806,9 @@
     };
   };
 
-  // Returns a function, that, as long as it continues to be invoked, will not
-  // be triggered. The function will be called after it stops being called for
-  // N milliseconds. If `immediate` is passed, trigger the function on the
-  // leading edge, instead of the trailing.
+  // 返回一个函数，只要它连续不断的调用，就不会触发。
+  // 这个函数在停止调用后N毫秒后才会被调用。
+  // 传入`immediate`，会在开始而不是最后执行该函数。
   _.debounce = function(func, wait, immediate) {
     var timeout, args, context, timestamp, result;
 
@@ -857,9 +841,8 @@
     };
   };
 
-  // Returns the first function passed as an argument to the second,
-  // allowing you to adjust arguments, run code before and after, and
-  // conditionally execute the original function.
+  // 返回作为参数传递给第二个函数的第一个函数，
+  // 允许你调整参数，在前后允许代码，并有条件的执行原始函数。
   _.wrap = function(func, wrapper) {
     return _.partial(wrapper, func);
   };
@@ -871,8 +854,7 @@
     };
   };
 
-  // Returns a function that is the composition of a list of functions, each
-  // consuming the return value of the function that follows.
+  // 返回一个函数，它是由一个函数列表组成，每个函数都会处理它后面的函数的返回值。
   _.compose = function() {
     var args = arguments;
     var start = args.length - 1;
@@ -884,7 +866,7 @@
     };
   };
 
-  // Returns a function that will only be executed on and after the Nth call.
+  // 返回一个函数，只有在被调用N次（包括N次）之后才会执行。
   _.after = function(times, func) {
     return function() {
       if (--times < 1) {
@@ -893,7 +875,7 @@
     };
   };
 
-  // Returns a function that will only be executed up to (but not including) the Nth call.
+  // 返回一个函数，最多只会执行第前n-1次调用。
   _.before = function(times, func) {
     var memo;
     return function() {
@@ -905,14 +887,14 @@
     };
   };
 
-  // Returns a function that will be executed at most one time, no matter how
-  // often you call it. Useful for lazy initialization.
+  // 返回一个函数，不管调用多少次，都只会执行一次。
+  // 用来惰性初始化很有用。
   _.once = _.partial(_.before, 2);
 
-  // Object Functions
+  // 对象函数
   // ----------------
 
-  // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
+  // IE9之前的浏览器，`for key in ...`不会迭代一些key，所以丢掉了。
   var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
   var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
                       'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
@@ -922,7 +904,7 @@
     var constructor = obj.constructor;
     var proto = (_.isFunction(constructor) && constructor.prototype) || ObjProto;
 
-    // Constructor is a special case.
+    // Constructor是特例。
     var prop = 'constructor';
     if (_.has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
 
@@ -935,7 +917,7 @@
   }
 
   // 获取一个对象的自有属性名称。
-  // **ECMAScript 5**'s原生的`Object.keys`方法的代理实现。
+  // 可代理给**ECMAScript 5**'s原生的`Object.keys`方法。
   _.keys = function(obj) {
     if (!_.isObject(obj)) return [];
     if (nativeKeys) return nativeKeys(obj);
@@ -946,17 +928,17 @@
     return keys;
   };
 
-  // Retrieve all the property names of an object.
+  // 获取一个对象的所有属性名
   _.allKeys = function(obj) {
     if (!_.isObject(obj)) return [];
     var keys = [];
     for (var key in obj) keys.push(key);
-    // Ahem, IE < 9.
+    // IE < 9.
     if (hasEnumBug) collectNonEnumProps(obj, keys);
     return keys;
   };
 
-  // Retrieve the values of an object's properties.
+  // 获取一个对象的所有属性值。
   _.values = function(obj) {
     var keys = _.keys(obj);
     var length = keys.length;
@@ -967,8 +949,8 @@
     return values;
   };
 
-  // Returns the results of applying the iteratee to each element of the object
-  // In contrast to _.map it returns an object
+  // 返回将迭代器应用到对象的每个元素的结果。
+  // 与_.map相反，它返回的是对象。
   _.mapObject = function(obj, iteratee, context) {
     iteratee = cb(iteratee, context);
     var keys =  _.keys(obj),
@@ -982,7 +964,7 @@
       return results;
   };
 
-  // Convert an object into a list of `[key, value]` pairs.
+  // 将一个对象转换为`[key, value]`对的列表。
   _.pairs = function(obj) {
     var keys = _.keys(obj);
     var length = keys.length;
@@ -993,7 +975,8 @@
     return pairs;
   };
 
-  // Invert the keys and values of an object. The values must be serializable.
+  // 翻转对象的key和value。
+  // value必须是可序列化的。
   _.invert = function(obj) {
     var result = {};
     var keys = _.keys(obj);
@@ -1003,8 +986,8 @@
     return result;
   };
 
-  // Return a sorted list of the function names available on the object.
-  // Aliased as `methods`
+  // 返回对象上可用函数名称的排序列表。
+  // 别名`methods`
   _.functions = _.methods = function(obj) {
     var names = [];
     for (var key in obj) {
@@ -1013,14 +996,14 @@
     return names.sort();
   };
 
-  // Extend a given object with all the properties in passed-in object(s).
+  // 使用传入对象的所有属性，扩展给定对象。
   _.extend = createAssigner(_.allKeys);
 
-  // Assigns a given object with all the own properties in the passed-in object(s)
+  // 使用传入对象的所有自有属性，扩展给定对象。
   // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
   _.extendOwn = _.assign = createAssigner(_.keys);
 
-  // Returns the first key on an object that passes a predicate test
+  // 返回对象上第一个通过条件测试的属性名称。
   _.findKey = function(obj, predicate, context) {
     predicate = cb(predicate, context);
     var keys = _.keys(obj), key;
@@ -1030,7 +1013,7 @@
     }
   };
 
-  // Return a copy of the object only containing the whitelisted properties.
+  // 返回一个对象的拷贝，只包含了白名单上给出的属性。
   _.pick = function(object, oiteratee, context) {
     var result = {}, obj = object, iteratee, keys;
     if (obj == null) return result;
@@ -1050,7 +1033,7 @@
     return result;
   };
 
-   // Return a copy of the object without the blacklisted properties.
+   // 返回一个对象的拷贝，出去了黑名单上的属性。
   _.omit = function(obj, iteratee, context) {
     if (_.isFunction(iteratee)) {
       iteratee = _.negate(iteratee);
@@ -1063,12 +1046,11 @@
     return _.pick(obj, iteratee, context);
   };
 
-  // Fill in a given object with default properties.
+  // 使用默认属性填充给定对象。
   _.defaults = createAssigner(_.allKeys, true);
 
-  // Creates an object that inherits from the given prototype object.
-  // If additional properties are provided then they will be added to the
-  // created object.
+  // 创建一个对象，它继承自给定原型对象。
+  // 如果提供了额外的属性，它们也会添加到此新创建的对象上。
   _.create = function(prototype, props) {
     var result = baseCreate(prototype);
     if (props) _.extendOwn(result, props);
@@ -1081,9 +1063,8 @@
     return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
   };
 
-  // Invokes interceptor with the obj, and then returns obj.
-  // The primary purpose of this method is to "tap into" a method chain, in
-  // order to perform operations on intermediate results within the chain.
+  // 在对象上调用拦截器，之后返回对象。
+  // 此方法的主要作用是用来介入方法链，以便对链式操作的中间值进行某些操作。
   _.tap = function(obj, interceptor) {
     interceptor(obj);
     return obj;
@@ -1101,39 +1082,37 @@
     return true;
   };
 
-
-  // Internal recursive comparison function for `isEqual`.
+  // `isEqual`的内部递归比较函数。
   var eq = function(a, b, aStack, bStack) {
-    // Identical objects are equal. `0 === -0`, but they aren't identical.
-    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
+    // 相同的对象是相等的。`0 === -0`，但它们不是相同的。
+    // 参考[Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
     if (a === b) return a !== 0 || 1 / a === 1 / b;
-    // A strict comparison is necessary because `null == undefined`.
+    // 需要严格比较，因为`null == undefined`
     if (a == null || b == null) return a === b;
-    // Unwrap any wrapped objects.
+    // 打开包装对象
     if (a instanceof _) a = a._wrapped;
     if (b instanceof _) b = b._wrapped;
-    // Compare `[[Class]]` names.
+    // 比较`[[Class]]`名字。
     var className = toString.call(a);
     if (className !== toString.call(b)) return false;
     switch (className) {
-      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
+      // 字符串，数值，正则表达式，日期，以及布尔值进行值比较。
       case '[object RegExp]':
-      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+      // 为了比较，正则表达式强制转换为字符串（注：'' + /a/i === '/a/i'）。
       case '[object String]':
-        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
-        // equivalent to `new String("5")`.
+        // 基本数据类型和它们对应的对象包装器是相等的；因此 `"5"`等于`new String("5")`。
         return '' + a === '' + b;
       case '[object Number]':
         // `NaN`s are equivalent, but non-reflexive.
-        // Object(NaN) is equivalent to NaN
+        // Object(NaN) is equivalent to NaN        
         if (+a !== +a) return +b !== +b;
         // An `egal` comparison is performed for other numeric values.
         return +a === 0 ? 1 / +a === 1 / b : +a === +b;
       case '[object Date]':
       case '[object Boolean]':
-        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
-        // millisecond representations. Note that invalid dates with millisecond representations
-        // of `NaN` are not equivalent.
+
+        // 强制转换日期和布尔值为基本数值类型。
+        // 日期以毫秒进行比较。注意无效的日期的的毫秒数为`NaN`，且不相等。
         return +a === +b;
     }
 
@@ -1141,8 +1120,7 @@
     if (!areArrays) {
       if (typeof a != 'object' || typeof b != 'object') return false;
 
-      // Objects with different constructors are not equivalent, but `Object`s or `Array`s
-      // from different frames are.
+      // 构造器不相同的对象不相等，但是`Object`或`Array`类型的除外。
       var aCtor = a.constructor, bCtor = b.constructor;
       if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
                                _.isFunction(bCtor) && bCtor instanceof bCtor)
@@ -1150,46 +1128,45 @@
         return false;
       }
     }
-    // Assume equality for cyclic structures. The algorithm for detecting cyclic
-    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+  
+    // 循环结构的相等性假设。检测循环结构的算法是改编自ES 5.1标准的15.12.3一节abstract operation `JO`
 
-    // Initializing stack of traversed objects.
-    // It's done here since we only need them for objects and arrays comparison.
+    // 初始化遍历对象的栈。
+    // 之所以在此完成，仅因为对象和数组的比较需要。
     aStack = aStack || [];
     bStack = bStack || [];
     var length = aStack.length;
-    while (length--) {
-      // Linear search. Performance is inversely proportional to the number of
-      // unique nested structures.
+    while (length--) {      
+      // 线性搜索。性能与嵌套结构的数量成反比。
       if (aStack[length] === a) return bStack[length] === b;
     }
 
-    // Add the first object to the stack of traversed objects.
+    // 将第一个对象添加到遍历对象的栈中。
     aStack.push(a);
     bStack.push(b);
 
-    // Recursively compare objects and arrays.
+    // 递归比较对象和数组。
     if (areArrays) {
-      // Compare array lengths to determine if a deep comparison is necessary.
+      // 比较数组长度，决定是否需要一个深度比较。
       length = a.length;
       if (length !== b.length) return false;
-      // Deep compare the contents, ignoring non-numeric properties.
+      // 深度比较数组内容，忽略非数值属性。
       while (length--) {
         if (!eq(a[length], b[length], aStack, bStack)) return false;
       }
     } else {
-      // Deep compare objects.
+      // 深度比较对象。
       var keys = _.keys(a), key;
       length = keys.length;
-      // Ensure that both objects contain the same number of properties before comparing deep equality.
+      // 在进行深度比较前，保证两个对象包含同等数量的属性。
       if (_.keys(b).length !== length) return false;
       while (length--) {
-        // Deep compare each member
+        // 深度比较每个成员。
         key = keys[length];
         if (!(_.has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
       }
     }
-    // Remove the first object from the stack of traversed objects.
+    // 从遍历对象的栈中，删除首个对象。
     aStack.pop();
     bStack.pop();
     return true;
@@ -1232,8 +1209,7 @@
     };
   });
 
-  // Define a fallback version of the method in browsers (ahem, IE < 9), where
-  // there isn't any inspectable "Arguments" type.
+  // 在那些检测不到"Arguments"类型的浏览器中（IE < 9），定义一个回退版本的方法。
   if (!_.isArguments(arguments)) {
     _.isArguments = function(obj) {
       return _.has(obj, 'callee');
@@ -1277,11 +1253,10 @@
     return obj != null && hasOwnProperty.call(obj, key);
   };
 
-  // Utility Functions
+  // 工具函数
   // -----------------
-
-  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
-  // previous owner. Returns a reference to the Underscore object.
+  // 在*noConflict*模式下运行Underscore.js，将`_`变量返回给它之前的所有者。
+  // 返回一个Underscore对象的引用。
   _.noConflict = function() {
     root._ = previousUnderscore;
     return this;
@@ -1292,7 +1267,7 @@
     return value;
   };
 
-  // Predicate-generating functions. Often useful outside of Underscore.
+  // 生成器函数，生成一个返回传进的参数值的函数。通常在Underscore的外面有用。
   _.constant = function(value) {
     return function() {
       return value;
@@ -1335,12 +1310,12 @@
     return min + Math.floor(Math.random() * (max - min + 1));
   };
 
-  // A (possibly faster) way to get the current timestamp as an integer.
+  // 以整数形式获取当前时间戳的一种方法（可能更快）。
   _.now = Date.now || function() {
     return new Date().getTime();
   };
 
-   // List of HTML entities for escaping.
+   // 用于转义的HTML实体的列表。
   var escapeMap = {
     '&': '&amp;',
     '<': '&lt;',
@@ -1351,12 +1326,12 @@
   };
   var unescapeMap = _.invert(escapeMap);
 
-  // Functions for escaping and unescaping strings to/from HTML interpolation.
+  // 用来实现HTML插入时的字符串的转义与反转义。
   var createEscaper = function(map) {
     var escaper = function(match) {
       return map[match];
     };
-    // Regexes for identifying a key that needs to be escaped
+    // 正则表达式，用来标识一个需要转义的关键字。
     var source = '(?:' + _.keys(map).join('|') + ')';
     var testRegexp = RegExp(source);
     var replaceRegexp = RegExp(source, 'g');
@@ -1368,8 +1343,8 @@
   _.escape = createEscaper(escapeMap);
   _.unescape = createEscaper(unescapeMap);
 
-  // If the value of the named `property` is a function then invoke it with the
-  // `object` as context; otherwise, return it.
+  // 如果`property`的值是函数类型，那么在`object`上调用它，并返回值；
+  // 否则直接返回`property`的值。
   _.result = function(object, property, fallback) {
     var value = object == null ? void 0 : object[property];
     if (value === void 0) {
@@ -1378,29 +1353,27 @@
     return _.isFunction(value) ? value.call(object) : value;
   };
 
-  // Generate a unique integer id (unique within the entire client session).
-  // Useful for temporary DOM ids.
+  // 生成一个唯一的整数id(在整个客户端会话中唯一)。
+  // 用来作临时DOM的id很有用。
   var idCounter = 0;
   _.uniqueId = function(prefix) {
     var id = ++idCounter + '';
     return prefix ? prefix + id : id;
   };
 
-  // By default, Underscore uses ERB-style template delimiters, change the
-  // following template settings to use alternative delimiters.
+  // 默认情况下，Underscore使用ERB风格的模板分隔符，
+  // 改变下面模板的设置来使用别的分隔符。
   _.templateSettings = {
     evaluate    : /<%([\s\S]+?)%>/g,
     interpolate : /<%=([\s\S]+?)%>/g,
     escape      : /<%-([\s\S]+?)%>/g
   };
 
-  // When customizing `templateSettings`, if you don't want to define an
-  // interpolation, evaluation or escaping regex, we need one that is
-  // guaranteed not to match.
+  // 当定制`templateSettings`时，如果你不想定义插值，求值，转义的正则，
+  // 那么需要一个保证不会匹配的正则。
   var noMatch = /(.)^/;
 
-  // Certain characters need to be escaped so that they can be put into a
-  // string literal.
+  // 某些字符需要转义，保证他们可以被放到字符串字面量中。
   var escapes = {
     "'":      "'",
     '\\':     '\\',
@@ -1416,22 +1389,22 @@
     return '\\' + escapes[match];
   };
 
-  // JavaScript micro-templating, similar to John Resig's implementation.
-  // Underscore templating handles arbitrary delimiters, preserves whitespace,
-  // and correctly escapes quotes within interpolated code.
-  // NB: `oldSettings` only exists for backwards compatibility.
+  // JavaScript微型模板（micro-templating），与John Resig的实现类似。
+  // Underscore的农办可处理任意类型的分隔符，保留空白符，并且能正确转义
+  // 插入代码中的引号。
+  // 注：`oldSettings`的存在只为向后兼容。
   _.template = function(text, settings, oldSettings) {
     if (!settings && oldSettings) settings = oldSettings;
     settings = _.defaults({}, settings, _.templateSettings);
 
-    // Combine delimiters into one regular expression via alternation.
+    // 通过间隔符将分隔符组合成一个正则表达式。
     var matcher = RegExp([
       (settings.escape || noMatch).source,
       (settings.interpolate || noMatch).source,
       (settings.evaluate || noMatch).source
     ].join('|') + '|$', 'g');
 
-    // Compile the template source, escaping string literals appropriately.
+    // 编译模板源代码，适时转义字符串常量。
     var index = 0;
     var source = "__p+='";
     text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
@@ -1446,12 +1419,12 @@
         source += "';\n" + evaluate + "\n__p+='";
       }
 
-      // Adobe VMs need the match returned to produce the correct offest.
+      // Adobe VMs需要这个返回的匹配值，以便生成正确的偏移。
       return match;
     });
     source += "';\n";
 
-    // If a variable is not specified, place data values in local scope.
+    // 如果未指定变量，就将数据值放在局部范围内。
     if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
 
     source = "var __t,__p='',__j=Array.prototype.join," +
@@ -1469,32 +1442,31 @@
       return render.call(this, data, _);
     };
 
-    // Provide the compiled source as a convenience for precompilation.
+    // 为预编译提供编译后的源代码。
     var argument = settings.variable || 'obj';
     template.source = 'function(' + argument + '){\n' + source + '}';
 
     return template;
   };
 
-  // Add a "chain" function. Start chaining a wrapped Underscore object.
+  // 添加一个"chain"函数。开始链接一个包装后的Underscore对象。
   _.chain = function(obj) {
     var instance = _(obj);
     instance._chain = true;
     return instance;
   };
 
-  // OOP
+  // 面向对象（OOP）
   // ---------------
-  // If Underscore is called as a function, it returns a wrapped object that
-  // can be used OO-style. This wrapper holds altered versions of all the
-  // underscore functions. Wrapped objects may be chained.
+  // 如果Underscore是以函数的形式调用，它会返回一个包装对象，可以实现OOP样式。
+  // 这个包装器所有Underscore函数的修订版本。包装对象可以链式调用。
 
-  // Helper function to continue chaining intermediate results.
+  // 辅助函数，用来继续链接中间值。
   var result = function(instance, obj) {
     return instance._chain ? _(obj).chain() : obj;
   };
 
-  // Add your own custom functions to the Underscore object.
+  // 将你自己定制的函数添加到Underscore对象上。
   _.mixin = function(obj) {
     _.each(_.functions(obj), function(name) {
       var func = _[name] = obj[name];
@@ -1506,10 +1478,10 @@
     });
   };
 
-  // Add all of the Underscore functions to the wrapper object.
+  // 将所有Underscore的函数添加到包装对象上。
   _.mixin(_);
 
-  // Add all mutator Array functions to the wrapper.
+  // 将所有变种的数组函数添加到包装对象上。
   _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
     var method = ArrayProto[name];
     _.prototype[name] = function() {
@@ -1520,7 +1492,7 @@
     };
   });
 
-  // Add all accessor Array functions to the wrapper.
+  // 将所有数组访问函数添加到包装对象上。
   _.each(['concat', 'join', 'slice'], function(name) {
     var method = ArrayProto[name];
     _.prototype[name] = function() {
@@ -1528,13 +1500,13 @@
     };
   });
 
-  // Extracts the result from a wrapped and chained object.
+  // 从包装的和链接的对象上提取结果。
   _.prototype.value = function() {
     return this._wrapped;
   };
 
-  // Provide unwrapping proxy for some methods used in engine operations
-  // such as arithmetic and JSON stringification.
+  // 为引擎操作中使用的一些方法提供解包代理，
+  // 比如算法或JSON字符串化。
   _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
 
   _.prototype.toString = function() {
@@ -1548,6 +1520,8 @@
   // popular enough to be bundled in a third party lib, but not be part of
   // an AMD load request. Those cases could generate an error when an
   // anonymous define() is called outside of a loader request.
+  // 
+  // 
   if (typeof define === 'function' && define.amd) {
     define('underscore', [], function() {
       return _;
