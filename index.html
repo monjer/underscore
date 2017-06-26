@@ -871,8 +871,7 @@ _.intersection([1, 2, 3], [101, 2, 1, 10], [2, 1]);
       <p id="difference">
         <b class="header">difference</b><code>_.difference(array, *others)</code>
         <br />
-        Similar to <b>without</b>, but returns the values from <b>array</b> that
-        are not present in the <b>other</b> arrays.
+        与<b>without</b>类似，但返回是在<b>array</b>中而不在<b>其它</b>数组中的值。
       </p>
       <pre>
 _.difference([1, 2, 3, 4, 5], [5, 2, 10]);
@@ -883,12 +882,9 @@ _.difference([1, 2, 3, 4, 5], [5, 2, 10]);
         <b class="header">uniq</b><code>_.uniq(array, [isSorted], [iteratee])</code>
         <span class="alias">Alias: <b>unique</b></span>
         <br />
-        Produces a duplicate-free version of the <b>array</b>, using <i>===</i> to test
-        object equality. In particular only the first occurence of each value is kept.
-        If you know in advance that the <b>array</b> is sorted,
-        passing <i>true</i> for <b>isSorted</b> will run a much faster algorithm.
-        If you want to compute unique items based on a transformation, pass an
-        <b>iteratee</b> function.
+        生成一个没有重复元素的<b>array</b>，使用<i>===</i>来测试对象的相等性。每项都会保存出现第一个值。
+        如果你提前知道<b>array</b>是排过序的，<b>isSorted</b>传入true值，算法会更快些。如果你希望基于
+        转换后的计算来来计算唯一元素，请传入<b>iteratee</b>函数。
       </p>
       <pre>
 _.uniq([1, 2, 1, 4, 1, 3]);
@@ -898,11 +894,8 @@ _.uniq([1, 2, 1, 4, 1, 3]);
       <p id="zip">
         <b class="header">zip</b><code>_.zip(*arrays)</code>
         <br />
-        Merges together the values of each of the <b>arrays</b> with the
-        values at the corresponding position. Useful when you have separate
-        data sources that are coordinated through matching array indexes.
-        If you're working with a matrix of nested arrays, <tt>_.zip.apply</tt>
-        can transpose the matrix in a similar fashion.
+        将<b>arrays</b>中的值进行合并，位置相同的值放在一起。当你有独立的数据源，并需要用数组索引来互相协调，
+        这时此函数很有用。如果你当前正使用嵌套数组组成的矩阵，<tt>_.zip.apply</tt>能将其以同等方式进行转换。
       </p>
       <pre>
 _.zip(['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false]);
@@ -913,10 +906,8 @@ _.zip(['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false]);
 <p id="unzip">
         <b class="header">unzip</b><code>_.unzip(*arrays)</code>
         <br>
-        The opposite of <a href="#zip">zip</a>. Given a number of <b>arrays</b>, returns a
-        series of new arrays, the first of which contains all of the first elements
-        in the input arrays, the second of which contains all of the second elements,
-        and so on. Use with <tt>apply</tt> to pass in an array of arrays.
+        <a href="#zip">zip</a>的反操作。给定一组<b>arrays</b>，返回一串新数组，第一个数组包含了所有输入数组的第一个元素，
+        第二个数组包含了所有输入数组的第二个元素。使用<tt>apply</tt>可以传入数组的数组。
       </p>
       <pre>
 _.unzip(["moe", 30, true], ["larry", 40, false], ["curly", 50, false]);
@@ -926,9 +917,8 @@ _.unzip(["moe", 30, true], ["larry", 40, false], ["curly", 50, false]);
       <p id="object">
         <b class="header">object</b><code>_.object(list, [values])</code>
         <br />
-        Converts arrays into objects. Pass either a single list of
-        <tt>[key, value]</tt> pairs, or a list of keys, and a list of values.
-        If duplicate keys exist, the last value wins.
+        将数组转换为对象。或者传入单独的<tt>[key, value]</tt>对列表，或传入一个键的列表和一个值的列表。
+        如果有重复存在的键，会保留最后一个值。
       </p>
       <pre>
 _.object(['moe', 'larry', 'curly'], [30, 40, 50]);
@@ -941,12 +931,9 @@ _.object([['moe', 30], ['larry', 40], ['curly', 50]]);
       <p id="indexOf">
         <b class="header">indexOf</b><code>_.indexOf(array, value, [isSorted])</code>
         <br />
-        Returns the index at which <b>value</b> can be found in the <b>array</b>,
-        or <i>-1</i> if value is not present in the <b>array</b>. If you're working with a
-        large array, and you know that the array is already sorted, pass <tt>true</tt>
-        for <b>isSorted</b> to use a faster binary search ... or, pass a number as
-        the third argument in order to look for the first matching value in the
-        array after the given index.
+        返回<b>value</b>在<b>array</b>中的索引，如果<b>array</b>中不存在此值，返回<i>-1</i>。
+        如果你正使用一个大数组，并且知道数组是已排过序，<b>isSorted</b>传入<tt>true</tt>可以使用更快的
+        二分查找法...第三个参数传入一数值，可以在给定索引后查找第一个匹配元素的索引。
       </p>
       <pre>
 _.indexOf([1, 2, 3], 2);
@@ -956,9 +943,7 @@ _.indexOf([1, 2, 3], 2);
       <p id="lastIndexOf">
         <b class="header">lastIndexOf</b><code>_.lastIndexOf(array, value, [fromIndex])</code>
         <br />
-        Returns the index of the last occurrence of <b>value</b> in the <b>array</b>,
-        or <i>-1</i> if value is not present. Pass <b>fromIndex</b> to start your search at a
-        given index.
+        返回<b>value</b>在<b>array</b>中的最后一次出现的索引，如果只不存在就返回<i>-1</i>。<b>fromIndex</b>指定搜索的起始位置。
       </p>
       <pre>
 _.lastIndexOf([1, 2, 3, 1, 2, 3], 2);
@@ -968,11 +953,8 @@ _.lastIndexOf([1, 2, 3, 1, 2, 3], 2);
       <p id="sortedIndex">
         <b class="header">sortedIndex</b><code>_.sortedIndex(list, value, [iteratee], [context])</code>
         <br />
-        Uses a binary search to determine the index at which the <b>value</b>
-        <i>should</i> be inserted into the <b>list</b> in order to maintain the <b>list</b>'s
-        sorted order. If an <b>iteratee</b> function is provided, it will be used to compute
-        the sort ranking of each value, including the <b>value</b> you pass.
-        The iteratee may also be the string name of the property to sort by (eg. <tt>length</tt>).
+        使用二分查找法，决定<b>value</b>在<b>list</b>中<i>应该</i>插入的位置，这样才能维护<b>list</b>的排列顺序。
+        如果提供<b>iteratee</b>函数，它会用于计算每个值的排名，包括你传进去的<b>value</b>。iteratee也可以进行排序的属性名称（比如<tt>length</tt>）。
       </p>
       <pre>
 _.sortedIndex([10, 20, 30, 40, 50], 35);
@@ -986,8 +968,8 @@ _.sortedIndex(stooges, {name: 'larry', age: 50}, 'age');
       <p id="findIndex">
         <b class="header">findIndex</b><code>_.findIndex(array, predicate, [context])</code>
         <br />
-        Similar to <a href="#indexOf"><tt>_.indexOf</tt></a>, returns the first index
-        where the <strong>predicate</strong> truth test passes; otherwise returns <i>-1</i>.
+        与<a href="#indexOf"><tt>_.indexOf</tt></a>类似，返回第一个通过 <strong>predicate</strong> truth测试值的索引，
+        否则返回<i>-1</i>。
       </p>
       <pre>
 _.findIndex([4, 6, 8, 12], isPrime);
@@ -1002,6 +984,8 @@ _.findIndex([4, 6, 7, 12], isPrime);
         Like <a href="#findIndex"><tt>_.findIndex</tt></a> but iterates the array in reverse,
         returning the index closest to the end where the <strong>predicate</strong> truth test
         passes.
+        与<a href="#findIndex"><tt>_.findIndex</tt></a>类似，但从反方向遍历数组，从末端开始，
+        返回第一个通过<strong>predicate</strong> truth测试的元素索引。
       </p>
       <pre>
 var users = [{'id': 1, 'name': 'Bob', 'last': 'Brown'},
@@ -1017,13 +1001,9 @@ _.findLastIndex(users, {
       <p id="range">
         <b class="header">range</b><code>_.range([start], stop, [step])</code>
         <br />
-        A function to create flexibly-numbered lists of integers, handy for
-        <tt>each</tt> and <tt>map</tt> loops. <b>start</b>, if omitted, defaults
-        to <i>0</i>; <b>step</b> defaults to <i>1</i>. Returns a list of integers
-        from <b>start</b> (inclusive) to <b>stop</b> (exclusive), incremented (or decremented) by <b>step</b>,
-        exclusive. Note that ranges that <b>stop</b> before they <b>start</b>
-        are considered to be zero-length instead of negative — if you'd like a
-        negative range, use a negative <b>step</b>.
+        一个用来灵活创建整数列表的函数，值可以被<tt>each</tt> 和 <tt>map</tt> 遍历。<b>start</b>的缺省值默认为<i>0</i>；
+        <b>step</b>的缺省值默认为<i>1</i>。返回一个整数列表，从<b>start</b>（包含start）开始，到<b>stop</b>（包含）结束，以<b>step</b>为累加（或递减）值。
+        如果<b>start</b>大于<b>stop</b>并且<b>step</b>为正值，则返回的是空列表，而不是负数列表 - 如果你需要一个负数值列表，请使用负数<b>step</b>。
       </p>
       <pre>
 _.range(10);
@@ -1278,12 +1258,12 @@ welcome('moe');
 =&gt; 'hi: MOE!'
 </pre>
 
-      <h2 id="objects">Object Functions</h2>
+      <h2 id="objects">对象函数 - Object Functions</h2>
 
       <p id="keys">
         <b class="header">keys</b><code>_.keys(object)</code>
         <br />
-        Retrieve all the names of the <b>object</b>'s own enumerable properties.
+        获取<b>object</b>本身所有可枚举属性的名称。
       </p>
       <pre>
 _.keys({one: 1, two: 2, three: 3});
@@ -1293,7 +1273,7 @@ _.keys({one: 1, two: 2, three: 3});
       <p id="allKeys">
         <b class="header">allKeys</b><code>_.allKeys(object)</code>
         <br />
-        Retrieve <i>all</i> the names of <b>object</b>'s own and inherited properties.
+        获取<b>object</b>本身和继承下来的所有属性的名称。
       </p>
       <pre>
 function Stooge(name) {
@@ -1307,7 +1287,7 @@ _.allKeys(new Stooge("Moe"));
       <p id="values">
         <b class="header">values</b><code>_.values(object)</code>
         <br />
-        Return all of the values of the <b>object</b>'s own properties.
+        返回<b>object</b>所有自有属性的值。
       </p>
       <pre>
 _.values({one: 1, two: 2, three: 3});
@@ -1317,8 +1297,7 @@ _.values({one: 1, two: 2, three: 3});
 <p id="mapObject">
         <b class="header">mapObject</b><code>_.mapObject(object, iteratee, [context])</code>
         <br />
-        Like <a href="#map">map</a>, but for objects. Transform the value
-        of each property in turn.
+        类似<a href="#map">map</a>，但用于对象。依次转换每个属性值。
       </p>
       <pre>
 _.mapObject({start: 5, end: 12}, function(val, key) {
@@ -1330,7 +1309,7 @@ _.mapObject({start: 5, end: 12}, function(val, key) {
       <p id="pairs">
         <b class="header">pairs</b><code>_.pairs(object)</code>
         <br />
-        Convert an object into a list of <tt>[key, value]</tt> pairs.
+        将对象转换为一个 <tt>[key, value]</tt>对的列表。
       </p>
       <pre>
 _.pairs({one: 1, two: 2, three: 3});
@@ -1340,9 +1319,7 @@ _.pairs({one: 1, two: 2, three: 3});
       <p id="invert">
         <b class="header">invert</b><code>_.invert(object)</code>
         <br />
-        Returns a copy of the <b>object</b> where the keys have become the values
-        and the values the keys. For this to work, all of your object's values
-        should be unique and string serializable.
+        返回<b>object</b>的副本，键变成了值，值变成了键。为了保证运行正常，所有对象的值必须唯一，而且是可序列化为字符串。
       </p>
       <pre>
 _.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
@@ -1355,6 +1332,8 @@ _.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
         Creates a new object with the given prototype, optionally attaching
         <b>props</b> as <i>own</i> properties. Basically, <tt>Object.create</tt>,
         but without all of the property descriptor jazz.
+        根据给定的原型对象，创建一个新对象，可附加<b>props</b>作为它<i>自己</i>(own)的属性。
+        基本上与<tt>Object.create</tt>类似，但没有花哨的属性描述符。
       </p>
       <pre>
 var moe = _.create(Stooge.prototype, {name: "Moe"});
@@ -1364,8 +1343,7 @@ var moe = _.create(Stooge.prototype, {name: "Moe"});
         <b class="header">functions</b><code>_.functions(object)</code>
         <span class="alias">Alias: <b>methods</b></span>
         <br />
-        Returns a sorted list of the names of every method in an object &mdash;
-        that is to say, the name of every function property of the object.
+        返回一个对象上所有方法名称的排序列表&mdash;也就是说，对象的每个函数属性的名称。
       </p>
       <pre>
 _.functions(_);
@@ -1375,18 +1353,15 @@ _.functions(_);
       <p id="findKey">
         <b class="header">findKey</b><code>_.findKey(object, predicate, [context])</code>
         <br />
-        Similar to <a href="#findIndex"><tt>_.findIndex</tt></a> but for keys in objects.
-        Returns the <i>key</i> where the <b>predicate</b> truth test
-        passes or <i>undefined</i>.
+        与<a href="#findIndex"><tt>_.findIndex</tt></a> 类似，但作用于对象上。返回通过<b>predicate</b> truth测试的
+        <i>key</i>，否则返回<i>undefined</i>。
       </p>
 
       <p id="extend">
         <b class="header">extend</b><code>_.extend(destination, *sources)</code>
         <br />
-        Copy all of the properties <strong>in</strong> the <b>source</b> objects over to the
-        <b>destination</b> object, and return the <b>destination</b> object.
-        It's in-order, so the last source will override properties of the same
-        name in previous arguments.
+        挨个拷贝所有<strong>存在（in）</strong>于<b>source</b>对象上的所有属性到<b>destination</b>对象上，并返回<b>destination</b>对象。
+        拷贝是按顺序的，所以后一个对象会覆盖上一个对象的同名属性。
       </p>
       <pre>
 _.extend({name: 'moe'}, {age: 50});
@@ -1395,10 +1370,9 @@ _.extend({name: 'moe'}, {age: 50});
 
       <p id="extendOwn">
         <b class="header">extendOwn</b><code>_.extendOwn(destination, *sources)</code>
-        <span class="alias">Alias: <b>assign</b></span>
+        <span class="alias">别名: <b>assign</b></span>
         <br />
-        Like <b>extend</b>, but only copies <i>own</i> properties over to the
-        destination object.
+        与<b>extend</b>类似，但值拷贝<i>自身（own）</i>属性目标对象上。
       </p>
 
       <p id="pick">
@@ -1562,7 +1536,7 @@ _.isEmpty({});
       <p id="isElement">
         <b class="header">isElement</b><code>_.isElement(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is a DOM element.
+        如果<b>object</b>是一个DOM元素就返回<i>true</i>。
       </p>
       <pre>
 _.isElement(jQuery('body')[0]);
@@ -1572,7 +1546,7 @@ _.isElement(jQuery('body')[0]);
       <p id="isArray">
         <b class="header">isArray</b><code>_.isArray(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is an Array.
+        如果<b>object</b>是一个数组就返回<i>true</i>。
       </p>
       <pre>
 (function(){ return _.isArray(arguments); })();
@@ -1597,7 +1571,7 @@ _.isObject(1);
       <p id="isArguments">
         <b class="header">isArguments</b><code>_.isArguments(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is an Arguments object.
+        如果<b>object</b>是一个参数对象就返回<i>true</i>。
       </p>
       <pre>
 (function(){ return _.isArguments(arguments); })(1, 2, 3);
@@ -1609,7 +1583,7 @@ _.isArguments([1,2,3]);
       <p id="isFunction">
         <b class="header">isFunction</b><code>_.isFunction(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is a Function.
+        如果<b>object</b>是一个函数就返回<i>true</i>。
       </p>
       <pre>
 _.isFunction(alert);
@@ -1619,7 +1593,7 @@ _.isFunction(alert);
       <p id="isString">
         <b class="header">isString</b><code>_.isString(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is a String.
+        如果<b>object</b>是一个字符串就返回<i>true</i>。
       </p>
       <pre>
 _.isString("moe");
@@ -1629,7 +1603,7 @@ _.isString("moe");
       <p id="isNumber">
         <b class="header">isNumber</b><code>_.isNumber(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is a Number (including <tt>NaN</tt>).
+        如果<b>object</b>是一个数值（包括<tt>NaN</tt>）就返回<i>true</i>。
       </p>
       <pre>
 _.isNumber(8.4 * 5);
@@ -1639,7 +1613,7 @@ _.isNumber(8.4 * 5);
       <p id="isFinite">
         <b class="header">isFinite</b><code>_.isFinite(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is a finite Number.
+        如果<b>object</b>是一个有限值就返回<i>true</i>。
       </p>
       <pre>
 _.isFinite(-101);
@@ -1652,7 +1626,7 @@ _.isFinite(-Infinity);
       <p id="isBoolean">
         <b class="header">isBoolean</b><code>_.isBoolean(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is either <i>true</i> or <i>false</i>.
+        如果<b>object</b>是一个<i>true</i>或<i>false</i>就返回<i>true</i>。
       </p>
       <pre>
 _.isBoolean(null);
@@ -1662,7 +1636,7 @@ _.isBoolean(null);
       <p id="isDate">
         <b class="header">isDate</b><code>_.isDate(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is a Date.
+        如果<b>object</b>是一个日志就返回<i>true</i>。
       </p>
       <pre>
 _.isDate(new Date());
@@ -1672,7 +1646,7 @@ _.isDate(new Date());
       <p id="isRegExp">
         <b class="header">isRegExp</b><code>_.isRegExp(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is a RegExp.
+        如果<b>object</b>是一个正则表达式就返回<i>true</i>。
       </p>
       <pre>
 _.isRegExp(/moe/);
@@ -1683,6 +1657,7 @@ _.isRegExp(/moe/);
         <b class="header">isError</b><code>_.isError(object)</code>
         <br />
         Returns <i>true</i> if <b>object</b> inherrits from an Error.
+        如果<b>object</b>继承自Error就返回<i>true</i>。
       </p>
       <pre>
 try {
@@ -1712,7 +1687,7 @@ _.isNaN(undefined);
       <p id="isNull">
         <b class="header">isNull</b><code>_.isNull(object)</code>
         <br />
-        Returns <i>true</i> if the value of <b>object</b> is <i>null</i>.
+        如果<b>object</b>是一个<i>null</i>就返回<i>true</i>。
       </p>
       <pre>
 _.isNull(null);
@@ -1725,6 +1700,7 @@ _.isNull(undefined);
         <b class="header">isUndefined</b><code>_.isUndefined(value)</code>
         <br />
         Returns <i>true</i> if <b>value</b> is <i>undefined</i>.
+        如果<b>object</b>是一个<i>undefined</i>就返回<i>true</i>。
       </p>
       <pre>
 _.isUndefined(window.missingVariable);
