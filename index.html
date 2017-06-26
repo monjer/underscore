@@ -1495,8 +1495,7 @@ var readyToGoList = _.filter(list, ready);</pre>
       <p id="isEqual">
         <b class="header">isEqual</b><code>_.isEqual(object, other)</code>
         <br />
-        Performs an optimized deep comparison between the two objects, to determine
-        if they should be considered equal.
+        对两个对象执行一次优化过的深度比较，判断它们是否相等。
       </p>
       <pre>
 var stooge = {name: 'moe', luckyNumbers: [13, 27, 34]};
@@ -1510,8 +1509,7 @@ _.isEqual(stooge, clone);
       <p id="isMatch">
         <b class="header">isMatch</b><code>_.isMatch(object, properties)</code>
         <br />
-        Tells you if the keys and values in <b>properties</b> are contained
-        in <b>object</b>.
+        如果<b>object</b>中包含<b>properties</b>中的所有键值就返回true。
       </p>
       <pre>
 var stooge = {name: 'moe', age: 32};
@@ -1522,9 +1520,8 @@ _.isMatch(stooge, {age: 32});
       <p id="isEmpty">
         <b class="header">isEmpty</b><code>_.isEmpty(object)</code>
         <br />
-        Returns <i>true</i> if an enumerable <b>object</b> contains no
-        values (no enumerable own-properties). For strings and array-like
-        objects <tt>_.isEmpty</tt> checks if the length property is 0.
+        如果一个可枚举的<b>对象</b>没有任何值（没有可枚举的自有属性）就返回<i>true</i>。对于字符串和类数组对象
+        <tt>_.isEmpty</tt>检测length属性是否为0。
       </p>
       <pre>
 _.isEmpty([1, 2, 3]);
@@ -1558,8 +1555,7 @@ _.isArray([1,2,3]);
       <p id="isObject">
         <b class="header">isObject</b><code>_.isObject(value)</code>
         <br />
-        Returns <i>true</i> if <b>value</b> is an Object. Note that JavaScript
-        arrays and functions are objects, while (normal) strings and numbers are not.
+        如果<b>value</b>是一个对象就返回<i>true</i>。注意在JavaScript中数组和函数是对象，而普通的字符串和数值不是。
       </p>
       <pre>
 _.isObject({});
