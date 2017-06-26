@@ -357,7 +357,7 @@
     </p>
 
     <p>
-      <a href="http://github.com/jashkenas/underscore/">Underscore</a>      
+      <a href="http://github.com/jashkenas/underscore/">Underscore</a>
       是一个JavaScript库，提供了一整套函数式编程的辅助工具，并且没有扩展任何内置对象。
       它回答了这样一个问题：“如果我在一个空白的HTML页面前坐下，想要立即开始工作，那我需要什么？”
       ...以及如何与<a href="http://jquery.com">jQuery</a>和<a href="http://backbonejs.org">Backbone</a>链接。
@@ -485,7 +485,7 @@ _.map([[1, 2], [3, 4]], _.first);
         每步成功调用后的值都要由<b>iteratee</b>返回。<b>iteratee</b>调用时会传入四个参数：<tt>memo</tt>，<tt>value</tt>，
         <tt>index</tt> (or key) ，最后是整个<tt>list</tt>的引用。
       </p>
-      <p>        
+      <p>
         如果reduce的初始调用没有传入memo，iteratee就不会在列表的第一个元素上调用。第一个元素会替代为memo参数，
         传入到在列表下一个元素上调用的iteratee里。
       </p>
@@ -547,7 +547,7 @@ _.where(listOfPlays, {author: "Shakespeare", year: 1611});
         <br />
         遍历<b>list</b>中的每个值，返回第一个匹配的元素，它包含了<b>properties</b>中的所有键值对。
       </p>
-      <p>        
+      <p>
         如果没有匹配的元素，或者<b>list</b> 是空的，就返回一个 <i>undefined</i>值。
       </p>
       <pre>
@@ -735,7 +735,7 @@ _.sample([1, 2, 3, 4, 5, 6], 3);
 
       <p id="toArray">
         <b class="header">toArray</b><code>_.toArray(list)</code>
-        <br />        
+        <br />
         从<b>list</b>（任何可迭代的对象）中返回一个真正的数组。在转换<b>arguments</b>对象是很有用。
       </p>
       <pre>
@@ -828,8 +828,7 @@ _.compact([0, 1, false, 2, '', 3]);
       <p id="flatten">
         <b class="header">flatten</b><code>_.flatten(array, [shallow])</code>
         <br />
-        Flattens a nested <b>array</b> (the nesting can be to any depth). If you
-        pass <b>shallow</b>, the array will only be flattened a single level.
+        精简（除去嵌套数组的层）一个嵌套的<b>array</b>（嵌套可以是任意层级）。如果传入 <b>shallow</b>，数组只精简一层。
       </p>
       <pre>
 _.flatten([1, [2], [3, [[4]]]]);
@@ -842,8 +841,7 @@ _.flatten([1, [2], [3, [[4]]]], true);
       <p id="without">
         <b class="header">without</b><code>_.without(array, *values)</code>
         <br />
-        Returns a copy of the <b>array</b> with all instances of the <b>values</b>
-        removed.
+        返回一个删除了所有<b>values</b>后的<b>array</b>的拷贝。
       </p>
       <pre>
 _.without([1, 2, 1, 0, 3, 1, 4], 0, 1);
@@ -853,8 +851,7 @@ _.without([1, 2, 1, 0, 3, 1, 4], 0, 1);
       <p id="union">
         <b class="header">union</b><code>_.union(*arrays)</code>
         <br />
-        Computes the union of the passed-in <b>arrays</b>: the list of unique items,
-        in order, that are present in one or more of the <b>arrays</b>.
+        计算传入<b>arrays</b>的并集：一个唯一按顺序的元素列表，每个元素可能出现在一个或多个<b>arrays</b>中
       </p>
       <pre>
 _.union([1, 2, 3], [101, 2, 1, 10], [2, 1]);
@@ -864,8 +861,7 @@ _.union([1, 2, 3], [101, 2, 1, 10], [2, 1]);
       <p id="intersection">
         <b class="header">intersection</b><code>_.intersection(*arrays)</code>
         <br />
-        Computes the list of values that are the intersection of all the <b>arrays</b>.
-        Each value in the result is present in each of the <b>arrays</b>.
+        计算<b>arrays</b>的交集，返回一个列表，列表中元素都要出现在<b>arrays</b>。
       </p>
       <pre>
 _.intersection([1, 2, 3], [101, 2, 1, 10], [2, 1]);
@@ -1356,7 +1352,7 @@ _.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
       <p id="create">
         <b class="header">create</b><code>_.create(prototype, props)</code>
         <br />
-        Creates a new object with the given prototype, optionally attaching 
+        Creates a new object with the given prototype, optionally attaching
         <b>props</b> as <i>own</i> properties. Basically, <tt>Object.create</tt>,
         but without all of the property descriptor jazz.
       </p>
@@ -1401,7 +1397,7 @@ _.extend({name: 'moe'}, {age: 50});
         <b class="header">extendOwn</b><code>_.extendOwn(destination, *sources)</code>
         <span class="alias">Alias: <b>assign</b></span>
         <br />
-        Like <b>extend</b>, but only copies <i>own</i> properties over to the 
+        Like <b>extend</b>, but only copies <i>own</i> properties over to the
         destination object.
       </p>
 
@@ -1452,7 +1448,7 @@ _.defaults(iceCream, {flavor: "vanilla", sprinkles: "lots"});
       <p id="clone">
         <b class="header">clone</b><code>_.clone(object)</code>
         <br />
-        Create a shallow-copied clone of the provided <i>plain</i> <b>object</b>. 
+        Create a shallow-copied clone of the provided <i>plain</i> <b>object</b>.
         Any nested objects or arrays will be copied by reference, not duplicated.
       </p>
       <pre>
@@ -2157,7 +2153,7 @@ _([1, 2, 3]).value();
         <b class="header">1.8.3</b> &mdash; <small><i>April 2, 2015</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.8.2...1.8.3">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.8.3/index.html">Docs</a><br />
         <ul>
           <li>
-            Adds an <tt>_.create</tt> method, as a slimmed down version of 
+            Adds an <tt>_.create</tt> method, as a slimmed down version of
             <tt>Object.create</tt>.
           </li>
           <li>
@@ -2171,7 +2167,7 @@ _([1, 2, 3]).value();
         <b class="header">1.8.2</b> &mdash; <small><i>Feb. 22, 2015</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.8.1...1.8.2">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.8.2/index.html">Docs</a><br />
         <ul>
           <li>
-            Restores the previous old-Internet-Explorer edge cases changed in 
+            Restores the previous old-Internet-Explorer edge cases changed in
             1.8.1.
           </li>
           <li>
@@ -2184,7 +2180,7 @@ _([1, 2, 3]).value();
         <b class="header">1.8.1</b> &mdash; <small><i>Feb. 19, 2015</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.8.0...1.8.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.8.1/index.html">Docs</a><br />
         <ul>
           <li>
-            Fixes/changes some old-Internet Explorer and related edge case 
+            Fixes/changes some old-Internet Explorer and related edge case
             behavior. Test your app with Underscore 1.8.1 in an old IE and let
             us know how it's doing...
           </li>
@@ -2203,7 +2199,7 @@ _([1, 2, 3]).value();
             names on an object.
           </li>
           <li>
-            Reverted a 1.7.0 change where <tt>_.extend</tt> only copied "own" 
+            Reverted a 1.7.0 change where <tt>_.extend</tt> only copied "own"
             properties. Hopefully this will un-break you &mdash; if it breaks you
             again, I apologize.
           </li>
@@ -2217,7 +2213,7 @@ _([1, 2, 3]).value();
           </li>
           <li>
             Added an <tt>_.isMatch</tt> predicate function that tells you if an
-            object matches key-value properties. A kissing cousin of 
+            object matches key-value properties. A kissing cousin of
             <tt>_.isEqual</tt> and <tt>_.matcher</tt>.
           </li>
           <li>
@@ -2232,7 +2228,7 @@ _([1, 2, 3]).value();
             that provides the fallback value).
           </li>
           <li>
-            Added the <tt>_.propertyOf</tt> function generator as a mirror-world 
+            Added the <tt>_.propertyOf</tt> function generator as a mirror-world
             version of <tt>_.property</tt>.
           </li>
           <li>
@@ -2240,7 +2236,7 @@ _([1, 2, 3]).value();
             name — <tt>_.matcher</tt>.
           </li>
           <li>
-            Various and diverse code simplifications, changes for improved 
+            Various and diverse code simplifications, changes for improved
             cross-platform compatibility, and edge case bug fixes.
           </li>
         </ul>
