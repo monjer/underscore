@@ -1378,9 +1378,8 @@ _.extend({name: 'moe'}, {age: 50});
       <p id="pick">
         <b class="header">pick</b><code>_.pick(object, *keys)</code>
         <br />
-        Return a copy of the <b>object</b>, filtered to only have values for
-        the whitelisted <b>keys</b> (or array of valid keys).  Alternatively
-        accepts a predicate indicating which keys to pick.
+        返回一个<b>object</b>的副本，筛选出白名单列出的<b>keys</b>（或一组有效的key）。
+        可接受一个判断函数，标识可以选择哪些key。
       </p>
       <pre>
 _.pick({name: 'moe', age: 50, userid: 'moe1'}, 'name', 'age');
@@ -1394,9 +1393,8 @@ _.pick({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {
       <p id="omit">
         <b class="header">omit</b><code>_.omit(object, *keys)</code>
         <br />
-        Return a copy of the <b>object</b>, filtered to omit the blacklisted
-        <b>keys</b> (or array of keys).  Alternatively accepts a predicate
-        indicating which keys to omit.
+        返回一个<b>object</b>的副本，忽略掉黑名单列出的<b>keys</b>（或一组有效的key）。
+        可接受一个判断函数，标识可以忽略哪些key。
       </p>
       <pre>
 _.omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
@@ -1410,8 +1408,8 @@ _.omit({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {
       <p id="defaults">
         <b class="header">defaults</b><code>_.defaults(object, *defaults)</code>
         <br />
-        Fill in <tt>undefined</tt> properties in <b>object</b> with the first
-        value present in the following list of <b>defaults</b> objects.
+        为<b>object</b>中的值为<tt>undefined</tt>的属性添加值。值来自<b>defaults</b>列表对象中
+        出现的第一个值。
       </p>
       <pre>
 var iceCream = {flavor: "chocolate"};
@@ -1422,8 +1420,7 @@ _.defaults(iceCream, {flavor: "vanilla", sprinkles: "lots"});
       <p id="clone">
         <b class="header">clone</b><code>_.clone(object)</code>
         <br />
-        Create a shallow-copied clone of the provided <i>plain</i> <b>object</b>.
-        Any nested objects or arrays will be copied by reference, not duplicated.
+        创建一个<i>纯 </i><b>object</b>的浅拷贝(shallow-copied)。任何嵌套的对象和数组只会拷贝引用，不会复制。
       </p>
       <pre>
 _.clone({name: 'moe'});
@@ -1433,8 +1430,8 @@ _.clone({name: 'moe'});
       <p id="tap">
         <b class="header">tap</b><code>_.tap(object, interceptor)</code>
         <br />
-        Invokes <b>interceptor</b> with the <b>object</b>, and then returns <b>object</b>.
-        The primary purpose of this method is to "tap into" a method chain, in order to perform operations on intermediate results within the chain.
+        在<b>object</b>上调用<b>interceptor</b>函数，之后返回改<b>object</b>。
+        这个方法的主要意图是利用链式方法，在中间结果上执行操作。
       </p>
       <pre>
 _.chain([1,2,3,200])
@@ -1449,10 +1446,8 @@ _.chain([1,2,3,200])
       <p id="has">
         <b class="header">has</b><code>_.has(object, key)</code>
         <br />
-        Does the object contain the given key? Identical to
-        <tt>object.hasOwnProperty(key)</tt>, but uses a safe reference to the
-        <tt>hasOwnProperty</tt> function, in case it's been
-        <a href="http://www.devthought.com/2012/01/18/an-object-is-not-a-hash/">overridden accidentally</a>.
+        判断对象上是否包含给定的key。与<tt>object.hasOwnProperty(key)</tt>等价，但在调用<tt>hasOwnProperty</tt>时使用了一个安全的引用，
+        以防属性被<a href="http://www.devthought.com/2012/01/18/an-object-is-not-a-hash/">意外覆盖掉</a>。
       </p>
       <pre>
 _.has({a: 1, b: 2, c: 3}, "b");
@@ -1462,8 +1457,7 @@ _.has({a: 1, b: 2, c: 3}, "b");
       <p id="property">
         <b class="header">property</b><code>_.property(key)</code>
         <br />
-        Returns a function that will itself return the <tt>key</tt>
-        property of any passed-in object.
+        返回一个函数，此函数会返回任意传入对象的属性名为<tt>key</tt>的值。
       </p>
       <pre>
 var stooge = {name: 'moe'};
@@ -1474,8 +1468,7 @@ var stooge = {name: 'moe'};
       <p id="propertyOf">
         <b class="header">propertyOf</b><code>_.propertyOf(object)</code>
         <br />
-        Inverse of <tt>_.property</tt>. Takes an object and returns a function
-        which will return the value of a provided property.
+        与<tt>_.property</tt>相反。传入一个对象并返回一个函数，函数可以返回给定属性的值。
       </p>
       <pre>
 var stooge = {name: 'moe'};
@@ -1485,8 +1478,7 @@ _.propertyOf(stooge)('name');
       <p id="matcher">
         <b class="header">matcher</b><code>_.matcher(attrs)</code>
         <br />
-        Returns a predicate function that will tell you if a passed in object
-        contains all of the key/value properties present in <b>attrs</b>.
+        返回一个判断函数，告诉你是否一个对象包含了所有出现在 <b>attrs</b> 中的key/value。
       </p>
       <pre>
 var ready = _.matcher({selected: true, visible: true});
@@ -1667,9 +1659,8 @@ try {
       <p id="isNaN">
         <b class="header">isNaN</b><code>_.isNaN(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> is <i>NaN</i>.<br /> Note: this is not
-        the same as the native <b>isNaN</b> function, which will also return
-        true for many other not-number values, such as <tt>undefined</tt>.
+        如果<b>object</b>是<i>NaN</i>则返回<i>true</i>。注意：本方法与原生的<b>isNaN</b>函数不同，原生的<b>isNaN</b>对于许多非数值类型的值
+        也返回true，比如<tt>undefined</tt>。
       </p>
       <pre>
 _.isNaN(NaN);
@@ -1695,7 +1686,6 @@ _.isNull(undefined);
       <p id="isUndefined">
         <b class="header">isUndefined</b><code>_.isUndefined(value)</code>
         <br />
-        Returns <i>true</i> if <b>value</b> is <i>undefined</i>.
         如果<b>object</b>是一个<i>undefined</i>就返回<i>true</i>。
       </p>
       <pre>
@@ -1703,13 +1693,12 @@ _.isUndefined(window.missingVariable);
 =&gt; true
 </pre>
 
-      <h2 id="utility">Utility Functions</h2>
+      <h2 id="utility">工具函数 - Utility Functions</h2>
 
       <p id="noConflict">
         <b class="header">noConflict</b><code>_.noConflict()</code>
         <br />
-        Give control of the <tt>_</tt> variable back to its previous owner. Returns
-        a reference to the <b>Underscore</b> object.
+        返回<tt>_</tt>变量的控制权给上一个拥有者。返回一个<b>Underscore</b>对象的引用。
       </p>
       <pre>
 var underscore = _.noConflict();
@@ -1718,10 +1707,8 @@ var underscore = _.noConflict();
       <p id="identity">
         <b class="header">identity</b><code>_.identity(value)</code>
         <br />
-        Returns the same value that is used as the argument. In math:
-        <tt>f(x) = x</tt><br />
-        This function looks useless, but is used throughout Underscore as
-        a default iteratee.
+        返回一个与传入参数相同的值。数学表达式为：<tt>f(x) = x</tt>。br/>
+        此函数看起来没用，但在整个Underscore中却一直作为默认的迭代器存在。
       </p>
       <pre>
 var stooge = {name: 'moe'};
@@ -1732,8 +1719,8 @@ stooge === _.identity(stooge);
       <p id="constant">
         <b class="header">constant</b><code>_.constant(value)</code>
         <br />
-        Creates a function that returns the same value that is used as the
-        argument of <tt>_.constant</tt>.
+        生成一个函数，可以返回<tt>_.constant</tt>调用时传入的参数。
+
       </p>
       <pre>
 var stooge = {name: 'moe'};
@@ -1743,8 +1730,7 @@ stooge === _.constant(stooge)();
       <p id="noop">
         <b class="header">noop</b><code>_.noop()</code>
         <br />
-        Returns <tt>undefined</tt> irrespective of the arguments passed to it.
-        Useful as the default for optional callback arguments.
+        不管传入什么参数，都返回<tt>undefined</tt>值。当做可选回调函数的默认值很有用。
       </p>
       <pre>
 obj.initialize = _.noop;
@@ -1753,11 +1739,10 @@ obj.initialize = _.noop;
       <p id="times">
         <b class="header">times</b><code>_.times(n, iteratee, [context])</code>
         <br />
-        Invokes the given iteratee function <b>n</b> times. Each invocation of
-        <b>iteratee</b> is called with an <tt>index</tt> argument. Produces an
-        array of the returned values.
-        <br />
-        <i>Note: this example uses the <a href="#chaining">chaining syntax</a></i>.
+        调用给定迭代函数<b>n</b>次。每次调用<b>iteratee</b>都会传入一个<tt>index</tt>参数。
+        生成一个返回值的数组。<br/>
+        <i>注意: 这个例子使用了<a href="#chaining">链式语法(chaining syntax)</a></i>。
+
       </p>
       <pre>
 _(3).times(function(n){ genie.grantWishNumber(n); });</pre>
@@ -1765,9 +1750,8 @@ _(3).times(function(n){ genie.grantWishNumber(n); });</pre>
       <p id="random">
         <b class="header">random</b><code>_.random(min, max)</code>
         <br />
-        Returns a random integer between <b>min</b> and <b>max</b>, inclusive.
-        If you only pass one argument, it will return a number between <tt>0</tt>
-        and that number.
+        返回介于<b>min</b>和<b>max</b>之间（包括min和max）的一个随机整数，。如果只传入一个参数，
+        则返回<tt>0</tt>和那个数值之间的一个数字。
       </p>
       <pre>
 _.random(0, 100);
@@ -1776,9 +1760,9 @@ _.random(0, 100);
       <p id="mixin">
         <b class="header">mixin</b><code>_.mixin(object)</code>
         <br />
-        Allows you to extend Underscore with your own utility functions. Pass
-        a hash of <tt>{name: function}</tt> definitions to have your functions
-        added to the Underscore object, as well as the OOP wrapper.
+
+        允许你用自己的工具函数扩展Underscore。传入一个<tt>{name: function}</tt>的hash定义，可以将
+        你的函数添加到Underscore对象上，以及面向对象的包装器（OOP wrapper）。
       </p>
       <pre>
 _.mixin({
