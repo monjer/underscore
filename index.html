@@ -1777,15 +1777,12 @@ _("fabio").capitalize();
       <p id="iteratee">
         <b class="header">iteratee</b><code>_.iteratee(value, [context])</code>
         <br />
-        A mostly-internal function to generate callbacks that can be applied
-        to each element in a collection, returning the desired result — either
-        identity, an arbitrary callback, a property matcher, or a property accessor.
-        <br />
-        The full list of Underscore methods that transform predicates
-        through <tt>_.iteratee</tt> is <tt>map</tt>, <tt>find</tt>,
+        一个主要的内部函数，用来生成一个可以处理集合中每个元素的回调，并返回期望的值 - 生成的回调，可以是恒等回调（identity），随机回调（arbitrary callback），或属性访问器。
+        <br>
+        Underscore中通过<tt>_.iteratee</tt>来进行判断转换的全部方法有：
         <tt>filter</tt>, <tt>reject</tt>, <tt>every</tt>, <tt>some</tt>, <tt>max</tt>,
         <tt>min</tt>, <tt>sortBy</tt>, <tt>groupBy</tt>, <tt>indexBy</tt>,
-        <tt>countBy</tt>, <tt>sortedIndex</tt>, <tt>partition</tt>, and <tt>unique</tt>.
+        <tt>countBy</tt>, <tt>sortedIndex</tt>, <tt>partition</tt>, and <tt>unique</tt>。
       </p>
       <pre>
 var stooges = [{name: 'curly', age: 25}, {name: 'moe', age: 21}, {name: 'larry', age: 23}];
@@ -1796,8 +1793,7 @@ _.map(stooges, _.iteratee('age'));
       <p id="uniqueId">
         <b class="header">uniqueId</b><code>_.uniqueId([prefix])</code>
         <br />
-        Generate a globally-unique id for client-side models or DOM elements
-        that need one. If <b>prefix</b> is passed, the id will be appended to it.
+        生成一个全局唯一的id，可以用于需要id的客户端模型或DOM元素。如果传入<b>prefix</b>，id会附加在它后面。
       </p>
       <pre>
 _.uniqueId('contact_');
@@ -1806,8 +1802,7 @@ _.uniqueId('contact_');
       <p id="escape">
         <b class="header">escape</b><code>_.escape(string)</code>
         <br />
-        Escapes a string for insertion into HTML, replacing
-        <tt>&amp;</tt>, <tt>&lt;</tt>, <tt>&gt;</tt>, <tt>&quot;</tt>, <tt>&#96;</tt>, and <tt>&#x27;</tt> characters.
+        转义插入HTML的字符串，替换<tt>&amp;</tt>, <tt>&lt;</tt>, <tt>&gt;</tt>, <tt>&quot;</tt>, <tt>&#96;</tt>, 和 <tt>&#x27;</tt>字符。
       </p>
       <pre>
 _.escape('Curly, Larry &amp; Moe');
@@ -1816,10 +1811,8 @@ _.escape('Curly, Larry &amp; Moe');
       <p id="unescape">
         <b class="header">unescape</b><code>_.unescape(string)</code>
         <br />
-        The opposite of <a href="#escape"><b>escape</b></a>, replaces
-        <tt>&amp;amp;</tt>, <tt>&amp;lt;</tt>, <tt>&amp;gt;</tt>,
-        <tt>&amp;quot;</tt>, <tt>&amp;#96;</tt> and <tt>&amp;#x27;</tt>
-        with their unescaped counterparts.
+        <a href="#escape"><b>escape</b></a>的反操作，替换<tt>&amp;amp;</tt>, <tt>&amp;lt;</tt>, <tt>&amp;gt;</tt>,
+        <tt>&amp;quot;</tt>, <tt>&amp;#96;</tt> and <tt>&amp;#x27;</tt>为对应的反转义字符。
       </p>
       <pre>
 _.unescape('Curly, Larry &amp;amp; Moe');
@@ -1828,10 +1821,8 @@ _.unescape('Curly, Larry &amp;amp; Moe');
       <p id="result">
         <b class="header">result</b><code>_.result(object, property, [defaultValue])</code>
         <br />
-        If the value of the named <b>property</b> is a function then invoke it
-        with the <b>object</b> as context; otherwise, return it. If a default value
-        is provided and the property doesn't exist than the default will be returned.
-        If <tt>defaultValue</tt> is a function its result will be returned.
+        如果给定的<b>property</b>的值是一个函数，那么使用<b>object</b>作为它的上下文调用；否则直接它。
+        如果提供了默认值，并且对象上不存在这个属性，那么会返回这个默认值。如果<tt>defaultValue</tt>是个函数就返回其调用值。
       </p>
       <pre>
 var object = {cheese: 'crumpets', stuff: function(){ return 'nonsense'; }};
@@ -1846,9 +1837,7 @@ _.result(object, 'meat', 'ham');
       <p id="now">
         <b class="header">now</b><code>_.now()</code>
         <br />
-        Returns an integer timestamp for the current time, using the fastest
-        method available in the runtime. Useful for implementing timing/animation
-        functions.
+        返回当前时间时间戳的整数值，在运行时中使用可用的最快方法。用来实现定时函数或动画函数很有用。
       </p>
       <pre>
 _.now();
@@ -1858,15 +1847,10 @@ _.now();
       <p id="template">
         <b class="header">template</b><code>_.template(templateString, [settings])</code>
         <br />
-        Compiles JavaScript templates into functions that can be evaluated
-        for rendering. Useful for rendering complicated bits of HTML from JSON
-        data sources. Template functions can both interpolate values, using
-        <tt>&lt;%= &hellip; %&gt;</tt>, as well as execute arbitrary JavaScript code, with
-        <tt>&lt;% &hellip; %&gt;</tt>. If you wish to interpolate a value, and have
-        it be HTML-escaped, use <tt>&lt;%- &hellip; %&gt;</tt>. When you evaluate a
-        template function, pass in a <b>data</b> object that has properties
-        corresponding to the template's free variables. The <b>settings</b> argument
-        should be a hash containing any <tt>_.templateSettings</tt> that should be overridden.
+        将JavaScript模板转换为用来进行渲染的函数。用于从JSON数据源中渲染复杂的HTML片段。模板函数既可以使用<tt>&lt;%= &hellip; %&gt;</tt>
+        插入值，也可以使用<tt>&lt;% &hellip; %&gt;</tt>执行任意的JavaScript代码。可使用<tt>&lt;%- &hellip; %&gt;</tt>，插入一个需要进行HTML转义的值。
+        当你要调用一个模板函数进行计算时，可传入一个<b>data</b>对象，它的属性名称与模板的自由变量相对应。
+        <b>settings</b>参数是一个hash对象，用来覆盖<tt>_.templateSettings</tt>。
       </p>
 
       <pre>
@@ -1879,8 +1863,7 @@ template({value: '&lt;script&gt;'});
 =&gt; "&lt;b&gt;&amp;lt;script&amp;gt;&lt;/b&gt;"</pre>
 
       <p>
-        You can also use <tt>print</tt> from within JavaScript code.  This is
-        sometimes more convenient than using <tt>&lt;%= ... %&gt;</tt>.
+        在JavaScript代码中可以使用<tt>print</tt>函数。这通常比使用<tt>&lt;%= ... %&gt;</tt>更便捷。
       </p>
 
       <pre>
@@ -1889,16 +1872,9 @@ compiled({epithet: "stooge"});
 =&gt; "Hello stooge"</pre>
 
       <p>
-        If ERB-style delimiters aren't your cup of tea, you can change Underscore's
-        template settings to use different symbols to set off interpolated code.
-        Define an <b>interpolate</b> regex to match expressions that should be
-        interpolated verbatim, an <b>escape</b> regex to match expressions that should
-        be inserted after being HTML-escaped, and an <b>evaluate</b> regex to match
-        expressions that should be evaluated without insertion into the resulting
-        string. You may define or omit any combination of the three.
-        For example, to perform
-        <a href="https://github.com/janl/mustache.js#readme">Mustache.js</a>-style
-        templating:
+        如果ERB风格的分隔符不是你所喜欢的，你可以改变Underscore的模板设置，使用不同的符号来设置插入的代码。
+        可定义一个<b>interpolate</b>正则来逐字匹配需要插入值的表达式，定义一个<b>escape</b>正则来匹配需要
+        HTML转义后才能插入的表达式，定义<b>evaluate</b>正则来匹配不用将结果字符串进行插入的计算表达式。你可以任意组合这三个情况。比如，完成<a href="https://github.com/janl/mustache.js#readme">Mustache.js</a>风格的模板：
       </p>
 
       <pre>
@@ -1911,10 +1887,7 @@ template({name: "Mustache"});
 =&gt; "Hello Mustache!"</pre>
 
       <p>
-        By default, <b>template</b> places the values from your data in the local scope
-        via the <tt>with</tt> statement. However, you can specify a single variable name
-        with the <b>variable</b> setting. This can significantly improve the speed
-        at which a template is able to render.
+        默认情况下，<b>template</b>会使用<tt>with</tt>表达式将数据值定义在局部作用域中。然而，你可以使用<b>variable</b>设置，指定单独的一个变量名称。这能显著提高模板渲染的速度。
       </p>
 
       <pre>
@@ -1922,11 +1895,8 @@ _.template("Using 'with': <%= data.answer %>", {variable: 'data'})({answer: 'no'
 =&gt; "Using 'with': no"</pre>
 
       <p>
-        Precompiling your templates can be a big help when debugging errors you can't
-        reproduce. This is because precompiled templates can provide line numbers and
-        a stack trace, something that is not possible when compiling templates on the client.
-        The <b>source</b> property is available on the compiled template
-        function for easy precompilation.
+        模板预编译在调试那些你不能重现的错误时会有很大帮助。因为预编译的模板可以提供代码行号和堆栈跟踪，
+        客户端（指浏览器环境）下的模板编译没有这些功能。在编译好的模板函数上有一个<b>source</b>属性，可提供简单的预编译功能。
       </p>
 
       <pre>&lt;script&gt;
@@ -1934,24 +1904,20 @@ _.template("Using 'with': <%= data.answer %>", {variable: 'data'})({answer: 'no'
 &lt;/script&gt;</pre>
 
 
-      <h2 id="chaining">Chaining</h2>
+      <h2 id="chaining">面向对象的风格 - Object-Oriented Style</h2>
 
       <p>
-        You can use Underscore in either an object-oriented or a functional style,
-        depending on your preference. The following two lines of code are
-        identical ways to double a list of numbers.
+        根据你个人喜好，你可以以面向对象的分割或函数式风格使用Underscore。以下两行代码把列表中的每个元素都翻倍了，
+        两种方式是等价的。
       </p>
 
     <pre>
 _.map([1, 2, 3], function(n){ return n * 2; });
 _([1, 2, 3]).map(function(n){ return n * 2; });</pre>
-
+        <h2 id="chaining">链式语法 - Chaining</h2>
       <p>
-        Calling <tt>chain</tt> will cause all future method calls to return
-        wrapped objects. When you've finished the computation, call
-        <tt>value</tt> to retrieve the final value. Here's an example of chaining
-        together a <b>map/flatten/reduce</b>, in order to get the word count of
-        every word in a song.
+        <tt>chain</tt>调用方式会使所有之后的方法调用都返回包装对象。当你结束计算后，调用<tt>value</tt>方法以获取
+        最终的值。以下是一个链式调用的例子，结合使用了<b>map/flatten/reduce</b>，来获取每首歌的单词个数。
       </p>
 
 <pre>
@@ -1974,18 +1940,13 @@ _.chain(lyrics)
 =&gt; {lumberjack: 2, all: 4, night: 2 ... }</pre>
 
       <p>
-        In addition, the
-        <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/prototype">Array prototype's methods</a>
-        are proxied through the chained Underscore object, so you can slip a
-        <tt>reverse</tt> or a <tt>push</tt> into your chain, and continue to
-        modify the array.
+        此外，链式化的Underscore对象也代理了<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/prototype">Array prototype's methods</a>中的方法，因此你可以插入 <tt>reverse</tt> 或 <tt>push</tt>方法到你的链式语句中，然后继续修改数组。
       </p>
 
       <p id="chain">
         <b class="header">chain</b><code>_.chain(obj)</code>
         <br />
-        Returns a wrapped object. Calling methods on this object will continue
-        to return wrapped objects until <tt>value</tt> is called.
+        返回一个包装对象。调用这个对象的返回会继续返回这个对象本身，直到调用了<tt>value</tt>方法。
       </p>
       <pre>
 var stooges = [{name: 'curly', age: 25}, {name: 'moe', age: 21}, {name: 'larry', age: 23}];
@@ -2000,7 +1961,7 @@ var youngest = _.chain(stooges)
       <p id="value">
         <b class="header">value</b><code>_(obj).value()</code>
         <br />
-        Extracts the value of a wrapped object.
+        提取包装对象的值。
       </p>
       <pre>
 _([1, 2, 3]).value();

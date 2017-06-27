@@ -82,7 +82,7 @@
   };
 
   //
-  // 一个主要的内部函数，生成的回调函数用来处理集合中的每个元素，并返回期望的值。
+  // 一个内部主要的函数，生成的回调函数用来处理集合中的每个元素，并返回期望的值。
   // 此值可以是恒等回调（identity），随机回调（arbitrary callback），或属性访问器。
   //
   var cb = function(value, context, argCount) {
@@ -1392,7 +1392,7 @@
   };
 
   // JavaScript微型模板（micro-templating），与John Resig的实现类似。
-  // Underscore的农办可处理任意类型的分隔符，保留空白符，并且能正确转义
+  // Underscore的模板可处理任意类型的分隔符，保留空白符，并且能正确转义
   // 插入代码中的引号。
   // 注：`oldSettings`的存在只为向后兼容。
   _.template = function(text, settings, oldSettings) {
