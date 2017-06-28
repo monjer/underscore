@@ -1018,16 +1018,15 @@ _.range(0);
 =&gt; []
 </pre>
 
-      <h2 id="functions">Function (uh, ahem) Functions</h2>
+      <h2 id="functions">Function相关的函数 - Function (uh, ahem) Functions</h2>
 
       <p id="bind">
         <b class="header">bind</b><code>_.bind(function, object, *arguments)</code>
         <br />
-        Bind a <b>function</b> to an <b>object</b>, meaning that whenever
-        the function is called, the value of <i>this</i> will be the <b>object</b>.
-        Optionally, pass <b>arguments</b> to the <b>function</b> to pre-fill them,
-        also known as <b>partial application</b>. For partial application without
-        context binding, use <a href="#partial">partial</a>.
+        将<b>function</b>绑定到<b>object</b>上，这意味着无论何时调用function，它内部的this都是
+        <b>object</b>。可选择预先传入<b>arguments</b>，以填满<b>function</b>的参数，
+        这一行为也称为<b>partial application（偏函数应用）</b>。对于不需要绑定上下文的偏函数应用，请使用<a href="#partial">partial</a>。
+
       </p>
       <pre>
 var func = function(greeting){ return greeting + ': ' + this.name };
@@ -1039,11 +1038,8 @@ func();
       <p id="bindAll">
         <b class="header">bindAll</b><code>_.bindAll(object, *methodNames)</code>
         <br />
-        Binds a number of methods on the <b>object</b>, specified by
-        <b>methodNames</b>, to be run in the context of that object whenever they
-        are invoked. Very handy for binding functions that are going to be used
-        as event handlers, which would otherwise be invoked with a fairly useless
-        <i>this</i>. <b>methodNames</b> are required.
+        将<b>methodNames</b>指定名称的方法绑定到对象上，无论何时调用这些方法，它们的上下文都是这个对象本身。
+        可以很方便的将绑定函数的当做事件处理函数，否则事件处理函数调用时会卷入一个非常没用的this对象。必须传入<b>methodNames</b>。
       </p>
       <pre>
 var buttonView = {
