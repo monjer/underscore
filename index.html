@@ -1055,11 +1055,7 @@ jQuery('#underscore_button').bind('click', buttonView.onClick);
       <p id="partial">
         <b class="header">partial</b><code>_.partial(function, *arguments)</code>
         <br />
-        Partially apply a function by filling in any number of its <b>arguments</b>,
-        <i>without</i> changing its dynamic <tt>this</tt> value. A close cousin
-        of <a href="#bind">bind</a>. You may pass <tt>_</tt> in your list of
-        <b>arguments</b> to specify an argument that should not be pre-filled, but
-        left open to supply at call-time.
+        应用偏函数，填充任意数量的<b>arguments</b>，但不动态的改变函数的<tt>this</tt>值。与<a href="#bind">bind</a>很相像。你可以传入在<b>argumnets</b>列表中传入<tt>_</tt>，来指定不预填某个参数，而是留到调用时在提供此参数。
       </p>
       <pre>
 var subtract = function(a, b) { return b - a; };
@@ -1076,13 +1072,8 @@ subFrom20(5);
       <p id="memoize">
         <b class="header">memoize</b><code>_.memoize(function, [hashFunction])</code>
         <br />
-        Memoizes a given <b>function</b> by caching the computed result. Useful
-        for speeding up slow-running computations. If passed an optional
-        <b>hashFunction</b>, it will be used to compute the hash key for storing
-        the result, based on the arguments to the original function. The default
-        <b>hashFunction</b> just uses the first argument to the memoized function
-        as the key. The cache of memoized values is available as the <tt>cache</tt>
-        property on the returned function.
+        通过缓存计算值的方式，存储函数的结果。用于提高慢运算的速度。提供一个可选的<b>hashFunction</b>函数，基于原函数的
+        参数，可以用来计算存储结果hash的key。默认的<b>hashFunction</b>函数使用第一个参数当做存储函数值的key。返回函数的<tt>cache</tt>属性上，可以获取缓存的存储值。
       </p>
       <pre>
 var fibonacci = _.memoize(function(n) {
@@ -1093,9 +1084,8 @@ var fibonacci = _.memoize(function(n) {
       <p id="delay">
         <b class="header">delay</b><code>_.delay(function, wait, *arguments)</code>
         <br />
-        Much like <b>setTimeout</b>, invokes <b>function</b> after <b>wait</b>
-        milliseconds. If you pass the optional <b>arguments</b>, they will be
-        forwarded on to the <b>function</b> when it is invoked.
+        非常类似<b>setTimeout</b>，在等待<b>wait</b>指定的毫秒后调用<b>function</b>。传入的额外参数将直接派发到被调用的
+        <b>function</b>里。
       </p>
       <pre>
 var log = _.bind(console.log, console);
@@ -1106,11 +1096,8 @@ _.delay(log, 1000, 'logged later');
       <p id="defer">
         <b class="header">defer</b><code>_.defer(function, *arguments)</code>
         <br />
-        Defers invoking the <b>function</b> until the current call stack has cleared,
-        similar to using <b>setTimeout</b> with a delay of 0. Useful for performing
-        expensive computations or HTML rendering in chunks without blocking the UI thread
-        from updating. If you pass the optional <b>arguments</b>, they will be
-        forwarded on to the <b>function</b> when it is invoked.
+        延迟调用<b>function</b>，直到当前调用栈被清空，类似于一个延迟0毫秒的<b>setTimeout</b>。用于执行耗时的计算
+        或在不阻塞UI线程更新的情况下进行HTML分块儿渲染。传入的额外参数将直接派发到被调用的<b>function</b>里。
       </p>
       <pre>
 _.defer(function(){ alert('deferred'); });
@@ -1167,10 +1154,8 @@ $(window).resize(lazyLayout);
       <p id="once">
         <b class="header">once</b><code>_.once(function)</code>
         <br />
-        Creates a version of the function that can only be called one time.
-        Repeated calls to the modified function will have no effect, returning
-        the value from the original call. Useful for initialization functions,
-        instead of having to set a boolean flag and then check it later.
+        创建一个只能被调用一次的函数。重复调用这个修改后的函数将不会有效果，仍然返回第一次的调用值。
+        用于初始化函数，而不是创建一个布尔标记，之后再检测此标记。
       </p>
       <pre>
 var initialize = _.once(createApplication);
@@ -1182,10 +1167,8 @@ initialize();
       <p id="after">
         <b class="header">after</b><code>_.after(count, function)</code>
         <br />
-        Creates a version of the function that will only be run after first
-        being called <b>count</b> times. Useful for grouping asynchronous responses,
-        where you want to be sure that all the async calls have finished, before
-        proceeding.
+        创建一个函数，只能在被调用<b>count</b>次数后才能生效。用于打组多个异步调用，通常情况下你需要等待所有异步调用都完成了，
+        才能进行下一步处理。
       </p>
       <pre>
 var renderNotes = _.after(notes.length, render);
@@ -1198,9 +1181,7 @@ _.each(notes, function(note) {
       <p id="before">
         <b class="header">before</b><code>_.before(count, function)</code>
         <br />
-        Creates a version of the function that can be called no more than
-        <b>count</b> times. The result of the last function call is memoized and
-        returned when <b>count</b> has been reached.
+        创建一个函数，最多只能被调用<b>count</b>次。当调用次数到达<b>count</b>后，最后一次函数调用的结果会被存储并返回回来。
       </p>
       <pre>
 var monthlyMeeting = _.before(3, askForRaise);
@@ -1213,10 +1194,8 @@ monthlyMeeting();
       <p id="wrap">
         <b class="header">wrap</b><code>_.wrap(function, wrapper)</code>
         <br />
-        Wraps the first <b>function</b> inside of the <b>wrapper</b> function,
-        passing it as the first argument. This allows the <b>wrapper</b> to
-        execute code before and after the <b>function</b> runs, adjust the arguments,
-        and execute it conditionally.
+        将第一个<b>function</b>包裹在<b>wrapper</b>函数中，作为第一个参数传入。这让<b>wrapper</b>函数可以在
+        <b>function</b>运行之前和之后插入代码，或调整参数，或有条件的选择是否执行它。
       </p>
       <pre>
 var hello = function(name) { return "hello: " + name; };
@@ -1231,6 +1210,7 @@ hello();
         <b class="header">negate</b><code>_.negate(predicate)</code>
         <br />
         Returns a new negated version of the <b>predicate</b> function.
+        返回一个新的<b>predicate</b>函数的否定版本。
       </p>
       <pre>
 var isFalsy = _.negate(Boolean);
@@ -1241,10 +1221,8 @@ _.find([-2, -1, 0, 1, 2], isFalsy);
       <p id="compose">
         <b class="header">compose</b><code>_.compose(*functions)</code>
         <br />
-        Returns the composition of a list of <b>functions</b>, where each function
-        consumes the return value of the function that follows. In math terms,
-        composing the functions <i>f()</i>, <i>g()</i>, and <i>h()</i> produces
-        <i>f(g(h()))</i>.
+        返回一个<b>function</b>列表的组合结果，每个函数都可以进一步处理它后面的函数的返回值。用数学术语表示为，组合函数
+        <i>f()</i>, <i>g()</i>和<i>h()</i>，生成<i>f(g(h()))</i>。
       </p>
       <pre>
 var greet    = function(name){ return "hi: " + name; };
