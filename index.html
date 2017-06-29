@@ -2768,208 +2768,146 @@ _([1, 2, 3]).value();
 
       <p id="1.0.1">
         <b class="header">1.0.1</b> &mdash; <small><i>March 19, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.0.0...1.0.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.0.1/index.html">Docs</a><br />
-        Bugfix for <tt>_.isEqual</tt>, when comparing two objects with the same
-        number of undefined keys, but with different names.
+        <tt>_.isEqual</tt>的Bugfix，出现在比较两个带有同等数量的undefined值的对象，但key的名称不同时。
       </p>
 
       <p id="1.0.0">
         <b class="header">1.0.0</b> &mdash; <small><i>March 18, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.6.0...1.0.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.0.0/index.html">Docs</a><br />
-        Things have been stable for many months now, so Underscore is now
-        considered to be out of beta, at <b>1.0</b>. Improvements since <b>0.6</b>
-        include <tt>_.isBoolean</tt>, and the ability to have <tt>_.extend</tt>
-        take multiple source objects.
+ 
+        Underscore在最近的几个月中已经稳定了，所以现在准备发布beta 1.0 版本。自<b>0.6</b>版本以后的改进包括<tt>_.isBoolean</tt>，<tt>_.extend</tt>支持多个source对象。
       </p>
 
       <p id="0.6.0">
         <b class="header">0.6.0</b> &mdash; <small><i>February 24, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.8...0.6.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.6.0/index.html">Docs</a><br />
-        Major release. Incorporates a number of
-        <a href="https://github.com/ratbeard">Mile Frawley's</a> refactors for
-        safer duck-typing on collection functions, and cleaner internals. A new
-        <tt>_.mixin</tt> method that allows you to extend Underscore with utility
-        functions of your own. Added <tt>_.times</tt>, which works the same as in
-        Ruby or Prototype.js. Native support for ES5's <tt>Array.isArray</tt>,
-        and <tt>Object.keys</tt>.
+         合并<a href="https://github.com/ratbeard">Mile Frawley</a>的重构，在集合函数上加入了更安全的鸭子类型，清理了内部的代码。新的 <tt>_.mixin</tt>方法允许你扩展Underscore，添加你自己的辅助工具函数。添加<tt>_.times</tt>函数，效果与Ruby和Prototype.js一致。支持原生的ES5的<tt>Array.isArray</tt>和<tt>Object.keys</tt>。
+        主要发行版本。合并
       </p>
 
       <p id="0.5.8">
-        <b class="header">0.5.8</b> &mdash; <small><i>January 28, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.7...0.5.8">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.8/index.html">Docs</a><br />
-        Fixed Underscore's collection functions to work on
-        <a href="https://developer.mozilla.org/En/DOM/NodeList">NodeLists</a> and
-        <a href="https://developer.mozilla.org/En/DOM/HTMLCollection">HTMLCollections</a>
-        once more, thanks to
-        <a href="https://github.com/JustinTulloss">Justin Tulloss</a>.
+        <b class="header">0.5.8</b> &mdash; <small><i>January 28, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.7...0.5.8">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.8/index.html">Docs</a><br />        
+        修复Underscore的collection函数，以便在<a href="https://developer.mozilla.org/En/DOM/NodeList">NodeLists</a>和<a href="https://developer.mozilla.org/En/DOM/HTMLCollection">HTMLCollections</a>上使用，感谢<a href="https://github.com/JustinTulloss">Justin Tulloss</a>。
       </p>
 
       <p id="0.5.7">
         <b class="header">0.5.7</b> &mdash; <small><i>January 20, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.6...0.5.7">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.7/index.html">Docs</a><br />
-        A safer implementation of <tt>_.isArguments</tt>, and a
-        faster <tt>_.isNumber</tt>,<br />thanks to
-        <a href="http://jedschmidt.com/">Jed Schmidt</a>.
+        一个更安全的<tt>_.isNumber</tt>实现，更快的<tt>_.isNumber</tt>判断，感谢<a href="http://jedschmidt.com/">Jed Schmidt</a>。
       </p>
 
       <p id="0.5.6">
         <b class="header">0.5.6</b> &mdash; <small><i>January 18, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.5...0.5.6">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.6/index.html">Docs</a><br />
-        Customizable delimiters for <tt>_.template</tt>, contributed by
-        <a href="https://github.com/iamnoah">Noah Sloan</a>.
+        自定义<tt>_.template</tt>的分隔符，<a href="https://github.com/iamnoah">Noah Sloan</a>贡献了此补丁。
       </p>
 
       <p id="0.5.5">
         <b class="header">0.5.5</b> &mdash; <small><i>January 9, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.4...0.5.5">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.5/index.html">Docs</a><br />
-        Fix for a bug in MobileSafari's OOP-wrapper, with the arguments object.
+        修复了手机safari浏览器下实现oop-wrapper的处理arguments对象的bug，
       </p>
 
       <p id="0.5.4">
         <b class="header">0.5.4</b> &mdash; <small><i>January 5, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.2...0.5.4">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.4/index.html">Docs</a><br />
-        Fix for multiple single quotes within a template string for
-        <tt>_.template</tt>. See:
-        <a href="http://www.west-wind.com/Weblog/posts/509108.aspx">Rick Strahl's blog post</a>.
+        修复在<tt>_.template</tt>函数中一个模板字符串中存在多个单引号引起的bug。<a href="http://www.west-wind.com/Weblog/posts/509108.aspx">Rick Strahl的博客</a>.
       </p>
 
       <p id="0.5.2">
         <b class="header">0.5.2</b> &mdash; <small><i>January 1, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.1...0.5.2">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.2/index.html">Docs</a><br />
-        New implementations of <tt>isArray</tt>, <tt>isDate</tt>, <tt>isFunction</tt>,
-        <tt>isNumber</tt>, <tt>isRegExp</tt>, and <tt>isString</tt>, thanks to
-        a suggestion from
-        <a href="http://www.broofa.com/">Robert Kieffer</a>.
-        Instead of doing <tt>Object#toString</tt>
-        comparisons, they now check for expected properties, which is less safe,
-        but more than an order of magnitude faster. Most other Underscore
-        functions saw minor speed improvements as a result.
-        <a href="http://dolzhenko.org/">Evgeniy Dolzhenko</a>
-        contributed <tt>_.tap</tt>,
-        <a href="http://ruby-doc.org/core-1.9/classes/Object.html#M000191">similar to Ruby 1.9's</a>,
-        which is handy for injecting side effects (like logging) into chained calls.
+        <tt>isArray</tt>, <tt>isDate</tt>, <tt>isFunction</tt>,<tt>isNumber</tt>, <tt>isRegExp</tt>, and <tt>isString</tt>的心实现，感谢<a href="http://www.broofa.com/">Robert Kieffer</a>的建议。替换了<tt>Object#toString</tt>方式的比较，现在它们会检测期望的属性，可能欠缺点安全，但速度却提升了一个量级。这也使得Underscore的其它一些函数也有了些许速度提升。<a href="http://dolzhenko.org/">Evgeniy Dolzhenko</a>贡献了<tt>_.tap</tt>，与
+        <a href="http://ruby-doc.org/core-1.9/classes/Object.html#M000191">Ruby 1.9的tap</a>类似,很方便用来在链式调用中间插入其它功能（比如日志）。
       </p>
 
       <p id="0.5.1">
         <b class="header">0.5.1</b> &mdash; <small><i>December 9, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.0...0.5.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.1/index.html">Docs</a><br />
-        Added an <tt>_.isArguments</tt> function. Lots of little safety checks
-        and optimizations contributed by
-        <a href="https://github.com/iamnoah">Noah Sloan</a> and
-        <a href="http://themoell.com/">Andri Möll</a>.
+        添加<tt>_.isArguments</tt>函数。<a href="https://github.com/iamnoah">Noah Sloan</a> 贡献了
+        <a href="http://themoell.com/">Andri Möll</a>许多小的安全检测和优化。
       </p>
 
       <p id="0.5.0">
         <b class="header">0.5.0</b> &mdash; <small><i>December 7, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.4.7...0.5.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.0/index.html">Docs</a><br />
-        <b>[API Changes]</b> <tt>_.bindAll</tt> now takes the context object as
-        its first parameter. If no method names are passed, all of the context
-        object's methods are bound to it, enabling chaining and easier binding.
-        <tt>_.functions</tt> now takes a single argument and returns the names
-        of its Function properties. Calling <tt>_.functions(_)</tt> will get you
-        the previous behavior.
-        Added <tt>_.isRegExp</tt> so that <tt>isEqual</tt> can now test for RegExp equality.
-        All of the "is" functions have been shrunk down into a single definition.
-        <a href="https://github.com/grayrest">Karl Guertin</a> contributed patches.
+        <b>[API 变更]</b>，<tt>_.bindAll</tt>的第一个参数现在是context对象。如果没有给出方法名称，所有context对象的方法都会
+        绑定到它自身上，这允许链式语法和更简易的绑定。<tt>_.functions</tt>现在只支持单个参数，并返回它的函数属性名称。调用<tt>_.functions(_)</tt> 的行为与之前一致。添加<tt>_.isRegExp</tt>，现在 <tt>isEqual</tt>可以检测正则的相等性。所有的
+        "is"函数都被压编到单个函数中。<a href="https://github.com/grayrest">Karl Guertin</a>贡献了次补丁。
       </p>
 
       <p id="0.4.7">
         <b class="header">0.4.7</b> &mdash; <small><i>December 6, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.4.6...0.4.7">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.4.7/index.html">Docs</a><br />
-        Added <tt>isDate</tt>, <tt>isNaN</tt>, and <tt>isNull</tt>, for completeness.
-        Optimizations for <tt>isEqual</tt> when checking equality between Arrays
-        or Dates. <tt>_.keys</tt> is now <small><i><b>25%&ndash;2X</b></i></small> faster (depending on your
-        browser) which speeds up the functions that rely on it, such as <tt>_.each</tt>.
+        为了完整性，添加 <tt>isDate</tt>, <tt>isNaN</tt>, and <tt>isNull</tt>。在使用<tt>isEqual</tt>检测数组或时间的相等性时，进行了优化。<tt>_.keys</tt> 提速<small><i><b>25%&ndash;2X</b></i></small>（取决于你的浏览器），间接提高了依赖于它的其它函数的速度，比如<tt>_.each</tt>。
       </p>
 
       <p id="0.4.6">
         <b class="header">0.4.6</b> &mdash; <small><i>November 30, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.4.5...0.4.6">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.4.6/index.html">Docs</a><br />
-        Added the <tt>range</tt> function, a port of the
-        <a href="http://docs.python.org/library/functions.html#range">Python
-        function of the same name</a>, for generating flexibly-numbered lists
-        of integers. Original patch contributed by
-        <a href="https://github.com/kylichuku">Kirill Ishanov</a>.
+        添加<tt>range</tt>函数，<a href="http://docs.python.org/library/functions.html#range">Python
+        同名函数的</a>一个移植。原始补丁由<a href="https://github.com/kylichuku">Kirill Ishanov</a>贡献。
       </p>
 
       <p id="0.4.5">
         <b class="header">0.4.5</b> &mdash; <small><i>November 19, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.4.4...0.4.5">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.4.5/index.html">Docs</a><br />
-        Added <tt>rest</tt> for Arrays and arguments objects, and aliased
-        <tt>first</tt> as <tt>head</tt>, and <tt>rest</tt> as <tt>tail</tt>,
-        thanks to <a href="https://github.com/lukesutton">Luke Sutton</a>'s patches.
-        Added tests ensuring that all Underscore Array functions also work on
-        <i>arguments</i> objects.
+        为数组和arguments对象添加<tt>rest</tt>，为<tt>first</tt> 添加别名 <tt>head</tt>，为<tt>rest</tt> 添加别名 <tt>tail</tt>，感谢<a href="https://github.com/lukesutton">Luke Sutton</a>的补丁，添加测试，保证所有Underscore的数组函数也能在arguments对象上工作。
       </p>
 
       <p id="0.4.4">
         <b class="header">0.4.4</b> &mdash; <small><i>November 18, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.4.3...0.4.4">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.4.4/index.html">Docs</a><br />
-        Added <tt>isString</tt>, and <tt>isNumber</tt>, for consistency. Fixed
-        <tt>_.isEqual(NaN, NaN)</tt> to return <i>true</i> (which is debatable).
+
+        为了一致性，添加<tt>isString</tt>和<tt>isNumber</tt>。修复<tt>_.isEqual(NaN, NaN)</tt>，返回true（尚有争议）。
       </p>
 
       <p id="0.4.3">
         <b class="header">0.4.3</b> &mdash; <small><i>November 9, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.4.2...0.4.3">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.4.3/index.html">Docs</a><br />
-        Started using the native <tt>StopIteration</tt> object in browsers that support it.
-        Fixed Underscore setup for CommonJS environments.
+        开始在支持的浏览器下，使用原生的<tt>StopIteration</tt>对象。修正在CommonJS环境下Underscore的设置。
       </p>
 
       <p id="0.4.2">
         <b class="header">0.4.2</b> &mdash; <small><i>November 9, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.4.1...0.4.2">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.4.2/index.html">Docs</a><br />
-        Renamed the unwrapping function to <tt>value</tt>, for clarity.
+        为了表意清晰，将解封装函数重命名为<tt>value</tt>。
       </p>
 
       <p id="0.4.1">
         <b class="header">0.4.1</b> &mdash; <small><i>November 8, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.4.0...0.4.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.4.1/index.html">Docs</a><br />
-        Chained Underscore objects now support the Array prototype methods, so
-        that you can perform the full range of operations on a wrapped array
-        without having to break your chain. Added a <tt>breakLoop</tt> method
-        to <b>break</b> in the middle of any Underscore iteration. Added an
-        <tt>isEmpty</tt> function that works on arrays and objects.
+        链式化的Underscore对象现在支持Array的原型方法，所有你可以在包装的array对象上执行任意的操作，而不会破坏链式调用方式。
+        添加<tt>breakLoop</tt>方法，支持在任意Underscore的迭代中执行中断。添加一个可同时工作在数组和对象上的<tt>isEmpty</tt>函数。
       </p>
 
       <p id="0.4.0">
         <b class="header">0.4.0</b> &mdash; <small><i>November 7, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.3.3...0.4.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.4.0/index.html">Docs</a><br />
-        All Underscore functions can now be called in an object-oriented style,
-        like so: <tt>_([1, 2, 3]).map(...);</tt>. Original patch provided by
-        <a href="http://macournoyer.com/">Marc-André Cournoyer</a>.
-        Wrapped objects can be chained through multiple
-        method invocations. A <a href="#object-functions"><tt>functions</tt></a> method
-        was added, providing a sorted list of all the functions in Underscore.
+        所有Underscore的函数现在都可以以面向对象的方式调用了，比如<tt>_([1, 2, 3]).map(...);</tt>。原始的补丁是<a href="http://macournoyer.com/">Marc-André Cournoyer</a>提供的。包装对象可以以链式方式调用多个方法。添加<a href="#object-functions"><tt>functions</tt></a>方法，可以在Underscore中获取所有函数名称的排序列表。
       </p>
 
       <p id="0.3.3">
         <b class="header">0.3.3</b> &mdash; <small><i>October 31, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.3.2...0.3.3">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.3.3/index.html">Docs</a><br />
-        Added the JavaScript 1.8 function <tt>reduceRight</tt>. Aliased it
-        as <tt>foldr</tt>, and aliased <tt>reduce</tt> as <tt>foldl</tt>.
+        添加JavaScript1.8版本的<tt>reduceRight</tt>函数。为它添加别名<tt>foldr</tt>，并且为<tt>reduce</tt>
+        新增别名 <tt>foldl</tt>。
       </p>
 
       <p id="0.3.2">
         <b class="header">0.3.2</b> &mdash; <small><i>October 29, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.3.1...0.3.2">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.3.2/index.html">Docs</a><br />
-        Now runs on stock <a href="http://www.mozilla.org/rhino/">Rhino</a>
-        interpreters with: <tt>load("underscore.js")</tt>.
-        Added <a href="#identity"><tt>identity</tt></a> as a utility function.
+        现在可以在<a href="http://www.mozilla.org/rhino/">Rhino</a>解析器上运行了，只要执行：<tt>load("underscore.js")</tt>。新增工具函数 <a href="#identity"><tt>identity</tt></a>。
       </p>
 
       <p id="0.3.1">
         <b class="header">0.3.1</b> &mdash; <small><i>October 29, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.3.0...0.3.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.3.1/index.html">Docs</a><br />
-        All iterators are now passed in the original collection as their third
-        argument, the same as JavaScript 1.6's <b>forEach</b>. Iterating over
-        objects is now called with <tt>(value, key, collection)</tt>, for details
-        see <a href="#each"><tt>_.each</tt></a>.
+        让所有的迭代器的第三个参数都传入原始的collection，与JavaScript 1.6的<b>forEach</b>相同。在对象上迭代的调用方式是
+        <tt>(value, key, collection)</tt>，详情参见<a href="#each"><tt>_.each</tt></a>。
       </p>
 
       <p id="0.3.0">
         <b class="header">0.3.0</b> &mdash; <small><i>October 29, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.2.0...0.3.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.3.0/index.html">Docs</a><br />
-        Added <a href="https://github.com/DmitryBaranovskiy">Dmitry Baranovskiy</a>'s
-        comprehensive optimizations, merged in
-        <a href="https://github.com/kriskowal">Kris Kowal</a>'s patches to make Underscore
-        <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a> and
-        <a href="http://narwhaljs.org/">Narwhal</a> compliant.
+        添加<a href="https://github.com/DmitryBaranovskiy">Dmitry Baranovskiy</a>的全面优化，合并
+        <a href="https://github.com/kriskowal">Kris Kowal</a>的补丁，让Underscore兼容<a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a> 和
+        <a href="http://narwhaljs.org/">Narwhal</a>。
       </p>
 
       <p id="0.2.0">
         <b class="header">0.2.0</b> &mdash; <small><i>October 28, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.1.1...0.2.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.2.0/index.html">Docs</a><br />
-        Added <tt>compose</tt> and <tt>lastIndexOf</tt>, renamed <tt>inject</tt> to
-        <tt>reduce</tt>, added aliases for <tt>inject</tt>, <tt>filter</tt>,
-        <tt>every</tt>, <tt>some</tt>, and <tt>forEach</tt>.
+        添加<tt>compose</tt> 和 <tt>lastIndexOf</tt>，将 <tt>inject</tt>重命名为<tt>reduce</tt>，
+        为<tt>inject</tt>, <tt>filter</tt>,<tt>every</tt>, <tt>some</tt>, 和 <tt>forEach</tt> 添加别名。
       </p>
 
       <p id="0.1.1">
         <b class="header">0.1.1</b> &mdash; <small><i>October 28, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.1.0...0.1.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.1.1/index.html">Docs</a><br />
-        Added <tt>noConflict</tt>, so that the "Underscore" object can be assigned to
-        other variables.
+        添加<tt>noConflict</tt>，确保"Underscore"对象可以赋值给其它变量。
       </p>
 
       <p id="0.1.0">
         <b class="header">0.1.0</b> &mdash; <small><i>October 28, 2009</i></small> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.1.1/index.html">Docs</a><br />
-        Initial release of Underscore.js.
+        Underscore.js的初始版本。
       </p>
 
       <p>
