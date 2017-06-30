@@ -2732,9 +2732,7 @@ _([1, 2, 3]).value();
 
       <p id="1.1.1">
         <b class="header">1.1.1</b> &mdash; <small><i>October 5, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.1.0...1.1.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.1.1/index.html">Docs</a><br />
-        Improved the speed of <tt>_.template</tt>, and its handling of multiline
-        interpolations. Ryan Tenney contributed optimizations to many Underscore
-        functions. An annotated version of the source code is now available.
+        提升<tt>_.template</tt>的速度，和处理多行插入值的能力。 Ryan Tenney 贡献了许多Underscore函数的优化。带有注释版本的源码现在可用了。
       </p>
 
       <p id="1.1.0">
@@ -2744,20 +2742,17 @@ _([1, 2, 3]).value();
         This is a backwards-incompatible change. <tt>_.template</tt> may now be
         called with no arguments, and preserves whitespace. <tt>_.contains</tt>
         is a new alias for <tt>_.include</tt>.
+
       </p>
 
       <p id="1.0.4">
         <b class="header">1.0.4</b> &mdash; <small><i>June 22, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.0.3...1.0.4">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.0.4/index.html">Docs</a><br />
-        <a href="http://themoell.com/">Andri Möll</a> contributed the <tt>_.memoize</tt>
-        function, which can be used to speed up expensive repeated computations
-        by caching the results.
+        <a href="http://themoell.com/">Andri Möll</a>贡献了<tt>_.memoize</tt>函数，通过缓存结果，可以提速某些需要重复计算且比较耗时的计算。
       </p>
 
       <p id="1.0.3">
         <b class="header">1.0.3</b> &mdash; <small><i>June 14, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.0.2...1.0.3">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.0.3/index.html">Docs</a><br />
-        Patch that makes <tt>_.isEqual</tt> return <tt>false</tt> if any property
-        of the compared object has a <tt>NaN</tt> value. Technically the correct
-        thing to do, but of questionable semantics. Watch out for NaN comparisons.
+        合并一个补丁，如果任何比较对象有一个<tt>NaN</tt>属性，那么<tt>_.isEqual</tt>就返回<tt>false</tt>。技术上是正确的，但语义上值得商榷。在比较NaN时要小心了。
       </p>
 
       <p id="1.0.2">
@@ -2772,7 +2767,7 @@ _([1, 2, 3]).value();
 
       <p id="1.0.0">
         <b class="header">1.0.0</b> &mdash; <small><i>March 18, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.6.0...1.0.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.0.0/index.html">Docs</a><br />
- 
+
         Underscore在最近的几个月中已经稳定了，所以现在准备发布beta 1.0 版本。自<b>0.6</b>版本以后的改进包括<tt>_.isBoolean</tt>，<tt>_.extend</tt>支持多个source对象。
       </p>
 
@@ -2783,7 +2778,7 @@ _([1, 2, 3]).value();
       </p>
 
       <p id="0.5.8">
-        <b class="header">0.5.8</b> &mdash; <small><i>January 28, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.7...0.5.8">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.8/index.html">Docs</a><br />        
+        <b class="header">0.5.8</b> &mdash; <small><i>January 28, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.7...0.5.8">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.8/index.html">Docs</a><br />
         修复Underscore的collection函数，以便在<a href="https://developer.mozilla.org/En/DOM/NodeList">NodeLists</a>和<a href="https://developer.mozilla.org/En/DOM/HTMLCollection">HTMLCollections</a>上使用，感谢<a href="https://github.com/JustinTulloss">Justin Tulloss</a>。
       </p>
 
