@@ -2570,21 +2570,18 @@ _([1, 2, 3]).value();
         <b class="header">1.2.2</b> &mdash; <small><i>November 14, 2011</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.2.1...1.2.2">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.2.1/index.html">Docs</a><br />
         <ul>
           <li>
-            Continued tweaks to <tt>_.isEqual</tt> semantics. Now JS primitives are
-            considered equivalent to their wrapped versions, and arrays are compared
-            by their numeric properties only <small>(#351)</small>.
+            继续调整<tt>_.isEqual</tt>的使用场景。现在JS的基本数据类型被认为与对应的包装对象是相等的，
+            并且数组现在之比较数值属性<small>(#351)</small>。
           </li>
           <li>
-            <tt>_.escape</tt> no longer tries to be smart about not double-escaping
-            already-escaped HTML entities. Now it just escapes regardless <small>(#350)</small>.
+            <tt>_.escape</tt>不再试图在非双重转义的转义的HTML实体上进行转换。现在它只管直接转义<small>(#350)</small>。
+
           </li>
           <li>
-            In <tt>_.template</tt>, you may now leave semicolons out of evaluated
-            statements if you wish: <tt>&lt;% }) %&gt;</tt> <small>(#369)</small>.
+            在<tt>_.template</tt>函数中，你现在可以省略掉在求值表达式后面的分号了：<tt>&lt;% }) %&gt;</tt> <small>(#369)</small>。
           </li>
           <li>
-            <tt>_.after(callback, 0)</tt> will now trigger the callback immediately,
-            making "after" easier to use with asynchronous APIs <small>(#366)</small>.
+            <tt>_.after(callback, 0)</tt>现在会立即触发回调，让"after"更加适合在异步APIs上使用<small>(#366)</small>。
           </li>
         </ul>
       </p>
@@ -2593,39 +2590,28 @@ _([1, 2, 3]).value();
         <b class="header">1.2.1</b> &mdash; <small><i>October 24, 2011</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.2.0...1.2.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.2.1/index.html">Docs</a><br />
         <ul>
           <li>
-            Several important bug fixes for <tt>_.isEqual</tt>, which should now
-            do better on mutated Arrays, and on non-Array objects with
-            <tt>length</tt> properties. <small>(#329)</small>
+            修复了<tt>_.isEqual</tt>函数的几个重要bug，现在在处理突变数组，和非数组带有<tt>length</tt>属性的对象时表现更好。<small>(#329)</small>
           </li>
           <li>
-            <a href="https://github.com/jrburke">James Burke</a>
-            contributed Underscore exporting for AMD module loaders, and
-            <a href="https://github.com/tonylukasavage">Tony Lukasavage</a>
-            for Appcelerator Titanium.
-            <small>(#335, #338)</small>
+            <a href="https://github.com/jrburke">James Burke</a>贡献了Underscore适配AMD模块加载器的代码，并替Appcelerator Titanium感谢 <a href="https://github.com/tonylukasavage">Tony Lukasavage</a>。<small>(#335, #338)</small>
           </li>
           <li>
-            You can now <tt>_.groupBy(list, 'property')</tt> as a shortcut for
-            grouping values by a particular common property.
+            现在你可以使用<tt>_.groupBy(list, 'property')</tt>，快捷的根据某个属性将值分组。
           </li>
           <li>
-            <tt>_.throttle</tt>'d functions now fire immediately upon invocation,
-            and are rate-limited thereafter <small>(#170, #266)</small>.
+             <tt>_.throttle</tt>的函数现在在调用时会马上执行，之后才会每个一定间隔才调用<small>(#170, #266)</small>。
           </li>
           <li>
-            Most of the <tt>_.is[Type]</tt> checks no longer ducktype.
+            多数的<tt>_.is[Type]</tt>检测不在是鸭子类型检测。
           </li>
           <li>
-            The <tt>_.bind</tt> function now also works on constructors, a-la
-            ES5 ... but you would never want to use <tt>_.bind</tt> on a
-            constructor function.
+            <tt>_.bind</tt> 函数现在也能作用在constructions上，嗯，这是ES5的特性，但你绝不会在construction函数上使用<tt>_.bind</tt>。
           </li>
           <li>
-            <tt>_.clone</tt> no longer wraps non-object types in Objects.
+            <tt>_.clone</tt>现在封装对象里的非对象类型。
           </li>
           <li>
-            <tt>_.find</tt> and <tt>_.filter</tt> are now the preferred names for
-            <tt>_.detect</tt> and <tt>_.select</tt>.
+            <tt>_.find</tt> 和 <tt>_.filter</tt>现在分别是 <tt>_.detect</tt> 和 <tt>_.select</tt>的首选名称。
           </li>
         </ul>
       </p>
@@ -2634,100 +2620,56 @@ _([1, 2, 3]).value();
         <b class="header">1.2.0</b> &mdash; <small><i>October 5, 2011</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.1.7...1.2.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.2.0/index.html">Docs</a><br />
         <ul>
           <li>
-            The <tt>_.isEqual</tt> function now
-            supports true deep equality comparisons, with checks for cyclic structures,
-            thanks to Kit Cambridge.
+            现在<tt>_.isEqual</tt>函数真正的支持深度比较了，同时会检测循环引用，感谢Kit Cambridge。
           </li>
           <li>
-            Underscore templates now support HTML escaping interpolations, using
-            <tt>&lt;%- ... %&gt;</tt> syntax.
+            通过使用<tt>&lt;%- ... %&gt;</tt>语法，Underscore现在支持嵌入转义的HTML了。
+          </li>
+          <li>函数，使用一中修整过的Fisher-Yates来返回一个数组的混淆副本。
           </li>
           <li>
-            Ryan Tenney contributed <tt>_.shuffle</tt>, which uses a modified
-            Fisher-Yates to give you a shuffled copy of an array.
+            <tt>_.uniq</tt>现在能接收一个可选迭代器参数，决定何种情况下对象被认为是相等的。
           </li>
           <li>
-            <tt>_.uniq</tt> can now be passed an optional iterator, to determine by
-            what criteria an object should be considered unique.
+            <tt>_.last</tt>现在接收一个可选参数，会返回列表中后N个元素。
           </li>
           <li>
-            <tt>_.last</tt> now takes an optional argument which will return the last
-            N elements of the list.
-          </li>
-          <li>
-            A new <tt>_.initial</tt> function was added, as a mirror of <tt>_.rest</tt>,
-            which returns all the initial values of a list (except the last N).
+            新增<tt>_.initial</tt>函数，与<tt>_.rest</tt>相反，返回列表的所有开始的值（也就是除了最后N个元素外的其它值）。
           </li>
         </ul>
       </p>
 
       <p id="1.1.7">
         <b class="header">1.1.7</b> &mdash; <small><i>July 13, 2011</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.1.6...1.1.7">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.1.7/index.html">Docs</a><br />
-        Added <tt>_.groupBy</tt>, which aggregates a collection into groups of like items.
-        Added <tt>_.union</tt> and <tt>_.difference</tt>, to complement the
-        (re-named) <tt>_.intersection</tt>.
-        Various improvements for support of sparse arrays.
-        <tt>_.toArray</tt> now returns a clone, if directly passed an array.
-        <tt>_.functions</tt> now also returns the names of functions that are present
-        in the prototype chain.
+        添加<tt>_.groupBy</tt>函数，它将一个集合聚合成相似项目的组。添加<tt>_.union</tt>和<tt>_.difference</tt>，补充（以重命名的）<tt>_.intersection</tt>。诸多支持稀疏数组的改善。如果传入一个数组到<tt>_.toArray</tt>中，它现在会返回一个拷贝。<tt>_.functions</tt>现在会返回那些在对象原型链上的函数的名称。
       </p>
 
       <p id="1.1.6">
         <b class="header">1.1.6</b> &mdash; <small><i>April 18, 2011</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.1.5...1.1.6">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.1.6/index.html">Docs</a><br />
-        Added <tt>_.after</tt>, which will return a function that only runs after
-        first being called a specified number of times.
-        <tt>_.invoke</tt> can now take a direct function reference.
-        <tt>_.every</tt> now requires an iterator function to be passed, which
-        mirrors the ES5 API.
-        <tt>_.extend</tt> no longer copies keys when the value is undefined.
-        <tt>_.bind</tt> now errors when trying to bind an undefined value.
+        新增<tt>_.after</tt>函数，它会返回一个新函数，这个函数只有在调用给定次数的情况下才会执行。<tt>_.invoke</tt>现在可以直接接受函数引用。<tt>_.every</tt>现在需要传入一个迭代器函数，这模仿了ES5的API。<tt>_.extend</tt>现在不会再拷贝值为undefined的key了。<tt>_.bind</tt>现在在绑定到undefined值时会抛出错误。
       </p>
 
       <p id="1.1.5">
         <b class="header">1.1.5</b> &mdash; <small><i>March 20, 2011</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.1.4...1.1.5">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.1.5/index.html">Docs</a><br />
-        Added an <tt>_.defaults</tt> function, for use merging together JS objects
-        representing default options.
-        Added an <tt>_.once</tt> function, for manufacturing functions that should
-        only ever execute a single time.
-        <tt>_.bind</tt> now delegates to the native ES5 version,
-        where available.
-        <tt>_.keys</tt> now throws an error when used on non-Object values, as in
-        ES5.
         Fixed a bug with <tt>_.keys</tt> when used over sparse arrays.
+        新增 <tt>_.defaults</tt>函数，用来合并用来当做默认参数使用的JS对象。添加<tt>_.once</tt> 函数，用来生成只能被执行一次的新函数。如果ES5原生方法存在，<tt>_.bind</tt>现在会代理给此方法。<tt>_.keys</tt>如果使用在一个非对象值上回抛出异常，正如ES5一样。修正<tt>_.keys</tt>函数在传入稀疏数组时的bug。
       </p>
 
       <p id="1.1.4">
         <b class="header">1.1.4</b> &mdash; <small><i>January 9, 2011</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.1.3...1.1.4">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.1.4/index.html">Docs</a><br />
-        Improved compliance with ES5's Array methods when passing <tt>null</tt>
-        as a value. <tt>_.wrap</tt> now correctly sets <tt>this</tt> for the
-        wrapped function. <tt>_.indexOf</tt> now takes an optional flag for
-        finding the insertion index in an array that is guaranteed to already
-        be sorted. Avoiding the use of <tt>.callee</tt>, to allow <tt>_.isArray</tt>
-        to work properly in ES5's strict mode.
+        在处理传入<tt>null</tt>参数的情况下，改善与ES5数组方法的兼容性。<tt>_.wrap</tt>现在正确的设置了包装器函数的<tt>this</tt>值。<tt>_.indexOf</tt>现在接收一个可选标记，在保证以排好序的数组中，找到插入索引的位置。避免使用<tt>.callee</tt>，让 <tt>_.isArray</tt>可以在ES5的严格模式下正常工作。
       </p>
 
       <p id="1.1.3">
         <b class="header">1.1.3</b> &mdash; <small><i>December 1, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.1.2...1.1.3">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.1.3/index.html">Docs</a><br />
-        In CommonJS, Underscore may now be required with just: <br />
-        <tt>var _ = require("underscore")</tt>.
-        Added <tt>_.throttle</tt> and <tt>_.debounce</tt> functions.
-        Removed <tt>_.breakLoop</tt>, in favor of an ES5-style un-<i>break</i>-able
-        each implementation &mdash; this removes the try/catch, and you'll now have
-        better stack traces for exceptions that are thrown within an Underscore iterator.
-        Improved the <b>isType</b> family of functions for better interoperability
-        with Internet Explorer host objects.
-        <tt>_.template</tt> now correctly escapes backslashes in templates.
-        Improved <tt>_.reduce</tt> compatibility with the ES5 version:
-        if you don't pass an initial value, the first item in the collection is used.
-        <tt>_.each</tt> no longer returns the iterated collection, for improved
-        consistency with ES5's <tt>forEach</tt>.
+        在CommonJS中，现在可以以<tt>var _ = require("underscore")</tt>的形式引入Underscore。添加<tt>_.throttle</tt> 和 <tt>_.debounce</tt>。删除 <tt>_.breakLoop</tt>，支持ES5的不可中断的（un-<i>break</i>-able）each实现 - 这移除了try/cacth，因此在Underscore的迭代中如果抛出异常，你可以获得更好的异常错误堆栈信息。改善 <b>isType</b> 类型函数，与IE的宿主对象更好的融合。<tt>_.template</tt> 现在正确的转义了模板中的反斜杠。改善<tt>_.reduce</tt>，更好的兼容ES5版本，如果你没有传入初始值，将使用集合的第一个元素。<tt>_.each</tt>不在返回被迭代的集合，为了保证与ES5原生<tt>forEach</tt>的一致性。
+
       </p>
 
       <p id="1.1.2">
         <b class="header">1.1.2</b> &mdash; <small><i>October 15, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.1.1...1.1.2">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.1.2/index.html">Docs</a><br />
-        Fixed <tt>_.contains</tt>, which was mistakenly pointing at
-        <tt>_.intersect</tt> instead of <tt>_.include</tt>, like it should
-        have been. Added <tt>_.unique</tt> as an alias for <tt>_.uniq</tt>.
+        修复<tt>_.contains</tt>指向<tt>_.intersect</tt> 的问题，原本应该指向<tt>_.include</tt>。
+        为<tt>_.uniq</tt>添加<tt>_.unique</tt>别名。
       </p>
 
       <p id="1.1.1">
