@@ -680,11 +680,6 @@ _.groupBy(['one', 'two', 'three'], 'length');
       <p id="indexBy">
         <b class="header">indexBy</b><code>_.indexBy(list, iteratee, [context])</code>
         <br />
-        Given a <b>list</b>, and an <b>iteratee</b> function that returns a
-        key for each element in the list (or a property name),
-        returns an object with an index of each item.
-        Just like <a href="#groupBy">groupBy</a>, but for when you know your
-        keys are unique.
         给定一个<b>list</b>和一个<b>iteratee</b> 函数，这个函数会返回列表中每个元素上的一个key（或一个属性名称），
         返回一个每项都有索引的对象。与<a href="#groupBy">groupBy</a>类似，但只用于当你知道键是唯一的时候。
       </p>
@@ -1195,8 +1190,7 @@ hello();
       <p id="negate">
         <b class="header">negate</b><code>_.negate(predicate)</code>
         <br />
-        Returns a new negated version of the <b>predicate</b> function.
-        返回一个新的<b>predicate</b>函数的否定版本。
+        返回<b>predicate</b>函数的一个否定版本。
       </p>
       <pre>
 var isFalsy = _.negate(Boolean);
@@ -1867,7 +1861,7 @@ _.template("Using 'with': <%= data.answer %>", {variable: 'data'})({answer: 'no'
       <h2 id="chaining">面向对象的风格 - Object-Oriented Style</h2>
 
       <p>
-        根据你个人喜好，你可以以面向对象的分割或函数式风格使用Underscore。以下两行代码把列表中的每个元素都翻倍了，
+        根据你个人喜好，你可以以面向对象的风格或函数式风格使用Underscore。以下两行代码把列表中的每个元素都翻倍了，
         两种方式是等价的。
       </p>
 
@@ -1928,114 +1922,94 @@ _([1, 2, 3]).value();
 =&gt; [1, 2, 3]
 </pre>
 
-      <h2 id="links">Links &amp; Suggested Reading</h2>
+      <h2 id="links">链接和推荐阅读 - Links &amp; Suggested Reading</h2>
 
       <p>
-        The Underscore documentation is also available in
-        <a href="http://learning.github.io/underscore/">Simplified Chinese</a>.
-      </p>
-
-      <p>
-        <a href="http://mirven.github.io/underscore.lua/">Underscore.lua</a>,
-        a Lua port of the functions that are applicable in both languages.
-        Includes OOP-wrapping and chaining.
         (<a href="https://github.com/mirven/underscore.lua">source</a>)
+        <a href="http://mirven.github.io/underscore.lua/">Underscore.lua</a>，一个Lua语言版本的实现，包含面向对象的封装和链式语法。
       </p>
 
       <p>
-        <a href="http://www.dollarswift.org/">Dollar.swift</a>, a Swift port
-        of many of the Underscore.js functions and more.
+        <a href="http://www.dollarswift.org/">Dollar.swift</a>,一个Swift语言下，实现了多数的Underscore.js函数版本。
         (<a href="https://github.com/ankurp/Dollar.swift">source</a>)
       </p>
 
       <p>
-        <a href="http://underscorem.org/">Underscore.m</a>, an Objective-C port
-        of many of the Underscore.js functions, using a syntax that encourages
-        chaining.
+        <a href="http://underscorem.org/">Underscore.m</a>, 一个Objective-C语言下，实现了多数的Underscore.js函数的版本，并且鼓励使用链式语法。
         (<a href="https://github.com/robb/Underscore.m">source</a>)
       </p>
 
       <p>
-        <a href="http://kmalakoff.github.io/_.m/">_.m</a>, an alternative
-        Objective-C port that tries to stick a little closer to the original
-        Underscore.js API.
+        <a href="http://kmalakoff.github.io/_.m/">_.m</a>, 另一个Objective-C语言下，意在更加接近Underscore.js API实现版本。
         (<a href="https://github.com/kmalakoff/_.m">source</a>)
       </p>
 
       <p>
         <a href="http://brianhaveri.github.io/Underscore.php/">Underscore.php</a>,
-        a PHP port of the functions that are applicable in both languages.
-        Includes OOP-wrapping and chaining.
+        一个PHP语言版本的实现，包含面向对象的封装和链式语法。
         (<a href="https://github.com/brianhaveri/Underscore.php">source</a>)
       </p>
 
       <p>
         <a href="http://vti.github.io/underscore-perl/">Underscore-perl</a>,
-        a Perl port of many of the Underscore.js functions,
-        aimed at on Perl hashes and arrays.
+        一个Perl语言的实现了多数Underscore.js函数的版本，为的是操作Perl的hashes和arrays。
         (<a href="https://github.com/vti/underscore-perl">source</a>)
       </p>
 
       <p>
         <a href="http://russplaysguitar.github.io/UnderscoreCF/">Underscore.cfc</a>,
-        a Coldfusion port of many of the Underscore.js functions.
+        一个Coldfusion语言的实现了多数Underscore.js函数的版本。
         (<a href="https://github.com/russplaysguitar/underscorecf">source</a>)
       </p>
 
       <p>
         <a href="http://epeli.github.io/underscore.string/">Underscore.string</a>,
-        an Underscore extension that adds functions for string-manipulation:
-        <tt>trim</tt>, <tt>startsWith</tt>, <tt>contains</tt>, <tt>capitalize</tt>,
-        <tt>reverse</tt>, <tt>sprintf</tt>, and more.
+        Underscore的扩展，添加了操作字符串的函数：<tt>trim</tt>, <tt>startsWith</tt>, <tt>contains</tt>, <tt>capitalize</tt>,
+        <tt>reverse</tt>, <tt>sprintf</tt>，等等。
       </p>
 
       <p>
-        Ruby's <a href="http://ruby-doc.org/core/classes/Enumerable.html">Enumerable</a> module.
+        Ruby的 <a href="http://ruby-doc.org/core/classes/Enumerable.html">Enumerable</a> 模块.
       </p>
 
       <p>
-        <a href="http://prototypejs.org/">Prototype.js</a>, which provides
-        JavaScript with collection functions in the manner closest to Ruby's Enumerable.
+        <a href="http://prototypejs.org/">Prototype.js</a>, 在JavaScript中提供了近似Ruby枚举模块的的集合函数。
       </p>
 
       <p>
         Oliver Steele's
         <a href="http://osteele.com/sources/javascript/functional/">Functional JavaScript</a>,
-        which includes comprehensive higher-order function support as well as string lambdas.
+        包含了更加全面的高阶函数，以及string lambdas。
       </p>
 
       <p>
         Michael Aufreiter's <a href="https://github.com/substance/data">Data.js</a>,
-        a data manipulation + persistence library for JavaScript.
+        一个数据操作 + 持久化的JavaScript库。
       </p>
 
       <p>
-        Python's <a href="http://docs.python.org/library/itertools.html">itertools</a>.
+        Python的 <a href="http://docs.python.org/library/itertools.html">itertools</a>.
       </p>
 
       <p>
-        <a href="http://toolz.readthedocs.org/">PyToolz</a>, a Python port
-        that extends itertools and functools to include much of the
-        Underscore API.
+        <a href="http://toolz.readthedocs.org/">PyToolz</a>, 
+        一个Python下用来扩展迭代工具和函数工具的实现，包含了许多Underscore的API。
       </p>
 
       <p>
-        <a href="https://github.com/Suor/funcy">Funcy</a>, a practical
-        collection of functional helpers for Python, partially inspired by Underscore.
+        <a href="https://github.com/Suor/funcy">Funcy</a>, Python语言下一个很实用的集合和函数辅助工具，部分灵感来源于Underscore。
       </p>
 
-      <h2 id="changelog">Change Log</h2>
+      <h2 id="changelog">变更日志 - Change Log</h2>
 
       <p id="1.8.3">
         <b class="header">1.8.3</b> &mdash; <small><i>April 2, 2015</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.8.2...1.8.3">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.8.3/index.html">Docs</a><br />
         <ul>
           <li>
-            Adds an <tt>_.create</tt> method, as a slimmed down version of
-            <tt>Object.create</tt>.
+            添加<tt>_.create</tt>方法，作为<tt>Object.create</tt>的瘦身实现版本。
           </li>
           <li>
-            Works around an iOS bug that can improperly cause <tt>isArrayLike</tt>
-            to be JIT-ed. Also fixes a bug when passing <tt>0</tt> to <tt>isArrayLike</tt>.
+            绕过一个iOS bug，这个bug会错误的导致<tt>isArrayLike</tt>为<a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">JIT-ed</a>。同样也修复了在<tt>isArrayLike</tt>中传入<tt>0</tt>时的bug。
           </li>
         </ul>
       </p>
@@ -2044,11 +2018,10 @@ _([1, 2, 3]).value();
         <b class="header">1.8.2</b> &mdash; <small><i>Feb. 22, 2015</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.8.1...1.8.2">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.8.2/index.html">Docs</a><br />
         <ul>
           <li>
-            Restores the previous old-Internet-Explorer edge cases changed in
-            1.8.1.
+            回退之前在1.8.1版本下一些老IE下的边界用例的变更。
           </li>
           <li>
-            Adds a <tt>fromIndex</tt> argument to <tt>_.contains</tt>.
+            添加<tt>fromIndex</tt>参数到<tt>_.contains</tt>函数中。
           </li>
         </ul>
       </p>
@@ -2057,9 +2030,7 @@ _([1, 2, 3]).value();
         <b class="header">1.8.1</b> &mdash; <small><i>Feb. 19, 2015</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.8.0...1.8.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.8.1/index.html">Docs</a><br />
         <ul>
           <li>
-            Fixes/changes some old-Internet Explorer and related edge case
-            behavior. Test your app with Underscore 1.8.1 in an old IE and let
-            us know how it's doing...
+            修复和改善一些在老旧IE浏览器下以及一些相关边界用例下的问题。请在老的IE浏览器下测试Underscore1.8.1版本，并及时让我知道表现如何...
           </li>
         </ul>
       </p>
@@ -2070,51 +2041,42 @@ _([1, 2, 3]).value();
           <li>
             Added <tt>_.mapObject</tt>, which is similar to <tt>_.map</tt>, but just
             for the values in your object. (A real crowd pleaser.)
+            天剑<tt>_.mapObject</tt>函数，类似于<tt>_.map</tt>函数，但作用于对象的值。（一个受人喜欢的函数）
           </li>
           <li>
-            Added <tt>_.allKeys</tt> which returns <i>all</i> the enumerable property
-            names on an object.
+            添加<tt>_.allKeys</tt>函数，返回一个对象上<i>所有</i>可枚举属性的名称、
           </li>
           <li>
-            Reverted a 1.7.0 change where <tt>_.extend</tt> only copied "own"
-            properties. Hopefully this will un-break you &mdash; if it breaks you
-            again, I apologize.
+            恢复一个1.7.0的变更，此变更是<tt>_.extend</tt>之拷贝自有属性。希望这没有破坏你的代码&mdash;如果这再次破坏你的代码，我致以歉意。
           </li>
           <li>
-            Added <tt>_.extendOwn</tt> &mdash; a less-useful form of <tt>_.extend</tt> that
-            only copies over "own" properties.
+            添加<tt>_.extendOwn</tt>函数 &mdash; 一个<tt>_.extend</tt>的不是很有用的形式，只拷贝对象的自有属性。
           </li>
           <li>
             Added <tt>_.findIndex</tt> and <tt>_.findLastIndex</tt> functions,
             which nicely complement their twin-twins <tt>_.indexOf</tt> and <tt>_.lastIndexOf</tt>.
+            添加<tt>_.findIndex</tt> 和 <tt>_.findLastIndex</tt> 函数，这很好的补充了<tt>_.indexOf</tt> and <tt>_.lastIndexOf</tt>。
           </li>
           <li>
-            Added an <tt>_.isMatch</tt> predicate function that tells you if an
-            object matches key-value properties. A kissing cousin of
-            <tt>_.isEqual</tt> and <tt>_.matcher</tt>.
+            添加<tt>_.isMatch</tt>断言函数，告诉你是否一个对象包含了给定的所有key-value属性。 它与<tt>_.isEqual</tt> 和 <tt>_.matcher</tt>是近似函数。
           </li>
           <li>
-            Added an <tt>_.isError</tt> function.
+            添加<tt>_.isError</tt>函数。
           </li>
           <li>
-            Restored the <tt>_.unzip</tt> function as the inverse of <tt>zip</tt>.
-            Flip-flopping. I know.
+            恢复<tt>_.unzip</tt函数，作为<tt>zip</tt>函数的反功能。我知道它们是正反函数。
           </li>
           <li>
-            <tt>_.result</tt> now takes an optional fallback value (or function
-            that provides the fallback value).
+            <tt>_.result</tt>现在接收一个可选回调值（或者一个提供回调值的函数）。
           </li>
           <li>
-            Added the <tt>_.propertyOf</tt> function generator as a mirror-world
-            version of <tt>_.property</tt>.
+            添加<tt>_.result</tt>函数，生成 <tt>_.property</tt>的反函数。
           </li>
           <li>
-            Deprecated <tt>_.matches</tt>. It's now known by a more harmonious
-            name — <tt>_.matcher</tt>.
+            启用<tt>_.matches</tt>。它现在起了一个更和谐的名字 - <tt>_.matcher</tt>。
           </li>
           <li>
-            Various and diverse code simplifications, changes for improved
-            cross-platform compatibility, and edge case bug fixes.
+            大量不同的代码简化，为了改善跨平台兼容性做了一定修改，修复一些边界用例bug。
           </li>
         </ul>
       </p>
@@ -2123,84 +2085,66 @@ _([1, 2, 3]).value();
         <b class="header">1.7.0</b> &mdash; <small><i>August 26, 2014</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.6.0...1.7.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.7.0/index.html">Docs</a><br />
         <ul>
           <li>
-            For consistency and speed across browsers, Underscore now ignores
-            native array methods for <tt>forEach</tt>, <tt>map</tt>, <tt>reduce</tt>,
+            为了在跨浏览器中保证一致性和速度，Underscore现在在<tt>forEach</tt>, <tt>map</tt>, <tt>reduce</tt>,
             <tt>reduceRight</tt>, <tt>filter</tt>, <tt>every</tt>, <tt>some</tt>,
-            <tt>indexOf</tt>, and <tt>lastIndexOf</tt>. "Sparse" arrays are
-            officially dead in Underscore.
+            <tt>indexOf</tt>, and <tt>lastIndexOf</tt>方法调用时会忽略原生数组的方法。Underscore从现在起正式的宣称不再支持稀疏数组。
           </li>
           <li>
-            Added <tt>_.iteratee</tt> to customize the iterators used by collection
-            functions. Many Underscore methods will take a string argument for easier
-            <tt>_.property</tt>-style lookups, an object for <tt>_.where</tt>-style
-            filtering, or a function as a custom callback.
+            添加<tt>_.iteratee</tt>函数，自定义collection函数需要使用的迭代器。许多Underscore的方法会接受一个字符串参数，以便执行 <tt>_.property</tt>-style的查询，一个对象参数，以便执行<tt>_.where</tt>-style的过滤，以及一个函数作为自定义回调函数。
           </li>
           <li>
-            Added <tt>_.before</tt> as a counterpart to <tt>_.after</tt>.
+            添加<tt>_.before</tt>函数，与<tt>_.after</tt>函数相对应。
           </li>
           <li>
-            Added <tt>_.negate</tt> to invert the truth value of a passed-in
-            predicate.
+            添加<tt>_.negate</tt>函数来反转传入函数的真值测试。
           </li>
           <li>
-            Added <tt>_.noop</tt> as a handy empty placeholder function.
+            添加<tt>_.noop</tt>，作为一个空的占位符函数。
           </li>
           <li>
-            <tt>_.isEmpty</tt> now works with <tt>arguments</tt> objects.
+            <tt>_.isEmpty</tt>现在可以作用在<tt>arguments</tt>对象上。
           </li>
           <li>
-            <tt>_.has</tt> now guards against nullish objects.
+            <tt>_.has</tt>现在会防止null对象传入。
           </li>
           <li>
-            <tt>_.omit</tt> can now take an iteratee function.
+            <tt>_.omit</tt> 现在可以传入迭代器函数。
           </li>
           <li>
             <tt>_.partition</tt> is now called with <tt>index</tt> and <tt>object</tt>.
           </li>
           <li>
-            <tt>_.matches</tt> creates a shallow clone of your object and only iterates
-            over own properties.
+            <tt>_.matches</tt>会创建对传入对象的浅拷贝，而且只会在对象自有属性上迭代。
           </li>
           <li>
-            Aligning better with the forthcoming ECMA6 <tt>Object.assign</tt>,
-            <tt>_.extend</tt> only iterates over the object's own properties.
+            向即将到来的ECMA6版本的<tt>Object.assign</tt>看齐， <tt>_.extend</tt>只迭代对象的自有属性。
           </li>
           <li>
-            Falsey guards are no longer needed in <tt>_.extend</tt> and
-            <tt>_.defaults</tt>&mdash;if the passed in argument isn't a JavaScript
-            object it's just returned.
+            <tt>_.extend</tt>和<tt>_.defaults</tt>不在检测Falsey值&mdash;如果传入的参数不是JavaScript对象类型，那么直接把它返回。
           </li>
           <li>
-            Fixed a few edge cases in <tt>_.max</tt> and <tt>_.min</tt> to
-            handle arrays containing <tt>NaN</tt> (like strings or other objects)
-            and <tt>Infinity</tt> and <tt>-Infinity</tt>.
+            修复<tt>_.max</tt> 和 <tt>_.min</tt>的一些边界用例，处理数组中包含<tt>NaN</tt>， <tt>Infinity</tt>和<tt>-Infinity</tt>的情况（比如字符串或其他对象）。
           </li>
           <li>
-            Override base methods like <tt>each</tt> and <tt>some</tt>
-            and they'll be used internally by other Underscore functions too.
+            覆盖一些基本的方法，比如<tt>each</tt> 和 <tt>some</tt>，它们也会在Underscore的内部使用。
           </li>
           <li>
-            The escape functions handle backticks (<tt>`</tt>), to deal with an
-            IE &le; 8 bug.
+            转义函数现在可以处理引号(<tt>`</tt>)，以修复在IE &le; 8时的一些bug。
           </li>
           <li>
-            For consistency, <tt>_.union</tt> and <tt>_.difference</tt> now
-            only work with arrays and not variadic args.
+            为了一致性，<tt>_.union</tt>和<tt>_.difference</tt>现在只作用在数组和不可变参数上。
           </li>
           <li>
-            <tt>_.memoize</tt> exposes the cache of memoized values as a property
-            on the returned function.
+            <tt>_.memoize</tt>现在会导出存储值的缓存对象，该会作为返回函数的属性存在。
           </li>
           <li>
-            <tt>_.pick</tt> accepts <tt>iteratee</tt> and <tt>context</tt>
-            arguments for a more advanced callback.
+            <tt>_.pick</tt>现在接受 <tt>iteratee</tt> 和 <tt>context</tt>参数最为更高级的回调。
           </li>
           <li>
-            Underscore templates no longer accept an initial <tt>data</tt> object.
-            <tt>_.template</tt> always returns a function now.
+            Underscore的模板函数不在接受初始化的<tt>data</tt>的对象。<tt>_.template</tt>现在总会返回一个编译函数。
           </li>
           <li>
-            Optimizations and code cleanup aplenty.
+            大量的优化和代码清理工作。
           </li>
         </ul>
       </p>
@@ -2209,45 +2153,34 @@ _([1, 2, 3]).value();
         <b class="header">1.6.0</b> &mdash; <small><i>February 10, 2014</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.5.2...1.6.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.6.0/index.html">Docs</a><br />
         <ul>
           <li>
-            Underscore now registers itself for AMD (Require.js), Bower and Component,
-            as well as being a CommonJS module and a regular (Java)Script.
-            An ugliness, but perhaps a necessary one.
+            Underscore现在注册支持AMD (Require.js)，Bower 和 Component以及作为一个CommonJS的模块和惯用的(Java)脚本。有点丑陋，但也许很有必要。
           </li>
           <li>
-            Added <tt>_.partition</tt>, a way to split a collection into two lists
-            of results — those that pass and those that fail a particular predicate.
+            添加<tt>_.partition</tt>函数，将一个collection分割为两个结果列表 - 一个是满足特定条件的，另一个是不满足特定条件的。
           </li>
           <li>
-            Added <tt>_.property</tt>, for easy creation of iterators that pull
-            specific properties from objects. Useful in conjunction with other
-            Underscore collection functions.
+            添加<tt>_.property</tt>函数，创建一个很方便的从对象上获取某些属性的迭代器。与其它collection函数一起用很有用。
           </li>
           <li>
-            Added <tt>_.matches</tt>, a function that will give you a predicate
-            that can be used to tell if a given object matches a list of specified
-            key/value properties.
+            添加<tt>_.matches</tt>函数，返回一个断言，告诉你是否给定的对象与一个指定的key/value的列表项匹配。
           </li>
           <li>
-            Added <tt>_.constant</tt>, as a higher-order <tt>_.identity</tt>.
+            添加<tt>_.constant</tt>函数，作为<tt>_.identity</tt>的高阶。
           </li>
           <li>
-            Added <tt>_.now</tt>, an optimized way to get a timestamp &mdash; used
-            internally to speed up <tt>debounce</tt> and <tt>throttle</tt>.
+            添加<tt>_.now</tt>函数，一个获取时间戳的优化方式； - 在内部用来加速<tt>debounce</tt> 和 <tt>throttle</tt>函数。
           </li>
           <li>
-            The <tt>_.partial</tt> function may now be used to partially apply
-            any of its arguments, by passing <tt>_</tt> wherever you'd like a
-            placeholder variable, to be filled-in later.
+            <tt>_.partial</tt>函数现在可以部分的应用于任何参数，如你喜欢，可传入<tt>_</tt>可以当做占位符变量，之后调用时再填上。
           </li>
           <li>
-            The <tt>_.each</tt> function now returns a reference to the list for chaining.
+            <tt>_.each</tt>函数现在返回一个列表来支持链式语法，
           </li>
           <li>
-            The <tt>_.keys</tt> function now returns an empty array for
-            non-objects instead of throwing.
+            <tt>_.keys</tt>函数对于非对象类型，现在会返回一个空数组而不是抛异常。
           </li>
           <li>
-            &hellip; and more miscellaneous refactoring.
+            &hellip; 更多杂项的重构。
           </li>
         </ul>
       </p>
@@ -2256,12 +2189,10 @@ _([1, 2, 3]).value();
         <b class="header">1.5.2</b> &mdash; <small><i>September 7, 2013</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.5.1...1.5.2">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.5.2/index.html">Docs</a><br />
         <ul>
           <li>
-            Added an <tt>indexBy</tt> function, which fits in alongside its
-            cousins, <tt>countBy</tt> and <tt>groupBy</tt>.
+            添加<tt>indexBy</tt>函数，可以补充<tt>countBy</tt> 和 <tt>groupBy</tt>的不足。
           </li>
           <li>
-            Added a <tt>sample</tt> function, for sampling random elements from
-            arrays.
+            添加<tt>sample</tt>函数，从数组中取样随机元素。
           </li>
           <li>
             Some optimizations relating to functions that can be implemented
@@ -2269,7 +2200,7 @@ _([1, 2, 3]).value();
             <tt>each</tt> on objects). Also for <tt>debounce</tt> in a tight loop.
           </li>
           <li>
-            The <tt>_.escape</tt> function no longer escapes '/'.
+            <tt>_.escape</tt>函数不再转义'/'。
           </li>
         </ul>
       </p>
@@ -2278,9 +2209,7 @@ _([1, 2, 3]).value();
         <b class="header">1.5.1</b> &mdash; <small><i>July 8, 2013</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.5.0...1.5.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.5.1/index.html">Docs</a><br />
         <ul>
           <li>
-            Removed <tt>unzip</tt>, as it's simply the application of <tt>zip</tt>
-            to an array of arguments. Use <tt>_.zip.apply(_, list)</tt> to
-            transpose instead.
+            移除<tt>unzip</tt>，因为它只是简单的应用了<tt>zip</tt>数组作为参数。使用 <tt>_.zip.apply(_, list)</tt>代替。
           </li>
         </ul>
       </p>
@@ -2289,29 +2218,22 @@ _([1, 2, 3]).value();
         <b class="header">1.5.0</b> &mdash; <small><i>July 6, 2013</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.4.4...1.5.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.5.0/index.html">Docs</a><br />
         <ul>
           <li>
-            Added a new <tt>unzip</tt> function, as the inverse of <tt>_.zip</tt>.
+            添加<tt>unzip</tt>函数，与<tt>_.zip</tt>相反。
           </li>
           <li>
-            The <tt>throttle</tt> function now takes an <tt>options</tt> argument,
-            allowing you to disable execution of the throttled function on either
-            the <b>leading</b> or <b>trailing</b> edge.
+            <tt>throttle</tt>函数现在接受一个<tt>options</tt>参数，允许你在<b>leading</b>或<b>trailing</b>时禁用throttled函数的执行。
           </li>
           <li>
-            A source map is now supplied for easier debugging of the minified
-            production build of Underscore.
+            现在提供了source map功能，更加容易调试产品构建下压缩版本的Underscore了。
           </li>
           <li>
-            The <tt>defaults</tt> function now only overrides <tt>undefined</tt>
-            values, not <tt>null</tt> ones.
+            <tt>defaults</tt>函数现在只可以覆盖 <tt>undefined</tt>至，不在覆盖<tt>null</tt>值。
           </li>
           <li>
-            Removed the ability to call <tt>_.bindAll</tt> with no method name
-            arguments. It's pretty much always wiser to white-list the names of
-            the methods you'd like to bind.
+            移除 <tt>_.bindAll</tt>上不加函数名称就可以调用的能力。总是传入你需要绑定方法的名称的白名单，这样比较明智。
           </li>
           <li>
-            Removed the ability to call <tt>_.after</tt> with an invocation count
-            of zero. The minimum number of calls is (naturally) now <tt>1</tt>.
+            移除调用0次即可执行<tt>_.after</tt>的能力。最小的调用次数现在是<tt>1</tt>。
           </li>
         </ul>
       </p>
@@ -2320,24 +2242,19 @@ _([1, 2, 3]).value();
         <b class="header">1.4.4</b> &mdash; <small><i>January 30, 2013</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.4.3...1.4.4">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.4.4/index.html">Docs</a><br />
         <ul>
           <li>
-            Added <tt>_.findWhere</tt>, for finding the first element in a list
-            that matches a particular set of keys and values.
+            添加<tt>_.findWhere</tt>函数，找到列表中第一个与给定keys和values结合相匹配的元素。
           </li>
           <li>
-            Added <tt>_.partial</tt>, for partially applying a function <i>without</i>
-            changing its dynamic reference to <tt>this</tt>.
+            添加<tt>_.partial</tt>函数，在不动态改变<tt>this</tt>的情况下部分的额使用一个函数。
           </li>
           <li>
-            Simplified <tt>bind</tt> by removing some edge cases involving
-            constructor functions. In short: don't <tt>_.bind</tt> your
-            constructors.
+            简化<tt>bind</tt>函数，删除一些涉及到construction函数的边界用例。简言之：不要在你的构造器上使用<tt>_.bind</tt>函数。
           </li>
           <li>
-            A minor optimization to <tt>invoke</tt>.
+            <tt>invoke</tt>的一个小优化。
           </li>
           <li>
-            Fix bug in the minified version due to the minifier incorrectly
-            optimizing-away <tt>isFunction</tt>.
+            修复代码压缩器因不正确的优化，导致的<tt>isFunction</tt>的bug。
           </li>
         </ul>
       </p>
@@ -2346,23 +2263,19 @@ _([1, 2, 3]).value();
         <b class="header">1.4.3</b> &mdash; <small><i>December 4, 2012</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.4.2...1.4.3">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.4.3/index.html">Docs</a><br />
         <ul>
           <li>
-            Improved Underscore compatibility with Adobe's JS engine that can be
-            used to script Illustrator, Photoshop, and friends.
+            提高Underscore在Adobe的JS引擎中的兼容性，使得可以用来在Illustrator, Photoshop和其它产品中编写脚本。
           </li>
           <li>
-            Added a default <tt>_.identity</tt> iterator to <tt>countBy</tt> and
-            <tt>groupBy</tt>.
+            向<tt>countBy</tt>和<tt>groupBy</tt>中，添加一个默认的<tt>_.identity</tt>迭代器。
           </li>
           <li>
-            The <tt>uniq</tt> function can now take <tt>array, iterator, context</tt>
-            as the argument list.
+            <tt>uniq</tt>现在可以使用<tt>array, iterator, context</tt>作为参数列表。
           </li>
           <li>
-            The <tt>times</tt> function now returns the mapped array of iterator
-            results.
+            <tt>times</tt>函数现在返回迭代结果的映射数组。
           </li>
           <li>
-            Simplified and fixed bugs in <tt>throttle</tt>.
+            简化，并且修复<tt>throttle</tt>中的bug。
           </li>
         </ul>
       </p>
@@ -2371,9 +2284,7 @@ _([1, 2, 3]).value();
         <b class="header">1.4.2</b> &mdash; <small><i>October 6, 2012</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.4.1...1.4.2">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.4.2/index.html">Docs</a><br />
         <ul>
           <li>
-            For backwards compatibility, returned to pre-1.4.0 behavior when
-            passing <tt>null</tt> to iteration functions. They now become no-ops
-            again.
+            为了向后兼容性，在迭代函数中传入<tt>null</tt>时，退回1.4.0之前的行为。它们现在是必选的。
           </li>
         </ul>
       </p>
@@ -2382,7 +2293,7 @@ _([1, 2, 3]).value();
         <b class="header">1.4.1</b> &mdash; <small><i>October 1, 2012</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.4.0...1.4.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.4.1/index.html">Docs</a><br />
         <ul>
           <li>
-            Fixed a 1.4.0 regression in the <tt>lastIndexOf</tt> function.
+            修复<tt>lastIndexOf</tt>在1.4.0中退化的问题。
           </li>
         </ul>
       </p>
@@ -2391,63 +2302,51 @@ _([1, 2, 3]).value();
         <b class="header">1.4.0</b> &mdash; <small><i>September 27, 2012</i></small>  &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.3.3...1.4.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.4.0/index.html">Docs</a><br />
         <ul>
           <li>
-            Added a <tt>pairs</tt> function, for turning a JavaScript object
-            into <tt>[key, value]</tt> pairs ... as well as an <tt>object</tt>
-            function, for converting an array of <tt>[key, value]</tt> pairs
-            into an object.
+            添加<tt>pairs</tt>函数，将JavaScript对象转换为<tt>[key, value]</tt>对，添加
+            <tt>object</tt>函数，将一个<tt>[key, value]</tt>队的数组转换为一个对象。
           </li>
           <li>
             Added a <tt>countBy</tt> function, for counting the number of objects
             in a list that match a certain criteria.
+            添加<tt>countBy</tt>函数，用来计算一个列表中与条件相匹配的对象的个数。
           </li>
           <li>
             Added an <tt>invert</tt> function, for performing a simple inversion
             of the keys and values in an object.
+            添加<tt>invert</tt>函数，将对象的keys和values进行翻转。
           </li>
           <li>
-            Added a <tt>where</tt> function, for easy cases of filtering a list
-            for objects with specific values.
+            添加<tt>where</tt>函数，方便的过滤列表中携带某个值的对象。
           </li>
           <li>
-            Added an <tt>omit</tt> function, for filtering an object to remove
-            certain keys.
+            添加<tt>omit</tt>函数，用来过滤某个对象，删除某些keys。
           </li>
           <li>
-            Added a <tt>random</tt> function, to return a random number in a
-            given range.
+            添加<tt>random</tt>函数，返回一个在给定范围内的随机数。
           </li>
           <li>
-            <tt>_.debounce</tt>'d functions now return their last updated value,
-            just like <tt>_.throttle</tt>'d functions do.
+            <tt>_.debounce</tt>函数现在返回最后一个更新的值，就像<tt>_.throttle</tt>函数一样。
           </li>
           <li>
-            The <tt>sortBy</tt> function now runs a stable sort algorithm.
+            <tt>sortBy</tt>现在执行一个稳定排序的算法。
           </li>
           <li>
-            Added the optional <tt>fromIndex</tt> option to <tt>indexOf</tt> and
-            <tt>lastIndexOf</tt>.
+            添加可选的tt>fromIndex</tt>选项到<tt>indexOf</tt>和<tt>lastIndexOf</tt>中。
           </li>
           <li>
-            "Sparse" arrays are no longer supported in Underscore iteration
-            functions. Use a <tt>for</tt> loop instead (or better yet, an object).
+            在Underscore的迭代函数中，不在支持稀疏数组。替代为<tt>for</tt>循环（这样可能更好）。
           </li>
           <li>
-            The <tt>min</tt> and <tt>max</tt> functions may now be called on
-            <i>very</i> large arrays.
+            <tt>min</tt> 和 <tt>max</tt>函数现在可以在<i>很大</i>的数组上调用。
           </li>
           <li>
-            Interpolation in templates now represents <tt>null</tt> and
-            <tt>undefined</tt> as the empty string.
+            在模板的插值语句中<tt>null</tt>和 <tt>undefined</tt>现在以空字符串代替。
           </li>
           <li>
-            <del>Underscore iteration functions no longer accept <tt>null</tt> values
-            as a no-op argument. You'll get an early error instead.</del>
+            Underscore的迭代函数不在接受 <tt>null</tt>作为可选参数，否则你将达到一个错误警示。
           </li>
           <li>
-            A number of edge-cases fixes and tweaks, which you can spot in the
-            <a href="https://github.com/jashkenas/underscore/compare/1.3.3...1.4.0">diff</a>.
-            Depending on how you're using Underscore, <b>1.4.0</b> may be more
-            backwards-incompatible than usual &mdash; please test when you upgrade.
+            修复和微调许多边界用例，你可以在<a href="https://github.com/jashkenas/underscore/compare/1.3.3...1.4.0">diff</a>中查看。取决于你现在使用Underscore的方式，相比之前的版本<b>1.4.0</b>现在向后兼容性不理想，请在升级后及时测试。
           </li>
         </ul>
       </p>
@@ -2456,41 +2355,28 @@ _([1, 2, 3]).value();
         <b class="header">1.3.3</b> &mdash; <small><i>April 10, 2012</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.3.1...1.3.3">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.3.3/index.html">Docs</a><br />
         <ul>
           <li>
-            Many improvements to <tt>_.template</tt>, which now provides the
-            <tt>source</tt> of the template function as a property, for potentially
-            even more efficient pre-compilation on the server-side. You may now
-            also set the <tt>variable</tt> option when creating a template,
-            which will cause your passed-in data to be made available under the
-            variable you named, instead of using a <tt>with</tt> statement &mdash;
-            significantly improving the speed of rendering the template.
+            多处<tt>_.template</tt>的改善，现在在模板函数中添加了一个<tt>source</tt>属性，在服务器端的预编译条件下会更高效。现在创建模板，也可以设置一个<tt>variable</tt>选项，这会使得你传入的数据都可以在这个名称下获取，而不是使用<tt>with</tt>语句 - 能够显著的提升渲染模板的速度。
           </li>
           <li>
-            Added the <tt>pick</tt> function, which allows you to filter an
-            object literal with a whitelist of allowed property names.
+            添加<tt>pick</tt>函数，允许你通过白名单的方式过滤对象字面量的属性。
           </li>
           <li>
-            Added the <tt>result</tt> function, for convenience when working
-            with APIs that allow either functions or raw properties.
+            添加 <tt>result</tt> 函数，方便同时允许函数调用或方法调用的API形式。
           </li>
           <li>
-            Added the <tt>isFinite</tt> function, because sometimes knowing that
-            a value is a number just ain't quite enough.
+            添加<tt>isFinite</tt>函数，因为有时知道一个值是数组还不够。
           </li>
           <li>
-            The <tt>sortBy</tt> function may now also be passed the string name
-            of a property to use as the sort order on each object.
+            <tt>sortBy</tt>函数也可以接受属性的字符串名称了，来对每个对象进行排序。
           </li>
           <li>
-            Fixed <tt>uniq</tt> to work with sparse arrays.
+            修正<tt>uniq</tt> ，可以工作在稀疏数组上。
           </li>
           <li>
-            The <tt>difference</tt> function now performs a shallow flatten
-            instead of a deep one when computing array differences.
+            <tt>difference</tt> 函数在计算数组见间的差异时会执行浅的flatten。
           </li>
           <li>
-            The <tt>debounce</tt> function now takes an <tt>immediate</tt>
-            parameter, which will cause the callback to fire on the leading
-            instead of the trailing edge.
+            <tt>debounce</tt>现在接受<tt>immediate</tt>参数，允许callback在开始而不是最后时调用。
           </li>
         </ul>
       </p>
@@ -2499,17 +2385,17 @@ _([1, 2, 3]).value();
         <b class="header">1.3.1</b> &mdash; <small><i>January 23, 2012</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.3.0...1.3.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.3.1/index.html">Docs</a><br />
         <ul>
           <li>
-            Added an <tt>_.has</tt> function, as a safer way to use <tt>hasOwnProperty</tt>.
+            添加<tt>_.has</tt>函数，比使用<tt>hasOwnProperty</tt>更安全些。
           </li>
           <li>
-            Added <tt>_.collect</tt> as an alias for <tt>_.map</tt>. Smalltalkers, rejoice.
+            添加 <tt>_.map</tt>的别名<tt>_.collect</tt>。熟悉Smalltalkers的人可以庆祝下。
           </li>
           <li>
             Reverted an old change so that <tt>_.extend</tt> will correctly copy
             over keys with undefined values again.
           </li>
           <li>
-            Bugfix to stop escaping slashes within interpolations in <tt>_.template</tt>.
+            Bugfix，在<tt>_.template</tt>的插值表达式中停止转义反斜杠。
           </li>
         </ul>
       </p>
