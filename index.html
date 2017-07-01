@@ -2518,9 +2518,7 @@ _([1, 2, 3]).value();
         <b class="header">1.3.0</b> &mdash; <small><i>January 11, 2012</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.2.4...1.3.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.3.0/index.html">Docs</a><br />
         <ul>
           <li>
-            Removed AMD (RequireJS) support from Underscore. If you'd like to use
-            Underscore with RequireJS, you can load it as a normal script, wrap
-            or patch your copy, or download a forked version.
+          Underscore不在支持AMD (RequireJS)。如果你喜欢在RequestJS中使用Underscore，你可以向普通脚本那样加载它，或为拷贝一份并添加AMD的补丁，或者下载一个forked版本。
           </li>
         </ul>
       </p>
@@ -2529,21 +2527,17 @@ _([1, 2, 3]).value();
         <b class="header">1.2.4</b> &mdash; <small><i>January 4, 2012</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.2.3...1.2.4">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.2.4/index.html">Docs</a><br />
         <ul>
           <li>
-            You now can (and probably should, as it's simpler)
-            write <tt>_.chain(list)</tt>
-            instead of <tt>_(list).chain()</tt>.
+            现在你能使用<tt>_.chain(list)</tt>写法（应给这么写，而且更简单），而不是<tt>_(list).chain()</tt>。
           </li>
           <li>
-            Fix for escaped characters in Underscore templates, and for supporting
-            customizations of <tt>_.templateSettings</tt> that only define one or
-            two of the required regexes.
+            修复Underscore模板中转义字符的bug，以支持<tt>_.templateSettings</tt>的自定义，只需要定义一到两个必须的正则表达式即可。
           </li>
           <li>
             Fix for passing an array as the first argument to an <tt>_.wrap</tt>'d function.
+            修复数组作为第一个参数传入<tt>_.wrap</tt>的问题。
           </li>
           <li>
-            Improved compatibility with ClojureScript, which adds a <tt>call</tt>
-            function to <tt>String.prototype</tt>.
+            改善与ClojureScript的兼容性，添加一个<tt>call</tt>函数到<tt>String.prototype</tt>上。
           </li>
         </ul>
       </p>
@@ -2554,15 +2548,15 @@ _([1, 2, 3]).value();
           <li>
             Dynamic scope is now preserved for compiled <tt>_.template</tt> functions,
             so you can use the value of <tt>this</tt> if you like.
+            <tt>_.template</tt>函数现在支持动态作用于，所以如果愿意，你可以使用<tt>this</tt>值。
           </li>
           <li>
-            Sparse array support of <tt>_.indexOf</tt>, <tt>_.lastIndexOf</tt>.
+            <tt>_.indexOf</tt>, <tt>_.lastIndexOf</tt>支持稀疏数组。
           </li>
           <li>
-            Both <tt>_.reduce</tt> and <tt>_.reduceRight</tt> can now be passed an
-            explicitly <tt>undefined</tt> value. (There's no reason why you'd
-            want to do this.)
+            <tt>_.reduce</tt> 和 <tt>_.reduceRight</tt>现在可以显式地接收<tt>undefined</tt>值。（其实你没有任何理由这么做）。
           </li>
+
         </ul>
       </p>
 
@@ -2571,7 +2565,7 @@ _([1, 2, 3]).value();
         <ul>
           <li>
             继续调整<tt>_.isEqual</tt>的使用场景。现在JS的基本数据类型被认为与对应的包装对象是相等的，
-            并且数组现在之比较数值属性<small>(#351)</small>。
+            并且数组现在只比较数值属性<small>(#351)</small>。
           </li>
           <li>
             <tt>_.escape</tt>不再试图在非双重转义的转义的HTML实体上进行转换。现在它只管直接转义<small>(#350)</small>。
