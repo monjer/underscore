@@ -197,7 +197,7 @@
       var keys = !isArrayLike(obj) && _.keys(obj),
           length = (keys || obj).length,
           index = dir > 0 ? 0 : length - 1;
-      // 未提供任何值得情况下，决定初始值
+      // 未提供任何值的情况下，决定初始值
       if (arguments.length < 3) {
         memo = obj[keys ? keys[index] : index];
         index += dir;
@@ -417,8 +417,7 @@
     if (_.has(result, key)) result[key].push(value); else result[key] = [value];
   });
 
-  // 根据给定标准为集合建立索引，与`groupBy`类似，但
-  // 前提是你确定建立索引的值是唯一的。
+  // 根据给定标准为集合建立索引，与`groupBy`类似，但前提是你确定建立索引的值是唯一的。
   _.indexBy = group(function(result, value, key) {
     result[key] = value;
   });
@@ -720,9 +719,7 @@
     return bound;
   };
 
-  // Partially apply a function by creating a version that has had some of its
-  // arguments pre-filled, without changing its dynamic `this` context. _ acts
-  // as a placeholder, allowing any combination of arguments to be pre-filled.
+  // 应用偏函数，这是通过创建一个预填参数的版本，在不动态改变`this`的情况下实现的。_ 作为一个占位符，允许预填任意组合的参数。
   _.partial = function(func) {
     var boundArgs = slice.call(arguments, 1);
     var bound = function() {
@@ -738,7 +735,7 @@
   };
 
   // 将对象的方法绑定到自身上。剩下的参数是要绑定的方法名称。
-  // 在保证所有定义在对象上的回调都属于对象自己上十分有用。
+  // 保证所有定义在对象上的回调，都属于对象自己。
   _.bindAll = function(obj) {
     var i, length = arguments.length, key;
     if (length <= 1) throw new Error('bindAll must be passed function names');
@@ -809,7 +806,7 @@
   };
 
   // 返回一个函数，只要它连续不断的调用，就不会触发。
-  // 这个函数在停止调用后N毫秒后才会被调用。
+  // 这个函数在停止调用后N毫秒后才会执行。
   // 传入`immediate`，会在开始而不是最后执行该函数。
   _.debounce = function(func, wait, immediate) {
     var timeout, args, context, timestamp, result;
@@ -843,8 +840,7 @@
     };
   };
 
-  // 返回作为参数传递给第二个函数的第一个函数，
-  // 允许你调整参数，在前后允许代码，并有条件的执行原始函数。
+  // 返回作为参数传递给第二个函数的第一个函数，允许你调整参数，在调用前后执行代码，并有条件的执行原始函数。
   _.wrap = function(func, wrapper) {
     return _.partial(wrapper, func);
   };
@@ -1035,7 +1031,7 @@
     return result;
   };
 
-   // 返回一个对象的拷贝，出去了黑名单上的属性。
+   // 返回一个对象的拷贝，移除了黑名单上的属性。
   _.omit = function(obj, iteratee, context) {
     if (_.isFunction(iteratee)) {
       iteratee = _.negate(iteratee);
@@ -1114,7 +1110,7 @@
       case '[object Boolean]':
 
         // 强制转换日期和布尔值为基本数值类型。
-        // 日期以毫秒进行比较。注意无效的日期的的毫秒数为`NaN`，且不相等。
+        // 日期以毫秒进行比较。注意无效的日期的毫秒数为`NaN`，且不相等。
         return +a === +b;
     }
 
@@ -1461,7 +1457,7 @@
   // 面向对象（OOP）
   // ---------------
   // 如果Underscore是以函数的形式调用，它会返回一个包装对象，可以实现OOP样式。
-  // 这个包装器所有Underscore函数的修订版本。包装对象可以链式调用。
+  // 这个包装器持有所有Underscore函数的修订版本。包装对象可以链式调用。
 
   // 辅助函数，用来继续链接中间值。
   var result = function(instance, obj) {

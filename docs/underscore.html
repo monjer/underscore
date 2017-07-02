@@ -260,7 +260,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p>一个主要的内部函数，生成的回调函数用来处理集合中的每个元素，并返回期望的值。
+              <p>一个内部主要的函数，生成的回调函数用来处理集合中的每个元素，并返回期望的值。
 此值可以是恒等回调（identity），随机回调（arbitrary callback），或属性访问器。</p>
 
             </div>
@@ -488,7 +488,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
-              <p>未提供任何值得情况下，决定初始值</p>
+              <p>未提供任何值的情况下，决定初始值</p>
 
             </div>
             
@@ -747,7 +747,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-37">&#182;</a>
               </div>
-              <p>返回最大元素（或是基于元素计算值）。</p>
+              <p>返回最大元素（或是基于元素的计算值）。</p>
 
             </div>
             
@@ -784,7 +784,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-38">&#182;</a>
               </div>
-              <p>返回最小元素（或是基于元素计算值）。</p>
+              <p>返回最小元素（或基于元素的计算值）。</p>
 
             </div>
             
@@ -822,7 +822,7 @@ Underscore may be freely distributed under the MIT license.
                 <a class="pilcrow" href="#section-39">&#182;</a>
               </div>
               <p>使用现代版本的
-<a href="http://en.wikipedia.org/wiki/Fisher–Yates_shuffle">Fisher-Yates shuffle</a> 算法，混淆一个结合.</p>
+<a href="http://en.wikipedia.org/wiki/Fisher–Yates_shuffle">Fisher-Yates shuffle</a>，返回一个混淆后的collection。</p>
 
             </div>
             
@@ -870,7 +870,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-41">&#182;</a>
               </div>
-              <p>根据迭代器生成的条件，对一个集合的值进行排序。</p>
+              <p>按照迭代器生成的规则，对对象值进行排序。</p>
 
             </div>
             
@@ -945,8 +945,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-44">&#182;</a>
               </div>
-              <p>根据给定标准为集合建立索引，与<code>groupBy</code>类似，但
-前提是你确定建立索引的值是唯一的。</p>
+              <p>根据给定标准为集合建立索引，与<code>groupBy</code>类似，但前提是你确定建立索引的值是唯一的。</p>
 
             </div>
             
@@ -981,7 +980,7 @@ Underscore may be freely distributed under the MIT license.
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-46">&#182;</a>
               </div>
-              <p>从任何可迭代对象中，创建一个数组。</p>
+              <p>从任何可迭代对象中，生成一个数组</p>
 
             </div>
             
@@ -1636,9 +1635,7 @@ Python原生<code>range()</code>函数的等价实现，参考<a href="http://do
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-77">&#182;</a>
               </div>
-              <p>Partially apply a function by creating a version that has had some of its
-arguments pre-filled, without changing its dynamic <code>this</code> context. _ acts
-as a placeholder, allowing any combination of arguments to be pre-filled.</p>
+              <p>应用偏函数，这是通过创建一个预填参数的版本，在不动态改变<code>this</code>的情况下实现的。_ 作为一个占位符，允许预填任意组合的参数。</p>
 
             </div>
             
@@ -1666,7 +1663,7 @@ as a placeholder, allowing any combination of arguments to be pre-filled.</p>
                 <a class="pilcrow" href="#section-78">&#182;</a>
               </div>
               <p>将对象的方法绑定到自身上。剩下的参数是要绑定的方法名称。
-在保证所有定义在对象上的回调都属于对象自己上十分有用。</p>
+保证所有定义在对象上的回调，都属于对象自己。</p>
 
             </div>
             
@@ -1797,7 +1794,7 @@ as a placeholder, allowing any combination of arguments to be pre-filled.</p>
                 <a class="pilcrow" href="#section-83">&#182;</a>
               </div>
               <p>返回一个函数，只要它连续不断的调用，就不会触发。
-这个函数在停止调用后N毫秒后才会被调用。
+这个函数在停止调用后N毫秒后才会执行。
 传入<code>immediate</code>，会在开始而不是最后执行该函数。</p>
 
             </div>
@@ -1843,8 +1840,7 @@ as a placeholder, allowing any combination of arguments to be pre-filled.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-84">&#182;</a>
               </div>
-              <p>返回作为参数传递给第二个函数的第一个函数，
-允许你调整参数，在前后允许代码，并有条件的执行原始函数。</p>
+              <p>返回作为参数传递给第二个函数的第一个函数，允许你调整参数，在调用前后执行代码，并有条件的执行原始函数。</p>
 
             </div>
             
@@ -2311,7 +2307,7 @@ value必须是可序列化的。</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-107">&#182;</a>
               </div>
-              <p>返回一个对象的拷贝，出去了黑名单上的属性。</p>
+              <p>返回一个对象的拷贝，移除了黑名单上的属性。</p>
 
             </div>
             
@@ -2558,7 +2554,7 @@ value必须是可序列化的。</p>
                 <a class="pilcrow" href="#section-121">&#182;</a>
               </div>
               <p><code>NaN</code>s are equivalent, but non-reflexive.
-Object(NaN) is equivalent to NaN        </p>
+Object(NaN) is equivalent to NaN</p>
 
             </div>
             
@@ -2591,7 +2587,7 @@ Object(NaN) is equivalent to NaN        </p>
                 <a class="pilcrow" href="#section-123">&#182;</a>
               </div>
               <p>强制转换日期和布尔值为基本数值类型。
-日期以毫秒进行比较。注意无效的日期的的毫秒数为<code>NaN</code>，且不相等。</p>
+日期以毫秒进行比较。注意无效的日期的毫秒数为<code>NaN</code>，且不相等。</p>
 
             </div>
             
@@ -3403,7 +3399,7 @@ ECMA5原生<code>Array.isArray</code>方法的代理实现</p>
                 <a class="pilcrow" href="#section-167">&#182;</a>
               </div>
               <p>JavaScript微型模板（micro-templating），与John Resig的实现类似。
-Underscore的农办可处理任意类型的分隔符，保留空白符，并且能正确转义
+Underscore的模板可处理任意类型的分隔符，保留空白符，并且能正确转义
 插入代码中的引号。
 注：<code>oldSettings</code>的存在只为向后兼容。</p>
 
@@ -3567,7 +3563,7 @@ Underscore的农办可处理任意类型的分隔符，保留空白符，并且�
                 <a class="pilcrow" href="#section-175">&#182;</a>
               </div>
               <p>如果Underscore是以函数的形式调用，它会返回一个包装对象，可以实现OOP样式。
-这个包装器所有Underscore函数的修订版本。包装对象可以链式调用。</p>
+这个包装器持有所有Underscore函数的修订版本。包装对象可以链式调用。</p>
 
             </div>
             

@@ -365,7 +365,7 @@
 
     <p>
       Underscor提供超过100个函数，支持你最喜欢的日常辅助工具： <b>map</b>, <b>filter</b>, <b>invoke</b>，
-      以及更专业的的功能：函数绑定，JavaScript模板，创建快速索引，深度相等性测试等等。
+      以及更专业的的功能：函数绑定，JavaScript模板，创建快速索引，深度相等性测试，等等。
     </p>
 
     <p>
@@ -384,7 +384,7 @@
       项目托管在
       <a href="https://github.com/jashkenas/underscore">GitHub</a>上.
       你可以在
-      <a href="https://github.com/jashkenas/underscore/issues">issues page</a>里, 或在Freenode的<tt>#documentcloud</tt> 频道里，提交bugs并讨论新功能.
+      <a href="https://github.com/jashkenas/underscore/issues">issues page</a>里, 或在Freenode的<tt>#documentcloud</tt> 频道里，或者在我们的<a hre="https://gitter.im/jashkenas/underscore">Gitter</a>频道里，提交bugs并讨论新功能，。
     </p>
 
     <p>
@@ -396,7 +396,7 @@
     <table>
       <tr>
         <td><a href="underscore.js">开发版本 (1.8.3)</a></td>
-        <td><i>52kb, 未压缩并带有许多注释</i></td>
+        <td><i>52kb, 未压缩并带有详尽的注释</i></td>
       </tr>
       <tr>
         <td><a href="underscore-min.js">生产版本 (1.8.3)</a></td>
@@ -455,9 +455,8 @@ _.each({one: 1, two: 2, three: 3}, alert);
 
       <p>
         <i>
-          注：集合函数能在数组，对象，和诸如<tt>arguments</tt>， <tt>NodeList</tt>一样的类数组对象
-          上工作。但它通过<a href="https://zh.wikipedia.org/wiki/%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B" target="_blank">鸭子类型</a>
-          工作，所以要避免传入带有数值类型名为<tt>length</tt>属性的对象。同样最好注意<tt>each</tt>是不能被破坏 - 打破，要用
+          注：集合函数能在数组，对象，和诸如<tt>arguments</tt>， <tt>NodeList</tt>一样的类数组对象上工作。但它通过<a href="https://zh.wikipedia.org/wiki/%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B" target="_blank">鸭子类型</a>
+          工作，所以要避免传入带有数值类型名为<tt>length</tt>属性的对象。同样最好注意<tt>each</tt>是不能被中断的 - 如果要中断打破，要用
           <b>_.find</b>代替。
         </i>
       </p>
@@ -498,7 +497,6 @@ var sum = _.reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0);
         <b class="header">reduceRight</b><code>_.reduceRight(list, iteratee, memo, [context])</code>
         <span class="alias">别名: <b>foldr</b></span>
         <br />
-        evaluation.
         右结合版本的<b>reduce</b>。如果JavaScript1.8版本上存在<b>reduceRight</b>，则用它代替。<b>Foldr</b>在
         JavaScript中，不像在其它带有惰性计算特性的语言中，那样有用。
       </p>
@@ -605,8 +603,7 @@ _.contains([1, 2, 3], 3);
       <p id="invoke">
         <b class="header">invoke</b><code>_.invoke(list, methodName, *arguments)</code>
         <br />
-        在<b>list</b>的每个值上都调用名为<b>methodName</b>的方法。传入<b>invoke</b>中额外的参数会被
-        转发到方法调用上。
+        在<b>list</b>的每个值上都调用名为<b>methodName</b>的方法。传入<b>invoke</b>中额外的参数会被转发到方法调用上。
       </p>
       <pre>
 _.invoke([[5, 1, 7], [3, 2, 1]], 'sort');
@@ -718,7 +715,7 @@ _.shuffle([1, 2, 3, 4, 5, 6]);
       <p id="sample">
         <b class="header">sample</b><code>_.sample(list, [n])</code>
         <br />
-        从<b>list</b>）中生成一个随机样本。传入一个数值，从列表中返回<b>n</b>个随机元素。否则返回单个随机元素。
+        从<b>list</b>中生成一个随机样本。传入一个数值，从列表中返回<b>n</b>个随机元素。否则返回单个随机元素。
       </p>
       <pre>
 _.sample([1, 2, 3, 4, 5, 6]);
@@ -731,7 +728,7 @@ _.sample([1, 2, 3, 4, 5, 6], 3);
       <p id="toArray">
         <b class="header">toArray</b><code>_.toArray(list)</code>
         <br />
-        从<b>list</b>（任何可迭代的对象）中返回一个真正的数组。在转换<b>arguments</b>对象是很有用。
+        从<b>list</b>（任何可迭代的对象）中返回一个真正的数组。对于转换<b>arguments</b>对象是很有用。
       </p>
       <pre>
 (function(){ return _.toArray(arguments).slice(1); })(1, 2, 3, 4);
@@ -761,7 +758,7 @@ _.partition([0, 1, 2, 3, 4, 5], isOdd);
       <h2 id="arrays">数组函数 - Array Functions</h2>
       <p>
         <i>
-          注：所有数组函数都可以工作在<b>arguments</b>对象上。However, Underscore functions are not designed to work on "sparse" arrays.
+          注：所有数组函数都可以工作在<b>arguments</b>对象上。但是，Underscore的函数设计之初并未考虑要作用在稀疏数组上。
         </i>
       </p>
 
@@ -802,7 +799,7 @@ _.last([5, 4, 3, 2, 1]);
         <b class="header">rest</b><code>_.rest(array, [index])</code>
         <span class="alias">Alias: <b>tail, drop</b></span>
         <br />
-        返回数组剩余的元素。传入<b>index</b>会将数组中index后面的所有元素。
+        返回数组剩余的元素。传入<b>index</b>将会返回数组中从index开始后的所有元素。
       </p>
       <pre>
 _.rest([5, 4, 3, 2, 1]);
@@ -877,9 +874,8 @@ _.difference([1, 2, 3, 4, 5], [5, 2, 10]);
         <b class="header">uniq</b><code>_.uniq(array, [isSorted], [iteratee])</code>
         <span class="alias">Alias: <b>unique</b></span>
         <br />
-        生成一个没有重复元素的<b>array</b>，使用<i>===</i>来测试对象的相等性。每项都会保存出现第一个值。
-        如果你提前知道<b>array</b>是排过序的，<b>isSorted</b>传入true值，算法会更快些。如果你希望基于
-        转换后的计算来来计算唯一元素，请传入<b>iteratee</b>函数。
+        生成一个没有重复元素的<b>array</b>，使用<i>===</i>来测试对象的相等性。每项都会保存出现的第一个值。
+        如果你提前知道<b>array</b>是排过序的，<b>isSorted</b>传入true值，算法会更快些。如果你希望基于转换后的计算值来计算唯一元素，请传入<b>iteratee</b>函数。
       </p>
       <pre>
 _.uniq([1, 2, 1, 4, 1, 3]);
@@ -927,8 +923,7 @@ _.object([['moe', 30], ['larry', 40], ['curly', 50]]);
         <b class="header">indexOf</b><code>_.indexOf(array, value, [isSorted])</code>
         <br />
         返回<b>value</b>在<b>array</b>中的索引，如果<b>array</b>中不存在此值，返回<i>-1</i>。
-        如果你正使用一个大数组，并且知道数组是已排过序，<b>isSorted</b>传入<tt>true</tt>可以使用更快的
-        二分查找法...第三个参数传入一数值，可以在给定索引后查找第一个匹配元素的索引。
+        如果你正使用一个大数组，并且知道数组是已排过序，<b>isSorted</b>传入<tt>true</tt>可以使用更快的二分查找法...第三个参数传入一数值，可以在给定索引后查找第一个匹配元素的索引。
       </p>
       <pre>
 _.indexOf([1, 2, 3], 2);
@@ -949,7 +944,7 @@ _.lastIndexOf([1, 2, 3, 1, 2, 3], 2);
         <b class="header">sortedIndex</b><code>_.sortedIndex(list, value, [iteratee], [context])</code>
         <br />
         使用二分查找法，决定<b>value</b>在<b>list</b>中<i>应该</i>插入的位置，这样才能维护<b>list</b>的排列顺序。
-        如果提供<b>iteratee</b>函数，它会用于计算每个值的排名，包括你传进去的<b>value</b>。iteratee也可以进行排序的属性名称（比如<tt>length</tt>）。
+        如果提供<b>iteratee</b>函数，它会用于计算每个值的排名，包括你传进去的<b>value</b>。iteratee也可以是进行排序的属性名称（比如<tt>length</tt>）。
       </p>
       <pre>
 _.sortedIndex([10, 20, 30, 40, 50], 35);
@@ -963,8 +958,7 @@ _.sortedIndex(stooges, {name: 'larry', age: 50}, 'age');
       <p id="findIndex">
         <b class="header">findIndex</b><code>_.findIndex(array, predicate, [context])</code>
         <br />
-        与<a href="#indexOf"><tt>_.indexOf</tt></a>类似，返回第一个通过 <strong>predicate</strong> truth测试值的索引，
-        否则返回<i>-1</i>。
+        与<a href="#indexOf"><tt>_.indexOf</tt></a>类似，返回第一个通过 <strong>predicate</strong> truth测试值的索引，否则返回<i>-1</i>。
       </p>
       <pre>
 _.findIndex([4, 6, 8, 12], isPrime);
@@ -976,9 +970,6 @@ _.findIndex([4, 6, 7, 12], isPrime);
       <p id="findLastIndex">
         <b class="header">findLastIndex</b><code>_.findLastIndex(array, predicate, [context])</code>
         <br />
-        Like <a href="#findIndex"><tt>_.findIndex</tt></a> but iterates the array in reverse,
-        returning the index closest to the end where the <strong>predicate</strong> truth test
-        passes.
         与<a href="#findIndex"><tt>_.findIndex</tt></a>类似，但从反方向遍历数组，从末端开始，
         返回第一个通过<strong>predicate</strong> truth测试的元素索引。
       </p>
@@ -1034,7 +1025,7 @@ func();
         <b class="header">bindAll</b><code>_.bindAll(object, *methodNames)</code>
         <br />
         将<b>methodNames</b>指定名称的方法绑定到对象上，无论何时调用这些方法，它们的上下文都是这个对象本身。
-        可以很方便的将绑定函数的当做事件处理函数，否则事件处理函数调用时会卷入一个非常没用的this对象。必须传入<b>methodNames</b>。
+        可以很方便的将绑定函数当做事件的处理函数，否则事件处理函数调用时会卷入一个非常没用的this对象。必须传入<b>methodNames</b>。
       </p>
       <pre>
 var buttonView = {
@@ -1050,7 +1041,7 @@ jQuery('#underscore_button').bind('click', buttonView.onClick);
       <p id="partial">
         <b class="header">partial</b><code>_.partial(function, *arguments)</code>
         <br />
-        应用偏函数，填充任意数量的<b>arguments</b>，但不动态的改变函数的<tt>this</tt>值。与<a href="#bind">bind</a>很相像。你可以传入在<b>argumnets</b>列表中传入<tt>_</tt>，来指定不预填某个参数，而是留到调用时在提供此参数。
+        应用偏函数，填充任意数量的<b>arguments</b>，但不动态的改变函数的<tt>this</tt>值。与<a href="#bind">bind</a>很相像。你可以在传入<b>argumnets</b>列表中传入<tt>_</tt>，来指定不预填某个参数，而是留到调用时在提供此参数。
       </p>
       <pre>
 var subtract = function(a, b) { return b - a; };
@@ -1091,8 +1082,7 @@ _.delay(log, 1000, 'logged later');
       <p id="defer">
         <b class="header">defer</b><code>_.defer(function, *arguments)</code>
         <br />
-        延迟调用<b>function</b>，直到当前调用栈被清空，类似于一个延迟0毫秒的<b>setTimeout</b>。用于执行耗时的计算
-        或在不阻塞UI线程更新的情况下进行HTML分块儿渲染。传入的额外参数将直接派发到被调用的<b>function</b>里。
+        延迟调用<b>function</b>，直到当前调用栈被清空，类似于一个延迟0毫秒的<b>setTimeout</b>。用于执行耗时的计算或在不阻塞UI线程更新的情况下进行HTML分块儿渲染。传入的额外参数将直接派发到被调用的<b>function</b>里。
       </p>
       <pre>
 _.defer(function(){ alert('deferred'); });
@@ -1283,9 +1273,6 @@ _.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
       <p id="create">
         <b class="header">create</b><code>_.create(prototype, props)</code>
         <br />
-        Creates a new object with the given prototype, optionally attaching
-        <b>props</b> as <i>own</i> properties. Basically, <tt>Object.create</tt>,
-        but without all of the property descriptor jazz.
         根据给定的原型对象，创建一个新对象，可附加<b>props</b>作为它<i>自己</i>(own)的属性。
         基本上与<tt>Object.create</tt>类似，但没有花哨的属性描述符。
       </p>
@@ -1326,7 +1313,7 @@ _.extend({name: 'moe'}, {age: 50});
         <b class="header">extendOwn</b><code>_.extendOwn(destination, *sources)</code>
         <span class="alias">别名: <b>assign</b></span>
         <br />
-        与<b>extend</b>类似，但值拷贝<i>自身（own）</i>属性目标对象上。
+        与<b>extend</b>类似，但只拷贝<i>自身（own）</i>属性到目标对象上。
       </p>
 
       <p id="pick">
@@ -1362,8 +1349,7 @@ _.omit({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {
       <p id="defaults">
         <b class="header">defaults</b><code>_.defaults(object, *defaults)</code>
         <br />
-        为<b>object</b>中的值为<tt>undefined</tt>的属性添加值。值来自<b>defaults</b>列表对象中
-        出现的第一个值。
+        为<b>object</b>中的值为<tt>undefined</tt>的属性添加值。值来自<b>defaults</b>列表对象中出现的第一个值。
       </p>
       <pre>
 var iceCream = {flavor: "chocolate"};
@@ -1578,7 +1564,7 @@ _.isBoolean(null);
       <p id="isDate">
         <b class="header">isDate</b><code>_.isDate(object)</code>
         <br />
-        如果<b>object</b>是一个日志就返回<i>true</i>。
+        如果<b>object</b>是一个日期就返回<i>true</i>。
       </p>
       <pre>
 _.isDate(new Date());
@@ -1598,7 +1584,6 @@ _.isRegExp(/moe/);
       <p id="isError">
         <b class="header">isError</b><code>_.isError(object)</code>
         <br />
-        Returns <i>true</i> if <b>object</b> inherrits from an Error.
         如果<b>object</b>继承自Error就返回<i>true</i>。
       </p>
       <pre>
@@ -1652,7 +1637,7 @@ _.isUndefined(window.missingVariable);
       <p id="noConflict">
         <b class="header">noConflict</b><code>_.noConflict()</code>
         <br />
-        返回<tt>_</tt>变量的控制权给上一个拥有者。返回一个<b>Underscore</b>对象的引用。
+        将<tt>_</tt>变量的控制权返还给上一个拥有者。返回一个<b>Underscore</b>对象的引用。
       </p>
       <pre>
 var underscore = _.noConflict();
@@ -1661,7 +1646,7 @@ var underscore = _.noConflict();
       <p id="identity">
         <b class="header">identity</b><code>_.identity(value)</code>
         <br />
-        返回一个与传入参数相同的值。数学表达式为：<tt>f(x) = x</tt>。br/>
+        返回一个与传入参数相同的值。数学表达式为：<tt>f(x) = x</tt>。<br/>
         此函数看起来没用，但在整个Underscore中却一直作为默认的迭代器存在。
       </p>
       <pre>
@@ -1704,8 +1689,7 @@ _(3).times(function(n){ genie.grantWishNumber(n); });</pre>
       <p id="random">
         <b class="header">random</b><code>_.random(min, max)</code>
         <br />
-        返回介于<b>min</b>和<b>max</b>之间（包括min和max）的一个随机整数，。如果只传入一个参数，
-        则返回<tt>0</tt>和那个数值之间的一个数字。
+        返回介于<b>min</b>和<b>max</b>之间（包括min和max）的一个随机整数。如果只传入一个参数，则返回<tt>0</tt>和那个数值之间的一个数字。
       </p>
       <pre>
 _.random(0, 100);
@@ -1715,8 +1699,7 @@ _.random(0, 100);
         <b class="header">mixin</b><code>_.mixin(object)</code>
         <br />
 
-        允许你用自己的工具函数扩展Underscore。传入一个<tt>{name: function}</tt>的hash定义，可以将
-        你的函数添加到Underscore对象上，以及面向对象的包装器（OOP wrapper）。
+        允许你用自己的工具函数扩展Underscore。传入一个<tt>{name: function}</tt>的hash定义，可以将你的函数添加到Underscore对象上，以及面向对象的包装器（OOP wrapper）。
       </p>
       <pre>
 _.mixin({
@@ -1791,7 +1774,7 @@ _.result(object, 'meat', 'ham');
       <p id="now">
         <b class="header">now</b><code>_.now()</code>
         <br />
-        返回当前时间时间戳的整数值，在运行时中使用可用的最快方法。用来实现定时函数或动画函数很有用。
+        返回当前时间的时间戳的整数值，在运行时中使用可用的最快方法。用来实现定时函数或动画函数很有用。
       </p>
       <pre>
 _.now();
@@ -1870,8 +1853,7 @@ _.map([1, 2, 3], function(n){ return n * 2; });
 _([1, 2, 3]).map(function(n){ return n * 2; });</pre>
         <h2 id="chaining">链式语法 - Chaining</h2>
       <p>
-        <tt>chain</tt>调用方式会使所有之后的方法调用都返回包装对象。当你结束计算后，调用<tt>value</tt>方法以获取
-        最终的值。以下是一个链式调用的例子，结合使用了<b>map/flatten/reduce</b>，来获取每首歌的单词个数。
+        <tt>chain</tt>调用方式会使所有之后的方法调用都返回包装对象。当你结束计算后，调用<tt>value</tt>方法以获取最终的值。以下是一个链式调用的例子，结合使用了<b>map/flatten/reduce</b>，来获取每首歌的单词个数。
       </p>
 
 <pre>
@@ -1900,7 +1882,7 @@ _.chain(lyrics)
       <p id="chain">
         <b class="header">chain</b><code>_.chain(obj)</code>
         <br />
-        返回一个包装对象。调用这个对象的返回会继续返回这个对象本身，直到调用了<tt>value</tt>方法。
+        返回一个包装对象。调用这个对象的方法会继续返回这个对象本身，直到调用了<tt>value</tt>方法。
       </p>
       <pre>
 var stooges = [{name: 'curly', age: 25}, {name: 'moe', age: 21}, {name: 'larry', age: 23}];
@@ -1940,7 +1922,7 @@ _([1, 2, 3]).value();
       </p>
 
       <p>
-        <a href="http://kmalakoff.github.io/_.m/">_.m</a>, 另一个Objective-C语言下，意在更加接近Underscore.js API实现版本。
+        <a href="http://kmalakoff.github.io/_.m/">_.m</a>, 另一个Objective-C语言下，意在更加接近Underscore.js API的实现版本。
         (<a href="https://github.com/kmalakoff/_.m">source</a>)
       </p>
 
@@ -2030,7 +2012,7 @@ _([1, 2, 3]).value();
         <b class="header">1.8.1</b> &mdash; <small><i>Feb. 19, 2015</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.8.0...1.8.1">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.8.1/index.html">Docs</a><br />
         <ul>
           <li>
-            修复和改善一些在老旧IE浏览器下以及一些相关边界用例下的问题。请在老的IE浏览器下测试Underscore1.8.1版本，并及时让我知道表现如何...
+            修复和改善一些在老旧IE浏览器下以及一些相关边界用例下的问题。请在老的IE浏览器下测试Underscore1.8.1版本，并及时让我表现如何...
           </li>
         </ul>
       </p>
@@ -2039,23 +2021,19 @@ _([1, 2, 3]).value();
         <b class="header">1.8.0</b> &mdash; <small><i>Feb. 19, 2015</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.7.0...1.8.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.8.0/index.html">Docs</a><br />
         <ul>
           <li>
-            Added <tt>_.mapObject</tt>, which is similar to <tt>_.map</tt>, but just
-            for the values in your object. (A real crowd pleaser.)
-            天剑<tt>_.mapObject</tt>函数，类似于<tt>_.map</tt>函数，但作用于对象的值。（一个受人喜欢的函数）
+            添加<tt>_.mapObject</tt>函数，类似于<tt>_.map</tt>函数，但作用于对象的值。（一个受人喜欢的函数）
           </li>
           <li>
             添加<tt>_.allKeys</tt>函数，返回一个对象上<i>所有</i>可枚举属性的名称、
           </li>
           <li>
-            恢复一个1.7.0的变更，此变更是<tt>_.extend</tt>之拷贝自有属性。希望这没有破坏你的代码&mdash;如果这再次破坏你的代码，我致以歉意。
+            恢复一个1.7.0的变更，此变更是<tt>_.extend</tt>只拷贝自有属性。希望这没有破坏你的代码&mdash;如果这再次破坏你的代码，我致以歉意。
           </li>
           <li>
             添加<tt>_.extendOwn</tt>函数 &mdash; 一个<tt>_.extend</tt>的不是很有用的形式，只拷贝对象的自有属性。
           </li>
           <li>
-            Added <tt>_.findIndex</tt> and <tt>_.findLastIndex</tt> functions,
-            which nicely complement their twin-twins <tt>_.indexOf</tt> and <tt>_.lastIndexOf</tt>.
-            添加<tt>_.findIndex</tt> 和 <tt>_.findLastIndex</tt> 函数，这很好的补充了<tt>_.indexOf</tt> and <tt>_.lastIndexOf</tt>。
+            添加<tt>_.findIndex</tt> 和 <tt>_.findLastIndex</tt> 函数，这很好的补充了<tt>_.indexOf</tt> 和 <tt>_.lastIndexOf</tt>。
           </li>
           <li>
             添加<tt>_.isMatch</tt>断言函数，告诉你是否一个对象包含了给定的所有key-value属性。 它与<tt>_.isEqual</tt> 和 <tt>_.matcher</tt>是近似函数。
@@ -2087,10 +2065,10 @@ _([1, 2, 3]).value();
           <li>
             为了在跨浏览器中保证一致性和速度，Underscore现在在<tt>forEach</tt>, <tt>map</tt>, <tt>reduce</tt>,
             <tt>reduceRight</tt>, <tt>filter</tt>, <tt>every</tt>, <tt>some</tt>,
-            <tt>indexOf</tt>, and <tt>lastIndexOf</tt>方法调用时会忽略原生数组的方法。Underscore从现在起正式的宣称不再支持稀疏数组。
+            <tt>indexOf</tt>, 和 <tt>lastIndexOf</tt>方法调用时会忽略原生数组的方法。Underscore从现在起正式的宣称不再支持稀疏数组。
           </li>
           <li>
-            添加<tt>_.iteratee</tt>函数，自定义collection函数需要使用的迭代器。许多Underscore的方法会接受一个字符串参数，以便执行 <tt>_.property</tt>-style的查询，一个对象参数，以便执行<tt>_.where</tt>-style的过滤，以及一个函数作为自定义回调函数。
+            添加<tt>_.iteratee</tt>函数，自定义collection函数需要使用的迭代器。许多Underscore的方法会接受一个字符串参数，以便执行 <tt>_.property</tt>-style的查询；一个对象参数，以便执行<tt>_.where</tt>-style的过滤，以及一个函数作为自定义回调函数。
           </li>
           <li>
             添加<tt>_.before</tt>函数，与<tt>_.after</tt>函数相对应。
@@ -2111,7 +2089,7 @@ _([1, 2, 3]).value();
             <tt>_.omit</tt> 现在可以传入迭代器函数。
           </li>
           <li>
-            <tt>_.partition</tt> is now called with <tt>index</tt> and <tt>object</tt>.
+            <tt>_.partition</tt>现在调用会传入<tt>index</tt> 和 <tt>object</tt>参数。
           </li>
           <li>
             <tt>_.matches</tt>会创建对传入对象的浅拷贝，而且只会在对象自有属性上迭代。
@@ -2135,10 +2113,10 @@ _([1, 2, 3]).value();
             为了一致性，<tt>_.union</tt>和<tt>_.difference</tt>现在只作用在数组和不可变参数上。
           </li>
           <li>
-            <tt>_.memoize</tt>现在会导出存储值的缓存对象，该会作为返回函数的属性存在。
+            <tt>_.memoize</tt>现在会导出存储值的缓存对象，该对象作为返回函数的属性存在。
           </li>
           <li>
-            <tt>_.pick</tt>现在接受 <tt>iteratee</tt> 和 <tt>context</tt>参数最为更高级的回调。
+            <tt>_.pick</tt>现在接受 <tt>iteratee</tt> 和 <tt>context</tt>参数作为更高级的回调。
           </li>
           <li>
             Underscore的模板函数不在接受初始化的<tt>data</tt>的对象。<tt>_.template</tt>现在总会返回一个编译函数。
@@ -2227,7 +2205,7 @@ _([1, 2, 3]).value();
             现在提供了source map功能，更加容易调试产品构建下压缩版本的Underscore了。
           </li>
           <li>
-            <tt>defaults</tt>函数现在只可以覆盖 <tt>undefined</tt>至，不在覆盖<tt>null</tt>值。
+            <tt>defaults</tt>函数现在只可以覆盖 <tt>undefined</tt>至，不再覆盖<tt>null</tt>值。
           </li>
           <li>
             移除 <tt>_.bindAll</tt>上不加函数名称就可以调用的能力。总是传入你需要绑定方法的名称的白名单，这样比较明智。
@@ -2306,13 +2284,9 @@ _([1, 2, 3]).value();
             <tt>object</tt>函数，将一个<tt>[key, value]</tt>队的数组转换为一个对象。
           </li>
           <li>
-            Added a <tt>countBy</tt> function, for counting the number of objects
-            in a list that match a certain criteria.
             添加<tt>countBy</tt>函数，用来计算一个列表中与条件相匹配的对象的个数。
           </li>
           <li>
-            Added an <tt>invert</tt> function, for performing a simple inversion
-            of the keys and values in an object.
             添加<tt>invert</tt>函数，将对象的keys和values进行翻转。
           </li>
           <li>
@@ -2331,7 +2305,7 @@ _([1, 2, 3]).value();
             <tt>sortBy</tt>现在执行一个稳定排序的算法。
           </li>
           <li>
-            添加可选的tt>fromIndex</tt>选项到<tt>indexOf</tt>和<tt>lastIndexOf</tt>中。
+            添加可选的<tt>fromIndex</tt>选项到<tt>indexOf</tt>和<tt>lastIndexOf</tt>中。
           </li>
           <li>
             在Underscore的迭代函数中，不在支持稀疏数组。替代为<tt>for</tt>循环（这样可能更好）。
@@ -2343,10 +2317,10 @@ _([1, 2, 3]).value();
             在模板的插值语句中<tt>null</tt>和 <tt>undefined</tt>现在以空字符串代替。
           </li>
           <li>
-            Underscore的迭代函数不在接受 <tt>null</tt>作为可选参数，否则你将达到一个错误警示。
+            Underscore的迭代函数不再接受 <tt>null</tt>作为可选参数，否则你将得到一个错误警示。
           </li>
           <li>
-            修复和微调许多边界用例，你可以在<a href="https://github.com/jashkenas/underscore/compare/1.3.3...1.4.0">diff</a>中查看。取决于你现在使用Underscore的方式，相比之前的版本<b>1.4.0</b>现在向后兼容性不理想，请在升级后及时测试。
+            修复和微调许多边界用例，你可以在<a href="https://github.com/jashkenas/underscore/compare/1.3.3...1.4.0">diff</a>中查看。取决于你现在使用Underscore的方式，相比之前的版本，<b>1.4.0</b>现在向后兼容性不理想，请在升级后及时测试。
           </li>
         </ul>
       </p>
@@ -2373,7 +2347,7 @@ _([1, 2, 3]).value();
             修正<tt>uniq</tt> ，可以工作在稀疏数组上。
           </li>
           <li>
-            <tt>difference</tt> 函数在计算数组见间的差异时会执行浅的flatten。
+            <tt>difference</tt> 函数在计算数组之间的差异时会执行浅的flatten。
           </li>
           <li>
             <tt>debounce</tt>现在接受<tt>immediate</tt>参数，允许callback在开始而不是最后时调用。
@@ -2391,8 +2365,7 @@ _([1, 2, 3]).value();
             添加 <tt>_.map</tt>的别名<tt>_.collect</tt>。熟悉Smalltalkers的人可以庆祝下。
           </li>
           <li>
-            Reverted an old change so that <tt>_.extend</tt> will correctly copy
-            over keys with undefined values again.
+            恢复一个旧的变更，这样<tt>_.extend</tt>就可以再次正确的复制值为undefined的keys了。
           </li>
           <li>
             Bugfix，在<tt>_.template</tt>的插值表达式中停止转义反斜杠。
@@ -2419,7 +2392,6 @@ _([1, 2, 3]).value();
             修复Underscore模板中转义字符的bug，以支持<tt>_.templateSettings</tt>的自定义，只需要定义一到两个必须的正则表达式即可。
           </li>
           <li>
-            Fix for passing an array as the first argument to an <tt>_.wrap</tt>'d function.
             修复数组作为第一个参数传入<tt>_.wrap</tt>的问题。
           </li>
           <li>
@@ -2432,9 +2404,7 @@ _([1, 2, 3]).value();
         <b class="header">1.2.3</b> &mdash; <small><i>December 7, 2011</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.2.2...1.2.3">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.2.3/index.html">Docs</a><br />
         <ul>
           <li>
-            Dynamic scope is now preserved for compiled <tt>_.template</tt> functions,
-            so you can use the value of <tt>this</tt> if you like.
-            <tt>_.template</tt>函数现在支持动态作用于，所以如果愿意，你可以使用<tt>this</tt>值。
+            <tt>_.template</tt>函数现在支持动态作用域，所以如果愿意，你可以使用<tt>this</tt>值。
           </li>
           <li>
             <tt>_.indexOf</tt>, <tt>_.lastIndexOf</tt>支持稀疏数组。
@@ -2479,7 +2449,7 @@ _([1, 2, 3]).value();
             现在你可以使用<tt>_.groupBy(list, 'property')</tt>，快捷的根据某个属性将值分组。
           </li>
           <li>
-             <tt>_.throttle</tt>的函数现在在调用时会马上执行，之后才会每个一定间隔才调用<small>(#170, #266)</small>。
+             <tt>_.throttle</tt>的函数现在在调用时会马上执行，之后才会每隔一定间隔才调用<small>(#170, #266)</small>。
           </li>
           <li>
             多数的<tt>_.is[Type]</tt>检测不在是鸭子类型检测。
@@ -2505,7 +2475,7 @@ _([1, 2, 3]).value();
           <li>
             通过使用<tt>&lt;%- ... %&gt;</tt>语法，Underscore现在支持嵌入转义的HTML了。
           </li>
-          <li>函数，使用一中修整过的Fisher-Yates来返回一个数组的混淆副本。
+          <li>Ryan Tenney贡献了<tt>_.shuffle</tt>函数，使用一种修整过的Fisher-Yates来返回一个数组的混淆副本。
           </li>
           <li>
             <tt>_.uniq</tt>现在能接收一个可选迭代器参数，决定何种情况下对象被认为是相等的。
@@ -2531,13 +2501,12 @@ _([1, 2, 3]).value();
 
       <p id="1.1.5">
         <b class="header">1.1.5</b> &mdash; <small><i>March 20, 2011</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.1.4...1.1.5">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.1.5/index.html">Docs</a><br />
-        Fixed a bug with <tt>_.keys</tt> when used over sparse arrays.
-        新增 <tt>_.defaults</tt>函数，用来合并用来当做默认参数使用的JS对象。添加<tt>_.once</tt> 函数，用来生成只能被执行一次的新函数。如果ES5原生方法存在，<tt>_.bind</tt>现在会代理给此方法。<tt>_.keys</tt>如果使用在一个非对象值上回抛出异常，正如ES5一样。修正<tt>_.keys</tt>函数在传入稀疏数组时的bug。
+        新增 <tt>_.defaults</tt>函数，合并用来当做默认参数使用的JS对象。添加<tt>_.once</tt> 函数，用来生成只能被执行一次的新函数。如果ES5原生方法存在，<tt>_.bind</tt>现在会代理给此方法。<tt>_.keys</tt>如果使用在一个非对象值上会抛出异常，正如ES5一样。修正<tt>_.keys</tt>函数在传入稀疏数组时的bug。
       </p>
 
       <p id="1.1.4">
         <b class="header">1.1.4</b> &mdash; <small><i>January 9, 2011</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.1.3...1.1.4">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.1.4/index.html">Docs</a><br />
-        在处理传入<tt>null</tt>参数的情况下，改善与ES5数组方法的兼容性。<tt>_.wrap</tt>现在正确的设置了包装器函数的<tt>this</tt>值。<tt>_.indexOf</tt>现在接收一个可选标记，在保证以排好序的数组中，找到插入索引的位置。避免使用<tt>.callee</tt>，让 <tt>_.isArray</tt>可以在ES5的严格模式下正常工作。
+        在处理传入<tt>null</tt>参数的情况下，改善与ES5数组方法的兼容性。<tt>_.wrap</tt>现在正确的设置了包装器函数的<tt>this</tt>值。<tt>_.indexOf</tt>现在接收一个可选标记，在保证已排好序的数组中，找到插入索引的位置。避免使用<tt>.callee</tt>，让 <tt>_.isArray</tt>可以在ES5的严格模式下正常工作。
       </p>
 
       <p id="1.1.3">
@@ -2570,16 +2539,12 @@ _([1, 2, 3]).value();
 
       <p id="1.0.4">
         <b class="header">1.0.4</b> &mdash; <small><i>June 22, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.0.3...1.0.4">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.0.4/index.html">Docs</a><br />
-        <a href="http://themoell.com/">Andri Möll</a> contributed the <tt>_.memoize</tt>
-        function, which can be used to speed up expensive repeated computations
-        by caching the results.
+        <a href="http://themoell.com/">Andri Möll</a>贡献了<tt>_.memoize</tt>函数，通过缓存结果，可以提速那些重复的消耗昂贵的计算。
       </p>
 
       <p id="1.0.3">
         <b class="header">1.0.3</b> &mdash; <small><i>June 14, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/1.0.2...1.0.3">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/1.0.3/index.html">Docs</a><br />
-        Patch that makes <tt>_.isEqual</tt> return <tt>false</tt> if any property
-        of the compared object has a <tt>NaN</tt> value. Technically the correct
-        thing to do, but of questionable semantics. Watch out for NaN comparisons.
+        合并一个补丁，在<tt>_.isEqual</tt>函数中，如果任何比较对象的属性值是<tt>NaN</tt>，则返回<tt>false</tt>。技术上这么做是对的，但仍保留争议。在比较NaN时，请注意。
       </p>
 
       <p id="1.0.2">
@@ -2601,7 +2566,7 @@ _([1, 2, 3]).value();
       <p id="0.6.0">
         <b class="header">0.6.0</b> &mdash; <small><i>February 24, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.8...0.6.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.6.0/index.html">Docs</a><br />
          合并<a href="https://github.com/ratbeard">Mile Frawley</a>的重构，在集合函数上加入了更安全的鸭子类型，清理了内部的代码。新的 <tt>_.mixin</tt>方法允许你扩展Underscore，添加你自己的辅助工具函数。添加<tt>_.times</tt>函数，效果与Ruby和Prototype.js一致。支持原生的ES5的<tt>Array.isArray</tt>和<tt>Object.keys</tt>。
-        主要发行版本。合并
+        主要发行版本。
       </p>
 
       <p id="0.5.8">
@@ -2621,7 +2586,7 @@ _([1, 2, 3]).value();
 
       <p id="0.5.5">
         <b class="header">0.5.5</b> &mdash; <small><i>January 9, 2010</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.5.4...0.5.5">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.5/index.html">Docs</a><br />
-        修复了手机safari浏览器下实现oop-wrapper的处理arguments对象的bug，
+        修复了手机safari浏览器下实现oop-wrapper时处理arguments对象的bug，
       </p>
 
       <p id="0.5.4">
@@ -2643,8 +2608,7 @@ _([1, 2, 3]).value();
 
       <p id="0.5.0">
         <b class="header">0.5.0</b> &mdash; <small><i>December 7, 2009</i></small> &mdash; <a href="https://github.com/jashkenas/underscore/compare/0.4.7...0.5.0">Diff</a> &mdash; <a href="https://cdn.rawgit.com/jashkenas/underscore/0.5.0/index.html">Docs</a><br />
-        <b>[API 变更]</b>，<tt>_.bindAll</tt>的第一个参数现在是context对象。如果没有给出方法名称，所有context对象的方法都会
-        绑定到它自身上，这允许链式语法和更简易的绑定。<tt>_.functions</tt>现在只支持单个参数，并返回它的函数属性名称。调用<tt>_.functions(_)</tt> 的行为与之前一致。添加<tt>_.isRegExp</tt>，现在 <tt>isEqual</tt>可以检测正则的相等性。所有的
+        <b>[API 变更]</b>，<tt>_.bindAll</tt>的第一个参数现在是context对象。如果没有给出方法名称，所有context对象的方法都会绑定到它自身上，这允许链式语法和更简易的绑定。<tt>_.functions</tt>现在只支持单个参数，并返回它的函数属性名称。调用<tt>_.functions(_)</tt> 的行为与之前一致。添加<tt>_.isRegExp</tt>，现在 <tt>isEqual</tt>可以检测正则的相等性。所有的
         "is"函数都被压编到单个函数中。<a href="https://github.com/grayrest">Karl Guertin</a>贡献了次补丁。
       </p>
 
